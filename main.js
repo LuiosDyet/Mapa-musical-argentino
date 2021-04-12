@@ -364,10 +364,23 @@ let Huayno = new gnr('Huayno y Carnavalito',
 					[['Baile de Huayno','<iframe width="300" height="168.75" src="https://www.youtube.com/embed/yiS9k873oJI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>']]
 					);
 
+let Vidala = new gnr('',
+					[''],
+					[['']],
+					[[]],
+					'Danza',
+					[''],
+					[['','']]
+					);
 
-
-
-
+let Bagüala = new gnr('',
+					[''],
+					[['']],
+					[[]],
+					'Danza',
+					[''],
+					[['','']]
+					);
 
 let Chamamé = new gnr('Chamamé',
 					['Compás de 3/4 (tres negras en el grave) y 6/8 (corchea negra corchea negra en el agudo)',
@@ -382,6 +395,139 @@ let Chamamé = new gnr('Chamamé',
 					[['Baile de Chamamé', '<iframe width="300" height="168.75" src="https://www.youtube.com/embed/v2EwMGSAKyQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>']]
 					);
 
+let Rasguido = new gnr('',
+					[''],
+					[['']],
+					[[]],
+					'Danza',
+					[''],
+					[['','']]
+					);
 
+let Chamarrita = new gnr('',
+					[''],
+					[['']],
+					[[]],
+					'Danza',
+					[''],
+					[['','']]
+					);
+
+let Gato = new gnr('',
+					[''],
+					[['']],
+					[[]],
+					'Danza',
+					[''],
+					[['','']]
+					);
+
+let Chacarera = new gnr('',
+					[''],
+					[['']],
+					[[]],
+					'Danza',
+					[''],
+					[['','']]
+					);
+
+let Escondido = new gnr('',
+					[''],
+					[['']],
+					[[]],
+					'Danza',
+					[''],
+					[['','']]
+					);
+
+let Zamba = new gnr('',
+					[''],
+					[['']],
+					[[]],
+					'Danza',
+					[''],
+					[['','']]
+					);
+
+let Cueca = new gnr('',
+					[''],
+					[['']],
+					[[]],
+					'Danza',
+					[''],
+					[['','']]
+					);
+
+let Gato = new gnr('',
+					[''],
+					[['']],
+					[[]],
+					'Danza',
+					[''],
+					[['','']]
+					);
+
+let Tonada = new gnr('',
+					[''],
+					[['']],
+					[[]],
+					'Danza',
+					[''],
+					[['','']]
+					);
+
+let Malambo = new gnr('',
+					[''],
+					[['']],
+					[[]],
+					'Danza',
+					[''],
+					[['','']]
+					);
+
+let Huella = new gnr('',
+					[''],
+					[['']],
+					[[]],
+					'Danza',
+					[''],
+					[['','']]
+					);
+
+let Payada = new gnr('',
+					[''],
+					[['']],
+					[[]],
+					'Danza',
+					[''],
+					[['','']]
+					);
+
+let Tango = new gnr('',
+					[''],
+					[['']],
+					[[]],
+					'Danza',
+					[''],
+					[['','']]
+					);
+
+let Milonga = new gnr('',
+					[''],
+					[['']],
+					[[]],
+					'Danza',
+					[''],
+					[['','']]
+					);
+
+let Loncomeo = new gnr('',
+					[''],
+					[['']],
+					[[]],
+					'Danza',
+					[''],
+					[['','']]
+					);
 
 
