@@ -18,7 +18,7 @@ function Region(nombre, generos, fondo, colorTit, imgRegion) {
 
 		var elementImg = document.querySelector('.slideshow-container');
 		infoRegion.removeChild(elementImg);
-		var elementDots = document.querySelector('.dots');
+		var elementDots = document.querySelector('.puntos');
 		infoRegion.removeChild(elementDots);
 		
 		
@@ -102,7 +102,7 @@ function Region(nombre, generos, fondo, colorTit, imgRegion) {
 								
 
 			let dotsContainer = document.createElement('div');
-			dotsContainer.setAttribute('class','dots');
+			dotsContainer.setAttribute('class','puntos');
 			dotsContainer.setAttribute('style', 'text-align:center');
 			infoRegion.appendChild(dotsContainer);
 
