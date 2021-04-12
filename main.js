@@ -146,18 +146,28 @@ let NOA = new Region('Noroeste',['Huayno y Carnavalito','Vidala o yaraví','Bag�
 	 ['Hornocal, Jujuy','img/Puna/Hornocal-Jujuy.jpg'],['Paisaje del noroeste', 'img/Puna/Paisaje-del-noroeste.jpg'],['Quena', 'img/Puna/Quena.jpg'],['Yendo a la escuela', 'img/Puna/Yendo-a-la-escuela.jpg']]);
 	
 let Litoral = new Region('Litoral',['Chamamé','Rasguido doble','Chamarrita'],"rgba(44, 146, 191, .3)","rgba(44, 146, 191",	
-	[['Bañado','img/Litoral/Bañado.jpg'],['Carpincho y yacaré', 'img/Litoral/carpincho-y-yacaré.jpg'],['CostaneraCorrientes', 'img/Litoral/costanera-Corrientes.jpg'],['Cataratas', 'img/Litoral/cataratas.jpg'],
+	[['Bañado','img/Litoral/Bañado.jpg'],['Carpincho y yacaré', 'img/Litoral/carpincho-y-yacaré.jpg'],['Costanera Corrientes', 'img/Litoral/costanera-Corrientes.jpg'],['Cataratas', 'img/Litoral/cataratas.jpg'],
 	 ['El Palmar','img/Litoral/el-palmar.jpg'],['Pesca en el Paraná', 'img/Litoral/pesca-en-el-Paraná.jpg'],['Ruta Jesuita San Ignacio Miní, Misiones', 'img/Litoral/Ruta-Jesuita-San-Ignacio-Miní-Misiones.jpg'],['Tierra roja y yerba', 'img/Litoral/tierra-roja-y-yerba.jpg']]);
 
-let Centro = new Region('Centro',['Gato norteño','Chacarera','Escondido','Zamba'],"rgba(255, 156, 72, .3)","rgba(255, 156, 72",[]);
+let Centro = new Region('Centro',['Gato norteño','Chacarera','Escondido','Zamba'],"rgba(255, 156, 72, .3)","rgba(255, 156, 72",
+	[['Bailando','img/Centro/bailando.jpg'],['Columna banda', 'img/Centro/columna-banda.jpg'],['Cuesta blanca', 'img/Centro/cuestablanca.jpg'],['El estadio', 'img/Centro/el-estadio.jpg'],
+	 ['Embudo','img/Centro/embudo.jpg'],['Lago San Roque', 'img/Centro/lagosanroque.jpg'],['Patio del Indio Froilan', 'img/Centro/Patio-del-Indio-Froilan.jpg'],['Termas', 'img/Centro/termas.jpg']]);
 
-let Cuyo = new Region('Cuyo',['Cueca cuyana','Gato cuyano','Tonada'],"rgba(170, 91, 4, .5)","rgba(170, 91, 4",[]);
+let Cuyo = new Region('Cuyo',['Cueca cuyana','Gato cuyano','Tonada'],"rgba(170, 91, 4, .5)","rgba(170, 91, 4",
+	[['Aconcagua desde arriba','img/Cuyo/Aconcagua-desde-arriba.jpg'],['Camino al Aconcagua', 'img/Cuyo/Camino-al-aconcagua.jpg'],['Cerro de la Gloria', 'img/Cuyo/cerro-gloria.jpg'],['Viñedos, Mendoza', 'img/Cuyo/Mendoza-viñedos.jpg'],
+	 ['San-Juan','img/Cuyo/San-Juan.jpg'],['San Rafael', 'img/Cuyo/San-Rafael.jpg'],['San Luis', 'img/Cuyo/San-luis.jpg'],['viñedos, Mendoza', 'img/Cuyo/uvas-viñedos-mendoza.jpg']]);
 
-let Pampeana = new Region('Pampa',['Malambo','Huella','Payada'],"rgba(98, 128, 43, .5)","rgba(98, 128, 43",[]);
+let Pampeana = new Region('Pampa',['Malambo','Huella','Payada'],"rgba(98, 128, 43, .5)","rgba(98, 128, 43",
+	[['Atardecer pampeano','img/Pampeana/Atardecer-pampeano.jpg'],['Ganado', 'img/Pampeana/Ganado.jpg'],['Gaucho', 'img/Pampeana/gaucho.jpg'],['Girasoles, La Pampa', 'img/Pampeana/Girasol-La-Pampa.jpg'],
+	 ['Ombú','img/Pampeana/ombu.jpg'],['Paisaje Campestre', 'img/Pampeana/Paisaje-campestre.jpg'],['Payador en su rancho', 'img/Pampeana/Payador_rancho.jpg'],['soja', 'img/Pampeana/soja.jpg']]);
 
-let Ciudadana = new Region('Ciudadana',['Tango','Milonga ciudadana'],"rgba(173, 170, 141, .5)","rgba(173, 170, 141",[]);
+let Ciudadana = new Region('Ciudadana',['Tango','Milonga ciudadana'],"rgba(173, 170, 141, .5)","rgba(173, 170, 141",
+	[['Caminito','img/Ciudadana/caminito.jpg'],['Fileteado', 'img/Ciudadana/diego_prenollio.jpg'],['Floralis Generica', 'img/Ciudadana/floralis-generica.jpg'],['Obelisco', 'img/Ciudadana/obelisco.jpg'],
+	 ['Orquesta de tango','img/Ciudadana/orquesta.jpg'],['Plaza de Mayo', 'img/Ciudadana/plazamayo.jpg'],['Puerto Madero', 'img/Ciudadana/puerto-madero.jpg'],['Tango', 'img/Ciudadana/tango.jpg']]);
 
-let Patagonia = new Region('Patagonia',['Loncomeo'],"rgba(52, 57, 107, .5)","rgba(52, 57, 107",[]);
+let Patagonia = new Region('Patagonia',['Loncomeo'],"rgba(52, 57, 107, .5)","rgba(52, 57, 107",
+	[['7 Lagos','img/Patagonia/7lagos.jpg'],['Estancia', 'img/Patagonia/Estancia.jpg'],['Glaciar', 'img/Patagonia/glaciar.jpg'],['Villa Traful', 'img/Patagonia/manzanasvilla-traful.jpg'],
+	 ['Manzanas','img/Patagonia/manzanas.jpg'],['Mapuches', 'img/Patagonia/mapuches.jpg'],['Paisaje patagónico', 'img/Patagonia/Paisaje-patagónico.jpg'],['Tulipanes en Chubut', 'img/Patagonia/Tulipanes-en-Chubut.jpg']]);
  
 
 let regiones = document.getElementsByClassName("region");
