@@ -166,7 +166,7 @@ let Ciudadana = new Region('Ciudadana',['Tango','Milonga ciudadana'],"rgba(173, 
 	 ['Orquesta de tango','img/Ciudadana/orquesta.jpg'],['Plaza de Mayo', 'img/Ciudadana/plazamayo.jpg'],['Puerto Madero', 'img/Ciudadana/puerto-madero.jpg'],['Tango', 'img/Ciudadana/tango.jpg']]);
 
 let Patagonia = new Region('Patagonia',['Loncomeo'],"rgba(52, 57, 107, .5)","rgba(52, 57, 107",
-	[['7 Lagos','img/Patagonia/7lagos.jpg'],['Estancia', 'img/Patagonia/Estancia.jpg'],['Glaciar', 'img/Patagonia/glaciar.jpg'],['Villa Traful', 'img/Patagonia/manzanasvilla-traful.jpg'],
+	[['7 Lagos','img/Patagonia/7lagos.jpg'],['Estancia', 'img/Patagonia/Estancia.jpg'],['Glaciar', 'img/Patagonia/glaciar.jpg'],['Villa Traful', 'img/Patagonia/villa-traful.jpg'],
 	 ['Manzanas','img/Patagonia/manzanas.jpg'],['Mapuches', 'img/Patagonia/mapuches.jpg'],['Paisaje patagónico', 'img/Patagonia/Paisaje-patagónico.jpg'],['Tulipanes en Chubut', 'img/Patagonia/Tulipanes-en-Chubut.jpg']]);
  
 
