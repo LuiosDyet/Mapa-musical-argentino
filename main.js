@@ -142,12 +142,12 @@ function Region(nombre, generos, fondo, colorTit, imgRegion) {
 
 
 let NOA = new Region('Noroeste',['Huayno y Carnavalito','Vidala o yaraví','Bagüala'],"rgba(175, 27, 2, .3)","rgba(175, 27, 2",
-	[['Chola','https://github.com/LuiosDyet/Mapa-musical-argentino/blob/e8f4f391e91c337f7cfc52762cafbabd25b0cbb5/img/Puna/Chola.jpg'],['Coyita', 'https://github.com/LuiosDyet/Mapa-musical-argentino/blob/e8f4f391e91c337f7cfc52762cafbabd25b0cbb5/img/Puna/Coyita.jpg'],['Esquila', 'https://github.com/LuiosDyet/Mapa-musical-argentino/blob/e8f4f391e91c337f7cfc52762cafbabd25b0cbb5/img/Puna/Esquila.jpg'],['Ganado', 'https://github.com/LuiosDyet/Mapa-musical-argentino/blob/e8f4f391e91c337f7cfc52762cafbabd25b0cbb5/img/Puna/Ganado.jpg'],
-	 ['Hornocal, Jujuy','https://github.com/LuiosDyet/Mapa-musical-argentino/blob/e8f4f391e91c337f7cfc52762cafbabd25b0cbb5/img/Puna/Hornocal-Jujuy.jpg'],['Paisaje del noroeste', 'https://github.com/LuiosDyet/Mapa-musical-argentino/blob/e8f4f391e91c337f7cfc52762cafbabd25b0cbb5/img/Puna/Paisaje-del-noroeste.jpg'],['Quena', 'https://github.com/LuiosDyet/Mapa-musical-argentino/blob/e8f4f391e91c337f7cfc52762cafbabd25b0cbb5/img/Puna/Quena.jpg'],['Yendo a la escuela', 'https://github.com/LuiosDyet/Mapa-musical-argentino/blob/e8f4f391e91c337f7cfc52762cafbabd25b0cbb5/img/Puna/Yendo-a-la-escuela.jpg']]);
+	[['Chola','img/Puna/Chola.jpg'],['Coyita', 'img/Puna/Coyita.jpg'],['Esquila', 'img/Puna/Esquila.jpg'],['Ganado', 'img/Puna/Ganado.jpg'],
+	 ['Hornocal, Jujuy','img/Puna/Hornocal-Jujuy.jpg'],['Paisaje del noroeste', 'img/Puna/Paisaje-del-noroeste.jpg'],['Quena', 'img/Puna/Quena.jpg'],['Yendo a la escuela', 'img/Puna/Yendo-a-la-escuela.jpg']]);
 	
 let Litoral = new Region('Litoral',['Chamamé','Rasguido doble','Chamarrita'],"rgba(44, 146, 191, .3)","rgba(44, 146, 191",	
-	[['Bañado','https://github.com/LuiosDyet/Mapa-musical-argentino/blob/e8f4f391e91c337f7cfc52762cafbabd25b0cbb5/img/Litoral/Bañado.jpg'],['Carpincho y yacaré', 'https://github.com/LuiosDyet/Mapa-musical-argentino/blob/e8f4f391e91c337f7cfc52762cafbabd25b0cbb5/img/Litoral/carpincho-y-yacaré.jpg'],['CostaneraCorrientes', 'https://github.com/LuiosDyet/Mapa-musical-argentino/blob/e8f4f391e91c337f7cfc52762cafbabd25b0cbb5/img/Litoral/costanera-Corrientes.jpg'],['Cataratas', 'https://github.com/LuiosDyet/Mapa-musical-argentino/blob/e8f4f391e91c337f7cfc52762cafbabd25b0cbb5/img/Litoral/cataratas.jpg'],
-	 ['El Palmar','https://github.com/LuiosDyet/Mapa-musical-argentino/blob/e8f4f391e91c337f7cfc52762cafbabd25b0cbb5/img/Litoral/el-palmar.jpg'],['Pesca en el Paraná', 'https://github.com/LuiosDyet/Mapa-musical-argentino/blob/e8f4f391e91c337f7cfc52762cafbabd25b0cbb5/img/Litoral/pesca-en-el-Paraná.jpg'],['Ruta Jesuita San Ignacio Miní, Misiones', 'https://github.com/LuiosDyet/Mapa-musical-argentino/blob/e8f4f391e91c337f7cfc52762cafbabd25b0cbb5/img/Litoral/Ruta-Jesuita-San-Ignacio-Miní-Misiones.jpg'],['Tierra roja y yerba', 'https://github.com/LuiosDyet/Mapa-musical-argentino/blob/e8f4f391e91c337f7cfc52762cafbabd25b0cbb5/img/Litoral/tierra-roja-y-yerba.jpg']]);
+	[['Bañado','img/Litoral/Bañado.jpg'],['Carpincho y yacaré', 'img/Litoral/carpincho-y-yacaré.jpg'],['CostaneraCorrientes', 'img/Litoral/costanera-Corrientes.jpg'],['Cataratas', 'img/Litoral/cataratas.jpg'],
+	 ['El Palmar','img/Litoral/el-palmar.jpg'],['Pesca en el Paraná', 'img/Litoral/pesca-en-el-Paraná.jpg'],['Ruta Jesuita San Ignacio Miní, Misiones', 'img/Litoral/Ruta-Jesuita-San-Ignacio-Miní-Misiones.jpg'],['Tierra roja y yerba', 'img/Litoral/tierra-roja-y-yerba.jpg']]);
 
 let Centro = new Region('Centro',['Gato norteño','Chacarera','Escondido','Zamba'],"rgba(255, 156, 72, .3)","rgba(255, 156, 72",[]);
 
@@ -347,7 +347,7 @@ function gnr(nombre, caract, imagenes, video, nombreDanza, caractDanza, videoDan
 
 let Huayno = new gnr('Huayno y Carnavalito',
 					['Generalmente pentatónico (cinco notas)','Pie binario'],
-					[['Pie del huayno', 'https://github.com/LuiosDyet/Mapa-musical-argentino/blob/e8f4f391e91c337f7cfc52762cafbabd25b0cbb5/img/PieHuayno.png'], ['Pie del carnavalito','https://github.com/LuiosDyet/Mapa-musical-argentino/blob/e8f4f391e91c337f7cfc52762cafbabd25b0cbb5/img/PieCarnavalito.png']],
+					[['Pie del huayno', 'img/PieHuayno.png'], ['Pie del carnavalito','img/PieCarnavalito.png']],
 					[['Video de muestra del Huayno', '<iframe width="300" height="168.75" src="https://www.youtube.com/embed/BoLZRaM2vfA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>']],
 					'Danza',
 					['Danza grupal vivaz no coreografiada', 'Huayñunakunay: (quechua) bailar tomados de la mano'],
