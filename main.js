@@ -1,15 +1,15 @@
 //SlideShow JS
 
-var slideIndex = [1,1];
+var slideIndex = [1, 1, 1, 1, 1, 1, 1];
 var slideId = ["fotosNoroeste", "fotosLitoral", "fotosCuyo", "fotosPampeana", "fotosCiudadana", "fotosCentro", "fotosPatagonia"]
 showSlides(1, 0);
 showSlides(1, 1);
-/*showSlides(1, 2);
+showSlides(1, 2);
 showSlides(1, 3);
 showSlides(1, 4);
 showSlides(1, 5);
 showSlides(1, 6);
-*/
+
 
 
 function plusSlides(n, no) {
@@ -30,54 +30,20 @@ function showSlides(n, no) {
 
 //Show regiones
 
-function showRegionNoroeste() {
-	hideRegiones()
-	region = document.querySelector('.noroeste');
-	region.style.display = 'block';
+let regiones = document.getElementsByClassName("region");
+
+for (let i = 0; i < regiones.length; i++) {
+    regiones[i].addEventListener('click', showRegion, false);
 
 };
 
-function showRegionLitoral() {
+function showRegion() {
 	hideRegiones()
-	region = document.querySelector('.litoral');
+	let regionEle = this.getAttribute('id');
+	region = document.querySelector(`.${regionEle}`);
 	region.style.display = 'block';
 
-};
-
-function showRegionCuyo() {
-	hideRegiones()
-	region = document.querySelector('.cuyo');
-	region.style.display = 'block';
-
-};
-
-function showRegionPampeana() {
-	hideRegiones()
-	region = document.querySelector('.pampeana');
-	region.style.display = 'block';
-
-};
-
-function showRegionCiudadana() {
-	hideRegiones()
-	region = document.querySelector('.ciudadana');
-	region.style.display = 'block';
-
-};
-
-function showRegionCentro() {
-	hideRegiones()
-	region = document.querySelector('.centro');
-	region.style.display = 'block';
-
-};
-
-function showRegionPatagonia() {
-	hideRegiones()
-	region = document.querySelector('.patagonia');
-	region.style.display = 'block';
-
-};
+}
 
 function hideRegiones() {
 	regiones = document.querySelectorAll('.regionInfo');
@@ -85,3 +51,25 @@ function hideRegiones() {
 		region.style.display = 'none';
 	};
 };
+
+//Show generos
+
+
+function showGenero(genero) {
+
+	
+	hideGeneros();
+	generoL = document.querySelector(`.${genero}`);
+	generoL.style.display = 'inline-flex';
+
+}
+
+function hideGeneros() {
+	generos = document.querySelectorAll('.infoGenero');
+	for(genero of generos){
+		genero.style.display = 'none';
+	};
+};
+
+
+
