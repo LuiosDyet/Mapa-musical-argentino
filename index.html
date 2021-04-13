@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es-AR">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,25 +24,31 @@
      
       <div class="col infoWrapper">
               <div class="infoRegion">
-                <article class="regionInfo noroeste"><h3>Info Noroeste</h3>
+                <article class="regionInfo noroeste">
+                  <a href="javascript:showRegionAlt('noroeste')"><h3>Info Noroeste</h3></a>
+                  <span class="alt">
                   <p>El noroeste está conformado por las provincias de </p>
 
                   <p>Algunas imágenes del Noroeste Argentino</p>
                     <div class="slideshow-container">
                       <div class="fotosNoroeste">
                         <img src="img/Puna/Chola.jpg" style="width:100%">
+                        <figcaption>Chola</figcaption>
                       </div>
 
                       <div class="fotosNoroeste">
                         <img src="img/Puna/Coyita.jpg" style="width:100%">
+                        <figcaption>Coyita</figcaption>
                       </div>
 
                       <div class="fotosNoroeste">
                         <img src="img/Puna/Esquila.jpg" style="width:100%">
+                        <figcaption>Esquila</figcaption>
                       </div>
 
                       <div class="fotosNoroeste">
                         <img src="img/Puna/Ganado.jpg" style="width:100%">
+                        <figcaption>Ganado</figcaption>
                       </div>
                        
                       <div class="fotosNoroeste">
@@ -65,6 +71,7 @@
                       <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
                       <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
                     </div>
+                    </span>
 
                     <div class="selectGenero">
                 <h2>Géneros del noroeste</h2>
@@ -77,7 +84,9 @@
                 </div>
 
                 </article>
-                <article class="regionInfo litoral"><h3>Info Litoral</h3>
+                <article class="regionInfo litoral">
+                  <a href="javascript:showRegionAlt('litoral')"><h3>Info Litoral</h3></a>
+                  <span class="alt">
                   <p>El noroeste está conformado por las provincias de </p>
 
                   <p>Algunas imágenes del Litoral Argentino</p>
@@ -118,17 +127,21 @@
                       <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
                       <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
                     </div> 
+                    </span>
 
                     <div class="selectGenero">
                       <h2>Litoral</h2>
                         <ol>
-                          <li>Chamamé</li>
-                          <li>Rasguido doble</li>
-                          <li>Chamarrita</li>
+                          <a href="javascript:showGenero('chamamé')" ><li>Chamamé</li></a>
+                          <a href="javascript:showGenero('rasguido')" ><li>Rasguido doble</li></a>
+                          <a href="javascript:showGenero('chamarrita')" ><li>Chamarrita</li></a>
                         </ol>
                     </div>  
                  </article>
-                 <article class="regionInfo cuyo"><h3>Info Noroeste</h3>
+                 <article class="regionInfo cuyo">
+                  <a href="javascript:showRegionAlt('cuyo')"><h3>Info Cuyo</h3></a>
+                  <span class="alt">
+
                   <p>El noroeste está conformado por las provincias de </p>
 
                   <p>Algunas imágenes de Cuyo</p>
@@ -168,16 +181,20 @@
                       <a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
                       <a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
                     </div>
+                    </span>
+
                     <div class="selectGenero">
                       <h2>Cuyo</h2>
                         <ol>
-                          <li>Cueca cuyana</li>
-                          <li>Gato cuyano</li>
-                          <li>Tonada</li>
+                          <a href="javascript:showGenero('cueca')" ><li>Cueca cuyana</li></a>
+                          <a href="javascript:showGenero('gatoCuyano')" ><li>Gato cuyano</li></a>
+                          <a href="javascript:showGenero('tonada')" ><li>Tonada</li></a>
                         </ol>
                     </div> 
                 </article>
-                <article class="regionInfo pampeana"><h3>Info Litoral</h3>
+                <article class="regionInfo pampeana">
+                  <a href="javascript:showRegionAlt('pampeana')"><h3>Info región pampeana</h3></a>
+                  <span class="alt">
                   <p>El noroeste está conformado por las provincias de </p>
 
                   <p>Algunas imágenes de la región Pampeana</p>
@@ -216,16 +233,20 @@
                       <a class="prev" onclick="plusSlides(-1, 3)">&#10094;</a>
                       <a class="next" onclick="plusSlides(1, 3)">&#10095;</a>
                     </div> 
+                    </span>
+
                     <div class="selectGenero">
                       <h2>Región Pampeana</h2>
                         <ol>
-                          <li>Malambo</li>
-                          <li>Huella</li>
-                          <li>Payada</li>
+                          <a href="javascript:showGenero('malambo')" ><li>Malambo</li></a>
+                          <a href="javascript:showGenero('huella')" ><li>Huella</li></a>
+                          <a href="javascript:showGenero('payada')" ><li>Payada</li></a>
                         </ol>
                     </div>  
                  </article>
-                 <article class="regionInfo ciudadana"><h3>Info Noroeste</h3>
+                 <article class="regionInfo ciudadana">
+                  <a href="javascript:showRegionAlt('ciudadana')"><h3>Info Cuidad de Buenos Aires</h3></a>
+                  <span class="alt">
                   <p>El noroeste está conformado por las provincias de </p>
 
                   <p>Algunas imágenes de la Ciudad de Buenos Aires</p>
@@ -264,18 +285,22 @@
                       <a class="prev" onclick="plusSlides(-1, 4)">&#10094;</a>
                       <a class="next" onclick="plusSlides(1, 4)">&#10095;</a>
                     </div>
+                    </span>
+
                     <div class="selectGenero">
                       <h2>Ciudad de Buenos Aires</h2>
                         <ol>
-                          <li>Tango</li>
-                          <li>Milonga ciudadana</li>                         
+                          <a href="javascript:showGenero('tango')" ><li>Tango</li></a>
+                          <a href="javascript:showGenero('milonga')" ><li>Milonga ciudadana</li></a>                     
                         </ol>
                     </div>
                 </article>
-                <article class="regionInfo centro"><h3>Info Litoral</h3>
+                <article class="regionInfo centro">
+                  <a href="javascript:showRegionAlt('central')"><h3>Info región centro</h3></a>
+                  <span class="alt">
                   <p>El noroeste está conformado por las provincias de </p>
 
-                  <p>Algunas imágenes de la región central</p>
+                  <p>Algunas imágenes de la región centro</p>
                     <div class="slideshow-container">
                       <div class="fotosCentro">
                         <img src="img/Centro/bailando.jpg" style="width:100%">
@@ -312,17 +337,21 @@
                       <a class="prev" onclick="plusSlides(-1, 5)">&#10094;</a>
                       <a class="next" onclick="plusSlides(1, 5)">&#10095;</a>
                     </div> 
+                    </span>
+
                     <div class="selectGenero">
                       <h2>Región Central</h2>
                         <ol>
-                          <li>Gato norteño</li>
-                          <li>Chacarera</li>
-                          <li>Escondido</li>
-                          <li>Zamba</li>
+                          <a href="javascript:showGenero('gatoNorteño')" ><li>Gato norteño</li></a>
+                          <a href="javascript:showGenero('chacarera')" ><li>Chacarera</li></a>
+                          <a href="javascript:showGenero('escondido')" ><li>Escondido</li></a>
+                          <a href="javascript:showGenero('zamba')" ><li>Zamba</li></a>
                         </ol>
                     </div>  
                  </article>
-                 <article class="regionInfo patagonia"><h3>Info Litoral</h3>
+                 <article class="regionInfo patagonia">
+                  <a href="javascript:showRegionAlt('patagonia')"><h3>Info Patagonia</h3></a>
+                  <span class="alt">
                   <p>El noroeste está conformado por las provincias de </p>
 
                   <p>Algunas imágenes de la Patagonia</p>
@@ -360,11 +389,13 @@
                       </div>
                       <a class="prev" onclick="plusSlides(-1, 6)">&#10094;</a>
                       <a class="next" onclick="plusSlides(1, 6)">&#10095;</a>
-                    </div>  
+                    </div> 
+                    </span>
+
                      <div class="selectGenero">
                       <h2>Patagonia</h2>
                         <ol>
-                          <li>Loncomeo</li>                      
+                          <a href="javascript:showGenero('loncomeo')" ><li>Loncomeo</li> </a>                     
                         </ol>
                     </div>   
                  </article>
@@ -376,6 +407,16 @@
                       <ul>
                         <li>Generalmente pentatónico (cinco notas)</li>
                         <li>Pie binario</li>
+                        <h4>Pie del huayno</h4>
+                        <img src="img/PieHuayno.png">
+                        <h4>Pie del carnavalito</h4>
+                        <img src="img/PieCarnavalito.png">
+                        <h4>Video de muestra del Huayno</h4>
+                        <div class="container">
+                        <div class="your-centered-div">
+                        <iframe src="https://www.youtube.com/embed/BoLZRaM2vfA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        </div>
                       </ul>
                     </div>
                     <div class="infoDanza">
@@ -383,8 +424,15 @@
                         <li>Danza grupal vivaz no coreografiada</li>
                         <li>Huayñunakunay: (quechua) bailar tomados de la mano</li>
                       </ul>
+                      <h4>Huayno</h4>
+                      <div class="container">
+                      <div class="your-centered-div">
+                      <iframe src="https://www.youtube.com/embed/s2EwDKiuAFs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      </div>
+                      </div>
                     </div>
                   </article>
+
                   <article class="vidala infoGenero">
                     <div class="infoMusica">
                       <ul>
@@ -399,6 +447,7 @@
                       </ul>
                     </div>
                   </article>
+                  
                   <article class="bagüala infoGenero">
                     <div class="infoMusica">
                       <ul>
@@ -412,7 +461,263 @@
                       </ul>
                     </div>
                   </article>
-              
+                  
+                   <article class="chamamé infoGenero">
+                    <div class="infoMusica">
+                      <ul>
+                        <li>compás de 3/4 (tres negras en el grave) y 6/8 (corchea negra corchea negra en el agudo)</li>
+                        <li><ul>Elementos carácteristicos:
+                              <li>Sapucay (expresión de alegría o lamento que se manifiesta en un grito caracteristico)</li>
+                              <li>Tapa (acorde final que cierra la obra)</li>
+                            </ul>
+                          <li>Tiene un fluir relacionado al rio</li>
+                          <li>Tiene muchas variantes que van desde tempos moderados a muy vivaces</li>
+                          <li>Puede ser tanto vocal como instrumental</li>
+                      </ul>
+                    </div>
+                    <div class="infoDanza">
+                      <ul>
+                        <li>Danza de pareja enlazada no coreográfica</li>                       
+                      </ul>
+                    </div>
+                  </article>
+                 
+                   <article class="rasguido infoGenero">
+                    <div class="infoMusica">
+                      <ul>
+                        <li>compás de 4/4, influencia de la milonga pampeana (3+3+2), lento</li>
+                        <li>Puede ser tanto vocal como instrumental</li>
+                      </ul>
+                    </div>
+                    <div class="infoDanza">
+                      <ul>
+                        <li>Danza de pareja enlazada no coreográfica</li>                       
+                      </ul>
+                    </div>
+                  </article>
+
+                   <article class="chamarrita infoGenero">
+                    <div class="infoMusica">
+                      <ul>
+                        <li>compás 2/4,  influencia de la milonga ciudadana corchea con punto semi corchea corchea</li>
+                        <li>Puede ser tanto vocal como instrumental</li>
+                      </ul>
+                    </div>
+                    <div class="infoDanza">
+                      <ul>
+                        <li>Danza de pareja enlazada no coreográfica</li>                       
+                      </ul>
+                    </div>
+                  </article>
+
+                    <article class="cueca infoGenero">
+                    <div class="infoMusica">
+                      <ul>
+                        <li>3/4 y 6/8 vivaz, (corchea con punto, semi, corchea corchea negra)</li>
+                        <li>proviene de la zamacueca - parentesco con la zamba</li>
+                        <li>Formalmente ligado a la danza. Dos vueltas de intro- estrofa 1- estrofa 2 escribillo</li>
+                      </ul>
+                    </div>
+                    <div class="infoDanza">
+                      <ul>
+                        <li>Danza de pareja suelta con pañuelo coreografiada </li>                       
+                      </ul>
+                    </div>
+                  </article>
+
+                     <article class="gatoCuyano infoGenero">
+                    <div class="infoMusica">
+                      <ul>
+                        <li>3/4 y  6/8 moderado</li>
+                        <li>Forma (ver gráfico)</li>
+                      </ul>
+                    </div>
+                    <div class="infoDanza">
+                      <ul>
+                        <li>Danza de pareja suelta coreografiada </li>
+                        <li>Se diferencia del gato porque aparece la figura del contragiro</li>   
+                        <li>Se baila con castañetas y paso básico</li>                    
+                      </ul>
+                      <h4>Gato Cuyano</h4>
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/TVFm7lH3a1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  </article>
+
+                     <article class="tonada infoGenero">
+                    <div class="infoMusica">
+                      <ul>
+                        <li>3/4 y 6/8 carácter íntimo y triste, asociado a una serenata</li>
+                        <li>Elemento caracteristico: «cogollo» reúne los versos de improvisación para agradar al destinatario</li>
+                        <li>Forma variable, tradicionalmente Intro - A -Intro- A...</li>
+                      </ul>
+                    </div>
+                    <div class="infoDanza">
+                      <ul>
+                        <li>Sin danza</li>                       
+                      </ul>
+                    </div>
+                  </article>
+
+                     <article class="malambo infoGenero">
+                    <div class="infoMusica">
+                      <ul>
+                        <li>6/8, I- IV- V, sin letra, baile de desafío </li>
+                      </ul>
+                    </div>
+                    <div class="infoDanza">
+                      <ul>
+                        <li>Danza no coreográfica originalmente masculina en base a un contrapunto de mudanzas (combinación de movimientos entre pies y piernas)</li>                       
+                      </ul>
+                    </div>
+                  </article>
+
+                     <article class="huella infoGenero">
+                    <div class="infoMusica">
+                      <ul>
+                        <li>6/8, suele decir huella en su letra</li>
+                        <li>Forma: Intro, estrofa, estrofa (menor), estribillo (mayor).</li>
+                        <li>Ritmo lento y señorial</li>
+                      </ul>
+                    </div>
+                    <div class="infoDanza">
+                      <ul>
+                        <li>Danza de pareja coreografiada</li>
+                        <li>Figura especial: el hombre toma la mano de la mujer</li>  
+                        <h4>Huella</h4>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/8fLPmHi62Ns" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                     
+                      </ul>
+                    </div>
+                  </article>
+
+                       <article class="payada infoGenero">
+                    <div class="infoMusica">
+                      <ul>
+                        <li>Improvisación de versos con acompañamiento de guitarra que hace un payador; generalmente los versos relatan sucesos o sentimientos de la cotidianidad rural, y pueden tener un carácter lírico, trágico o humorístico.</li>
+                        <li>payada de contrapunto Competencia poético-musical en la que, alternándose dos payadores, improvisan cantos con la guitarra, sobre un mismo tema, tratando de superar al otro en originalidad y destreza poética.</li>
+                      </ul>
+                    </div>
+                    <div class="infoDanza">
+                      <ul>
+                        <li>Sin danza</li>                       
+                      </ul>
+                    </div>
+                  </article>
+
+                       <article class="tango infoGenero">
+                    <div class="infoMusica">
+                      <ul>
+                        <li>Base binaria (2/4 o 4/4), tempo moderado</li>
+                        <li>forma binaria</li>
+                        <li>temática nostalgia</li>
+                        <li>Patrones rítmicos</li>
+                        <li>Arrastre</li>
+                        <li>Esencialmente homofónico con imitaciones y compensaciones entre instrumentos</li>
+                      </ul>
+                    </div>
+                    <div class="infoDanza">
+                      <ul>
+                        <li>Danza de pareja enlazada no coreográfica</li>                       
+                      </ul>
+                      <h4>Tango</h4>
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/0AEnOwuKgY0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <h4>Historia del tango</h4>
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/8hu2IyKjif4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  </article>
+
+                    <article class="milonga infoGenero">
+                    <div class="infoMusica">
+                      <ul>
+                        <li>4/4 ritmo de habanera rápida, tempo vivo</li>
+                        <li>letras pícaras</li>
+                      </ul>
+                    </div>
+                    <div class="infoDanza">
+                      <ul>
+                        <li>Danza de pareja enlazada no coreográfica</li>                       
+                      </ul>
+                      <h4>Milonga</h4>
+                      <div><iframe width="560" height="315" src="https://www.youtube.com/embed/bUFFLZVvttk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                    </div>
+                  </article>
+
+                    <article class="gatoNorteño infoGenero">
+                    <div class="infoMusica">
+                      <ul>
+                        <li>6/8 y 3/4, Forma (gráfico)</li>
+                        <li>tempo alegre y ágil</li>
+                      </ul>
+                    </div>
+                    <div class="infoDanza">
+                      <ul>
+                        <li>Danza de pareja suelta coreografiada</li>
+                        <li>Se baila con castañetas y paso básico</li>                       
+                      </ul>
+                    </div>
+                  </article>
+
+                   <article class="chacarera infoGenero">
+                    <div class="infoMusica">
+                      <ul>
+                        <li>6/8 y 3/4, Forma (gráfico)</li>
+                        <li>tempo alegre y ágil</li>
+                      </ul>
+                    </div>
+                    <div class="infoDanza">
+                      <ul>
+                        <li>Danza de pareja suelta coreografiada</li>
+                        <li>Se baila con castañetas y paso básico</li>                       
+                      </ul>
+                    </div>
+                  </article>
+
+                   <article class="escondido infoGenero">
+                    <div class="infoMusica">
+                      <ul>
+                         <li>6/8 y 3/4, Forma (gráfico)</li>
+                        <li>tempo alegre y ágil</li>
+                      </ul>
+                    </div>
+                    <div class="infoDanza">
+                      <ul>
+                        <li>Danza de pareja suelta coreografiada</li>
+                        <li>Se baila con castañetas y paso básico</li>                       
+                      </ul>
+                    </div>
+                  </article>
+
+                   <article class="zamba infoGenero">
+                    <div class="infoMusica">
+                      <ul>
+                        <li>6/8 y 3/4, Forma (gráfico)</li>
+                        <li>tempo tranquilo</li>
+                      </ul>
+                    </div>
+                    <div class="infoDanza">
+                      <ul>
+                        <li>Danza de pareja suelta coreografiada con lugar a improvisación, con pañuelo</li>
+                        <li>Se baila con castañetas y paso básico</li>
+                        <h4>Zamba</h4>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/x2Ra80ktd9Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                    
+                      </ul>
+                    </div>
+                  </article>
+
+                   <article class="loncomeo infoGenero">
+                    <div class="infoMusica">
+                      <ul>
+                        <li>del mapuche, lonco (cabeza) y meu (aquí bajar)</li>
+                        <li>rogativa mapuches (araucanos)  a partir de sonidos del kultrúm y la trutruka instrumentos ambos ejecutados en ceremonias rituales o religiosas</li>
+                      </ul>
+                    </div>
+                    <div class="infoDanza">
+                      <ul>
+                        <li>el loncomeo se baila principalmente con movimientos de cabeza</li>
+                        <li>Consiste en correr saltar, agacharse, erguirse, imitar a los animales con movimientos grotescos, sacudiendo fuertemente la cabeza. Se baila entre varios. El que resista mas tiempo será el vencedor</li>
+                        <li>Los bailarines tocan su cabeza con pintorescas vinchas, tejidas por sus mujeres</li>                      
+                      </ul>
+                    </div>
+                  </article>
 
       </div>
 

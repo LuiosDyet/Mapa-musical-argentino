@@ -38,12 +38,18 @@ for (let i = 0; i < regiones.length; i++) {
 };
 
 function showRegion() {
-	hideRegiones()
+	hideRegiones();
 	let regionEle = this.getAttribute('id');
 	region = document.querySelector(`.${regionEle}`);
 	region.style.display = 'block';
+	showRegionAlt(regionEle);
+};
 
-}
+function showRegionAlt(regionL) {
+	hideGeneros();
+	region = document.querySelector(`.${regionL} > span`);
+	region.style.display = 'block';
+};
 
 function hideRegiones() {
 	regiones = document.querySelectorAll('.regionInfo');
@@ -52,13 +58,38 @@ function hideRegiones() {
 	};
 };
 
+function hideInfo() {
+	infos = document.querySelectorAll('.alt');
+	for(info of infos){
+		info.style.display = 'none';
+	};
+	/*captions = document.querySelectorAll('figcaption');
+	for(caption of captions){
+		caption.style.display = 'none';
+	};
+
+	prevs = document.querySelectorAll('.prev');
+	for(prev of prevs){
+		prev.style.display = 'none';
+	};
+
+	nexts = document.querySelectorAll('.next');
+	for(next of nexts){
+		next.style.display = 'none';
+	};
+
+	paras = document.querySelectorAll('p');
+	for(para of paras){
+		para.style.display = 'none'
+	};*/
+
+};
 //Show generos
 
 
 function showGenero(genero) {
-
-	
 	hideGeneros();
+	hideInfo();
 	generoL = document.querySelector(`.${genero}`);
 	generoL.style.display = 'inline-flex';
 
