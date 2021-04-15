@@ -53,7 +53,6 @@ svg {
 }
 
 .mapa {
-  
   flex: 1;
 }
 
@@ -64,36 +63,30 @@ svg {
 }
 
 .infoRegion {
-  
   grid-column: 1 / 3;
   grid-row: 1;
   min-width: 100%;  
  }
 
 .selectGenero {
-  
   grid-column: 1 / 3;
   grid-row: 2;
    
 }
+
 .infoGenero {
-  
   display: flex;
   justify-content: space-between;
   min-width: 100%; 
   flex-wrap: wrap;
 }
-.infoMusica {
-  
-  
+
+.infoMusica {  
   flex: 240px;
-
-
  
 }
-.infoDanza {
-  
-  
+
+.infoDanza {  
   flex: 240px;
   
 }
@@ -103,6 +96,7 @@ ol {
   justify-content: space-around;
   list-style-type: none;
 }
+
  ol > li {
   flex: 1;
 
