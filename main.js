@@ -38,6 +38,8 @@ for (let i = 0; i < regiones.length; i++) {
 };
 
 function showRegion() {
+	//document.querySelector('.infoWrapper').style.display = 'block';
+	document.getElementById('mapa').style.height = '50vh'
 	hideRegiones();
 	let regionEle = this.getAttribute('id');
 	region = document.querySelector(`.${regionEle}`);
@@ -63,26 +65,6 @@ function hideInfo() {
 	for(info of infos){
 		info.style.display = 'none';
 	};
-	/*captions = document.querySelectorAll('figcaption');
-	for(caption of captions){
-		caption.style.display = 'none';
-	};
-
-	prevs = document.querySelectorAll('.prev');
-	for(prev of prevs){
-		prev.style.display = 'none';
-	};
-
-	nexts = document.querySelectorAll('.next');
-	for(next of nexts){
-		next.style.display = 'none';
-	};
-
-	paras = document.querySelectorAll('p');
-	for(para of paras){
-		para.style.display = 'none'
-	};*/
-
 };
 //Show generos
 
