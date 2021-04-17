@@ -477,7 +477,7 @@ function changeBGImages(fotosRegion){
 	img = document.getElementById(`r${i+1}`)
 	img.style.backgroundImage = fotosRegion[i];
 	};
-};
+};	
 
 // Background color
 function changeBGColor(fondo){
@@ -491,7 +491,40 @@ function changeBGColor(fondo){
 }
 
 
+//Zoom info Overlay
+
+function showZoomInfoOverlay(){
+	document.getElementById('overlayBackground').style.display = 'block'
+};
+
+function hideZoomInfoOverlay(){
+	document.getElementById('overlayBackground').style.display = 'none'
+};
 
 
+function changeInforOverlay(caractGeneros){
+
+
+	let genInfo = document.querySelectorAll('.flip-card-back');
+	let overlayInfo = document.getElementById('overlayInfo');
+
+
+	for (let i = 0; i<genInfo.length; i++){
+		//j is external array
+		let j = Math.floor(i/3);
+		//k is internal arrya
+		let k = i%3;
+		if (i%3 === 0) {
+			list = createInfoGeneroMus(caractGeneros,j)
+			overlayInfo.appendChild(list);
+		}else if (i%3 === 1){
+			list = createInfoGeneroDan(caractGeneros,j)
+			overlayInfo.appendChild(list);
+		}else if (i%3 === 2){
+		list = createInfoGeneroEjemplo(caractGeneros,j)
+		overlayInfo.appendChild(list);
+		};
+	};
+};	
 //Scroll
 
