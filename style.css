@@ -83,7 +83,12 @@ img{
 img.zoomInfo {
   float: right;
   margin: 5px;
-  background-color: red;
+}
+
+@media only screen and (max-width: 600px){
+  img.zoomInfo {
+  display: none;
+}
 }
 
 

@@ -355,7 +355,7 @@ for (let i = 0; i < regiones.length; i++) {
 
 // Clear Info
 function clearInfo(){
-	let myNode = document.getElementsByClassName("flip-card-back");
+	let myNode = document.getElementsByClassName("cardInfo");
 	for (i = 0; i < myNode.length; i++){
 		myNode[i].removeChild(myNode[i].lastChild);
     };
@@ -383,7 +383,7 @@ function changeInfoFrontside(generosRegion){
 
 
 function changeInforBackside(caractGeneros){
-	let genInfo = document.querySelectorAll('.flip-card-back');
+	let genInfo = document.querySelectorAll('.cardInfo');
 	for (let i = 0; i<genInfo.length; i++){
 		//j is external array
 		let j = Math.floor(i/3);
@@ -493,8 +493,12 @@ function changeBGColor(fondo){
 
 //Zoom info Overlay
 
-function showZoomInfoOverlay(){
-	document.getElementById('overlayBackground').style.display = 'block'
+function showZoomInfoOverlay(tileCopied){
+	document.getElementById('overlayBackground').style.display = 'block';
+	let overlayInfo = document.getElementById('copiedCardInfo');
+	overlayInfo.innerHTML = tileCopied.innerHTML;
+
+
 };
 
 function hideZoomInfoOverlay(){
@@ -502,29 +506,6 @@ function hideZoomInfoOverlay(){
 };
 
 
-function changeInforOverlay(caractGeneros){
-
-
-	let genInfo = document.querySelectorAll('.flip-card-back');
-	let overlayInfo = document.getElementById('overlayInfo');
-
-
-	for (let i = 0; i<genInfo.length; i++){
-		//j is external array
-		let j = Math.floor(i/3);
-		//k is internal arrya
-		let k = i%3;
-		if (i%3 === 0) {
-			list = createInfoGeneroMus(caractGeneros,j)
-			overlayInfo.appendChild(list);
-		}else if (i%3 === 1){
-			list = createInfoGeneroDan(caractGeneros,j)
-			overlayInfo.appendChild(list);
-		}else if (i%3 === 2){
-		list = createInfoGeneroEjemplo(caractGeneros,j)
-		overlayInfo.appendChild(list);
-		};
-	};
-};	
+	
 //Scroll
 
