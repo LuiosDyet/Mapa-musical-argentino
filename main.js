@@ -15,11 +15,112 @@ function hideBigMap(){
 	    } else {
 	      pos-=0.005; 
 	      overlayMap.style.opacity = pos; 
-	    }
-	  }
-}	
+	    };
+	  };
+};	
+
+function showBigMap(){
+	document.getElementById('overlayMap').style.display = 'block';
+	document.getElementById('overlayMap').style.opacity = '1';
+};
+//Create cards
+
+function createCards(generosRegion){
+	let colRight = document.getElementById('colRight');
+	let cardQty = generosRegion.length * 4;
 
 
+	for(i = 0; i < cardQty; i++){
+
+	let tile = document.createElement('div');
+	tile.setAttribute('class', 'tile');
+	colRight.appendChild(tile);
+
+	let flipCard = document.createElement('div');
+	flipCard.setAttribute('class','flip-card');
+	tile.appendChild(flipCard);
+
+	let flipCardInner = document.createElement('div');
+	flipCardInner.setAttribute('class','flip-card-inner');
+	flipCard.appendChild(flipCardInner);
+
+	let flipCardFront = document.createElement('div');
+	flipCardFront.setAttribute('class','flip-card-front');
+	flipCardInner.appendChild(flipCardFront);
+
+	let r = document.createElement('div');
+	r.setAttribute('class','center-cropped');
+	r.setAttribute('id',`r${i}`);
+	flipCardFront.appendChild(r);
+
+	let tituloGen = document.createElement('h2');
+	tituloGen.setAttribute('class', 'titulo gen');
+	r.appendChild(tituloGen);
+
+	let tituloHiddenCaract = document.createElement('h3');
+	tituloHiddenCaract.setAttribute('class', 'titulo hiddenCaract');
+	
+	switch(i%4){
+		case 0: tituloHiddenCaract.innerHTML = 'Música';
+		break;
+		case 1: tituloHiddenCaract.innerHTML = 'Ejemplo Música';
+		break;
+		case 2: tituloHiddenCaract.innerHTML = 'Danza';
+		break;
+		case 3: tituloHiddenCaract.innerHTML = 'Ejemplo Danza';
+		break;
+	}
+	
+	r.appendChild(tituloHiddenCaract);
+
+	let flipCardBack = document.createElement('div');
+	flipCardBack.setAttribute('class','flip-card-back');
+	flipCardInner.appendChild(flipCardBack);
+
+	let clickZoom = document.createElement('a');
+	clickZoom.setAttribute('href',`javascript:showZoomInfoOverlay(rt${i})`);
+	flipCardBack.appendChild(clickZoom);
+
+	let zoomInfo = document.createElement('img');
+	zoomInfo.src = 'img/Lupa.png';
+	zoomInfo.setAttribute('class','zoomInfo');
+	clickZoom.appendChild(zoomInfo);
+
+	let scrollDown = document.createElement('img');
+	scrollDown.src = 'img/ArrowDown.png';
+	scrollDown.setAttribute('class','scrollDown');
+	scrollDown.style.display = 'none';
+	flipCardBack.appendChild(scrollDown);
+
+	let cardInfo = document.createElement('div');
+	cardInfo.setAttribute('class','cardInfo');
+	cardInfo.setAttribute('id',`rt${i}`);
+	flipCardBack.appendChild(cardInfo);
+
+	};
+
+
+};
+
+function tilesPerRow(generosRegion){
+	let generosQty = generosRegion.length;
+	if (generosQty === 1){
+		var j = 50; var k = 2;
+	}else if (generosQty === 2){
+		var j = 50; var k = 4;
+	}else if (generosQty === 3){
+		var j = 25; var k = 3;
+	}else if (generosQty === 4){
+		var j = 25; var k = 4;
+	};
+	
+	let row = document.getElementsByClassName('tile');
+	for (i = 0; i < row.length; i++){
+		row[i].style.flex = `1 0 ${j}%`;
+		row[i].style.minHeight = `calc((100vh)/${k})`;
+	};
+
+};
 
 
 
@@ -37,6 +138,10 @@ function Region(nombre, generosRegion, fotosRegion, fondo,caractGeneros){
 this.changeRegion = function(generosRegion, fotosRegion, caractGeneros){
 	clearInfo();
 
+	generosRegion = this.generosRegion;
+	createCards(generosRegion);
+	tilesPerRow(generosRegion);
+	
 	generosRegion = this.generosRegion;
 	changeInfoFrontside(generosRegion);
 
@@ -69,20 +174,25 @@ let NOA = new Region('Noroeste',
 		[//Huayno
 			[['Generalmente pentatónico (cinco notas)','Pie binario' ],//caract
 			[['Pie del huayno', 'img/PieHuayno.png'],['Pie del carnavalito','img/PieCarnavalito.png']]], //img
-			['Danza grupal vivaz no coreografiada', 'Huayñunakunay: (quechua) bailar tomados de la mano'],//danza
 			[['Ejemplo música', '<iframe src="https://www.youtube.com/embed/BoLZRaM2vfA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'],
-			['Ejemplo danza','<iframe src="https://www.youtube.com/embed/s2EwDKiuAFs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>']
+			['','']
+			],//ejemplos música
+			['Danza grupal vivaz no coreografiada', 'Huayñunakunay: (quechua) bailar tomados de la mano'],//danza
+			[['Ejemplo danza', '<iframe src="https://www.youtube.com/embed/s2EwDKiuAFs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'],
+			['','']
 			]//ejemplos
 		],
 		[//Vidala
 			[['Forma estrófica con vuelo poético','Puede estar acompañada por instrumentos y ser a dos voces', 'Compás de 3/4, lenta'],
 			[['negra con punto, corchea, negra','img/PieHuayno.png']]],
+			[['ejemplo','']],
 			['Sin danza'],
 			[['ejemplo','']]
 		],
 		[//Baguala
 			[['Canto solista, acompañado por caja, trifónico','Pueden ser improvisadas'],
 			[]],
+			[['','']],
 			['Sin danza'],
 			[['','']]
 		]	
@@ -109,22 +219,25 @@ let Litoral = new Region('Litoral',
 			    'Tiene un fluir relacionado al rio',
 				'Tiene muchas variantes que van desde tempos moderados a muy vivaces',
 				'Puede ser tanto vocal como instrumental'
-],//caract
+			],//caract
 			[[]]], //img
+			[['','']],
 			['Danza de pareja enlazada no coreográfica'],//danza
-			[['Ejemplo música', ''],
+			[['Ejemplo música', ''],			
 			[['','']]
 			]//ejemplos
 		],
 		[//Resguido Doble
 			[['compás de 4/4, lento','Puede ser tanto vocal como instrumental'],
 			[['influencia de la milonga pampeana (3+3+2)','']]],
+			[['','']],
 			['Danza de pareja enlazada no coreográfica'],
 			[['','']]
 		],
 		[//Chamarrita
 			[['compás 2/4'],
 			['influencia de la milonga ciudadana corchea con punto semi corchea corchea','']],
+			[['','']],
 			['Sin danza'],
 			[['','']]
 		]	
@@ -148,6 +261,7 @@ let Cuyo = new Region('Cuyo',
 		[//Cueca
 			[['3/4 y 6/8 vivaz','proviene de la zamacueca - parentesco con la zamba' ],//caract
 			[['Patrón rítmico característico: corchea con punto, semi, corchea corchea negra', ''],['Formalmente ligado a la danza. Dos vueltas de intro- estrofa 1- estrofa 2 escribillo','']]], //img
+			[['','']],
 			['Danza de pareja suelta con pañuelo coreografiada'],//danza
 			[['',''],
 			]//ejemplos
@@ -155,12 +269,14 @@ let Cuyo = new Region('Cuyo',
 		[//Gato cuyano
 			[['3/4 y  6/8 moderado'],
 			[['Forma (ver gráfico)','']]],
+			[['','']],
 			['Danza de pareja suelta coreografiada', 'Se diferencia del gato porque aparece la figura del contragiro','Se baila con castañetas y paso básico'],
 			[['ejemplo','']]
 		],
 		[//Tonada
 			[['Canto solista, acompañado por caja, trifónico','Pueden ser improvisadas'],
 			[]],
+			[['','']],
 			['Sin danza'],
 			[['ejemplo','<iframe  src="https://www.youtube.com/embed/TVFm7lH3a1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>']]
 		]	
@@ -168,7 +284,7 @@ let Cuyo = new Region('Cuyo',
 	);
 
 let Centro = new Region('Centro',
-	['Gato Norteño','Chacarera','Escondido'], 
+	['Gato Norteño','Chacarera','Escondido','Zamba'], 
 	[
 	"url('img/Centro/bailando.jpg')",
 	"url('img/Centro/columna-banda.jpg')",
@@ -184,6 +300,7 @@ let Centro = new Region('Centro',
 		[//Gato Norteño
 			[['6/8 y 3/4','tempo alegre y ágil' ],//caract
 			[['Forma (gráfico)', '']]], //img
+			[['','']], //ejemplo música
 			['Danza de pareja suelta coreografiada', 'Se baila con castañetas y paso básico'],//danza
 			[['', ''],			
 			]//ejemplos
@@ -191,6 +308,7 @@ let Centro = new Region('Centro',
 		[//Chacarera
 			[['6/8 y 3/4','tempo alegre y ágil' ],//caract
 			[['Forma (gráfico)', '']]], //img
+			[['','']], //ejemplo música
 			['Danza de pareja suelta coreografiada', 'Se baila con castañetas y paso básico'],//danza
 			[['', ''],
 			]//ejemplos
@@ -198,7 +316,16 @@ let Centro = new Region('Centro',
 		[//Escondido
 			[['6/8 y 3/4','tempo alegre y ágil' ],//caract
 			[['Forma (gráfico)', '']]], //img
+			[['','']], //ejemplo música
 			['Danza de pareja suelta coreografiada', 'Se baila con castañetas y paso básico'],//danza
+			[['', ''],
+			]//ejemplos
+		],	
+		[//Zamba
+			[['6/8 y 3/4','tempo tranquilo' ],//caract
+			[['Forma (gráfico)', '']]], //img
+			[['','']], //ejemplo música
+			['Danza de pareja suelta coreografiada con lugar a improvisación, con pañuelo', 'Se baila con castañetas y paso básico'],//danza
 			[['', ''],
 			]//ejemplos
 		],	
@@ -222,6 +349,7 @@ let Pampeana = new Region('Pampeana',
 		[//Malambo
 			[['6/8, I- IV- V','sin letra','baile de desafío' ],//caract
 			[['', '']]], //img
+			[['','']], //ejemplo música
 			['Danza no coreográfica originalmente masculina','en base a un contrapunto de mudanzas (combinación de movimientos entre pies y piernas)'],//danza
 			[['', ''],
 			]//ejemplos
@@ -229,6 +357,7 @@ let Pampeana = new Region('Pampeana',
 		[//Huella
 			[['6/8, suele decir huella en su letra','Forma: Intro, estrofa, estrofa (menor), estribillo (mayor).','Ritmo lento y señorial' ],//caract
 			[['', '']]], //img
+			[['','']], //ejemplo música
 			['Danza de pareja coreografiada','Figura especial: el hombre toma la mano de la mujer'],//danza
 			[['', ''],
 			]//ejemplos
@@ -236,6 +365,7 @@ let Pampeana = new Region('Pampeana',
 		[//Payada
 			[['Improvisación de versos con acompañamiento de guitarra que hace un payador; generalmente los versos relatan sucesos o sentimientos de la cotidianidad rural, y pueden tener un carácter lírico, trágico o humorístico.','payada de contrapunto Competencia poético-musical en la que, alternándose dos payadores, improvisan cantos con la guitarra, sobre un mismo tema, tratando de superar al otro en originalidad y destreza poética.' ],//caract
 			[['', '']]], //img
+			[['','']], //ejemplo música
 			['Sin danza'],//danza
 			[['', ''],
 			]//ejemplos
@@ -244,7 +374,8 @@ let Pampeana = new Region('Pampeana',
 	);
 
 let Ciudadana = new Region('Ciudadana',
-	['Tango','Milonga Ciudadana',''], 
+	['Tango','Milonga Ciudadana'//,''
+	], 
 	[
 	"url('img/Ciudadana/caminito.jpg')",
 	"url('img/Ciudadana/diego_prenollio.jpg')",
@@ -260,6 +391,7 @@ let Ciudadana = new Region('Ciudadana',
 		[//Tango
 			[['Base binaria (2/4 o 4/4), tempo moderado','temática nostalgia','Esencialmente homofónico con imitaciones y compensaciones entre instrumentos' ],//caract
 			[['Patrones rítmicos', ''],['Arrastre','']]], //img
+			[['','']], //ejemplo música
 			['Danza de pareja enlazada no coreográfica'],//danza
 			[['', ''],
 			]//ejemplos
@@ -267,6 +399,7 @@ let Ciudadana = new Region('Ciudadana',
 		[//Milonga Ciudadana
 			[['4/4 ritmo de habanera rápida, tempo vivo','letras pícaras' ],//caract
 			[['Forma (gráfico)', '']]], //img
+			[['','']], //ejemplo música
 			['Danza de pareja enlazada no coreográfica'],//danza
 			[['', ''],
 			]//ejemplos
@@ -274,6 +407,7 @@ let Ciudadana = new Region('Ciudadana',
 		[//
 			[['','' ],//caract
 			[['', '']]], //img
+			[['','']], //ejemplo música
 			['', ''],//danza
 			[['', ''],
 			]//ejemplos
@@ -282,22 +416,24 @@ let Ciudadana = new Region('Ciudadana',
 	);
 
 let Patagonia = new Region('Patagonia',
-	['Loncomeo','',''], 
+	['Loncomeo'//,'',''
+						], 
 	[
-	"url('img/Patagonia/7lagos.jpg')",
+	//"url('img/Patagonia/7lagos.jpg')",
 	"url('img/Patagonia/Estancia.jpg')",
 	"url('img/Patagonia/glaciar.jpg')",
-	"url('img/Patagonia/manzanas.jpg')",
+	//"url('img/Patagonia/manzanas.jpg')",
 	"url('img/Patagonia/mapuches.jpg')",
 	"url('img/Patagonia/Paisaje-patagónico.jpg')",
-	"url('img/Patagonia/Tulipanes-en-Chubut.jpg')",
-	"url('img/Patagonia/villa-traful.jpg')"
+	//"url('img/Patagonia/Tulipanes-en-Chubut.jpg')",
+	//"url('img/Patagonia/villa-traful.jpg')"
 	],
 	"rgb(153, 155, 180)",
 		[
 		[//Loncomeo
 			[['del mapuche, lonco (cabeza) y meu (aquí bajar).','rogativa mapuches (araucanos)  a partir de sonidos del kultrúm y la trutruka instrumentos ambos ejecutados en ceremonias rituales o religiosas.' ],//caract
 			[['', '']]], //img
+			[['','']], //ejemplo música
 			['el loncomeo se baila principalmente con movimientos de cabeza.','Consiste en correr saltar, agacharse, erguirse, imitar a los animales con movimientos grotescos, sacudiendo fuertemente la cabeza. Se baila entre varios. El que resista mas tiempo será el vencedor. ','Los bailarines tocan su cabeza con pintorescas vinchas, tejidas por sus mujeres.'],//danza
 			[['', ''],
 			]//ejemplos
@@ -305,6 +441,7 @@ let Patagonia = new Region('Patagonia',
 		[//
 			[['','' ],//caract
 			[['', '']]], //img
+			[['','']], //ejemplo música
 			['', ''],//danza
 			[['', ''],
 			]//ejemplos
@@ -312,6 +449,7 @@ let Patagonia = new Region('Patagonia',
 		[//
 			[['','' ],//caract
 			[['', '']]], //img
+			[['','']], //ejemplo música
 			['', ''],//danza
 			[['', ''],
 			]//ejemplos
@@ -354,10 +492,11 @@ for (let i = 0; i < regiones.length; i++) {
 
 
 // Clear Info
-function clearInfo(){
-	let myNode = document.getElementsByClassName("cardInfo");
-	for (i = 0; i < myNode.length; i++){
-		myNode[i].removeChild(myNode[i].lastChild);
+function clearInfo(){	
+	let myTiles = document.querySelectorAll(".tile");
+	
+	for (tile of myTiles){		
+		tile.remove();
     };
 };
  
@@ -372,7 +511,7 @@ function changeInfoFrontside(generosRegion){
 
 	let generoTit = document.querySelectorAll('.gen');
 	for (let i = 0; i < generoTit.length;i++){
-		let j = Math.floor(i/3);
+		let j = Math.floor(i/4);
 		generoTit[i].innerHTML = generosRegion[j];
 		};
 	};	
@@ -386,19 +525,23 @@ function changeInforBackside(caractGeneros){
 	let genInfo = document.querySelectorAll('.cardInfo');
 	for (let i = 0; i<genInfo.length; i++){
 		//j is external array
-		let j = Math.floor(i/3);
+		let j = Math.floor(i/4);
 		//k is internal arrya
-		let k = i%3;
-		if (i%3 === 0) {
+		let k = i%4;
+		if (i%4 === 0) {
 			list = createInfoGeneroMus(caractGeneros,j)
 			genInfo[i].appendChild(list);
-		}else if (i%3 === 1){
+		}else if (i%4 === 1){
+			list = createInfoGeneroEjemploMus(caractGeneros,j)
+			genInfo[i].appendChild(list);
+		}else if (i%4 === 2){
 			list = createInfoGeneroDan(caractGeneros,j)
 			genInfo[i].appendChild(list);
-		}else if (i%3 === 2){
-		list = createInfoGeneroEjemplo(caractGeneros,j)
+		}else if (i%4 === 3){
+		list = createInfoGeneroEjemploDan(caractGeneros,j)
 		genInfo[i].appendChild(list);
 		};
+
 	};
 
 };
@@ -409,7 +552,7 @@ function createInfoGeneroMus(caractGeneros, genIndex){
 	let list = document.createElement('ul');
 		
 		for (i = 0; i < caractGeneros[genIndex][0].length; i++)  {
-			let k = i%3;
+			let k = i%4;
 
 			let listItem = document.createElement('li');
 
@@ -419,7 +562,7 @@ function createInfoGeneroMus(caractGeneros, genIndex){
 		};
 
 		for (i = 0; i < caractGeneros[genIndex][0][1].length; i++)  {
-			let k = i%3;
+			let k = i%4;
 
 			let imgData = document.createElement('p');
 			let img = document.createElement('img');
@@ -434,33 +577,54 @@ function createInfoGeneroMus(caractGeneros, genIndex){
 	return list;
 };
 
+function createInfoGeneroEjemploMus(caractGeneros, genIndex){
+	let list = document.createElement('div');
+
+	for (i = 0; i < caractGeneros[genIndex][1].length;i++){
+			let k = i%4;
+
+			let videoData = document.createElement('h4');
+			let iframe = document.createElement('iframe');
+			
+			videoData.innerHTML = caractGeneros[genIndex][1][k][0];
+			iframe.src = 'data:text/html;charset=utf-8,' + encodeURI(caractGeneros[genIndex][1][k][1]);
+			
+			list.appendChild(videoData);
+			list.appendChild(iframe);
+		};
+		
+
+	return list
+
+}
+
 function createInfoGeneroDan(caractGeneros, genIndex){
 
 	let list = document.createElement('ul');
 
-	for (i = 0; i < caractGeneros[genIndex][1].length; i++)  {
-			let k = i%3;
+	for (i = 0; i < caractGeneros[genIndex][2].length; i++)  {
+			let k = i%4;
 
 			let listItem = document.createElement('li');
 
-			listItem.innerHTML = caractGeneros[genIndex][1][k];
+			listItem.innerHTML = caractGeneros[genIndex][2][k];
 			list.appendChild(listItem);
 
 		};
 	return list;
 };
 
-function createInfoGeneroEjemplo(caractGeneros, genIndex){
-	let list = document.createElement('ol');
+function createInfoGeneroEjemploDan(caractGeneros, genIndex){
+	let list = document.createElement('div');
 
-	for (i = 0; i < caractGeneros[genIndex][2].length;i++){
-			let k = i%3;
+	for (i = 0; i < caractGeneros[genIndex][3].length;i++){
+			let k = i%4;
 
 			let videoData = document.createElement('h4');
 			let iframe = document.createElement('iframe');
 			
-			videoData.innerHTML = caractGeneros[genIndex][2][k][0];
-			iframe.src = 'data:text/html;charset=utf-8,' + encodeURI(caractGeneros[genIndex][2][k][1]);
+			videoData.innerHTML = caractGeneros[genIndex][3][k][0];
+			iframe.src = 'data:text/html;charset=utf-8,' + encodeURI(caractGeneros[genIndex][3][k][1]);
 			
 			list.appendChild(videoData);
 			list.appendChild(iframe);
@@ -474,7 +638,7 @@ function createInfoGeneroEjemplo(caractGeneros, genIndex){
 // Background images
 function changeBGImages(fotosRegion){
 	for(let i = 0; i < fotosRegion.length; i++){
-	img = document.getElementById(`r${i+1}`)
+	img = document.getElementById(`r${i}`)
 	img.style.backgroundImage = fotosRegion[i];
 	};
 };	
@@ -509,3 +673,22 @@ function hideZoomInfoOverlay(){
 	
 //Scroll
 
+function isScrollable(element) {
+    //return element.scrollHeight > element.clientHeight;
+    let hasScrollableContent = element.scrollHeight > element.clientHeight;
+    let overflowYStyle = window.getComputedStyle(element).overflowY;
+    let isOverflowHidden = overflowYStyle.indexOf('scroll') !== -1;
+
+    return hasScrollableContent && !isOverflowHidden;
+};
+
+function showIfScrollable(){
+	let scrollEle = document.getElementsByClassName('scrollDown');
+	let scrollCards = document.getElementsByClassName('cardInfo');
+	for (let i = 0; i < scrollEle.length; i++){
+		if (isScrollable(scrollCards[i])){
+		scrollEle[i].style.display = 'block';
+		};
+	};
+	
+};
