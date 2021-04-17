@@ -35,7 +35,7 @@ function Region(nombre, generosRegion, fotosRegion, fondo,caractGeneros){
 	this.caractGeneros = caractGeneros;
 
 this.changeRegion = function(generosRegion, fotosRegion, caractGeneros){
-	clearInfo();
+	//clearInfo();
 
 	generosRegion = this.generosRegion;
 	changeInfoFrontside(generosRegion);
