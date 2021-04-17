@@ -35,7 +35,7 @@ function Region(nombre, generosRegion, fotosRegion, fondo,caractGeneros){
 	this.caractGeneros = caractGeneros;
 
 this.changeRegion = function(generosRegion, fotosRegion, caractGeneros){
-	//clearInfo();
+	clearInfo();
 
 	generosRegion = this.generosRegion;
 	changeInfoFrontside(generosRegion);
@@ -78,13 +78,13 @@ let NOA = new Region('Noroeste',
 			[['Forma estrófica con vuelo poético','Puede estar acompañada por instrumentos y ser a dos voces', 'Compás de 3/4, lenta'],
 			[['negra con punto, corchea, negra','img/PieHuayno.png']]],
 			['Sin danza'],
-			['ejemplo']
+			[['ejemplo','']]
 		],
 		[//Baguala
 			[['Canto solista, acompañado por caja, trifónico','Pueden ser improvisadas'],
 			[]],
 			['Sin danza'],
-			['']
+			[['','']]
 		]	
 	]
 	);
@@ -113,20 +113,20 @@ let Litoral = new Region('Litoral',
 			[[]]], //img
 			['Danza de pareja enlazada no coreográfica'],//danza
 			[['Ejemplo música', ''],
-			[]
+			[['','']]
 			]//ejemplos
 		],
 		[//Resguido Doble
 			[['compás de 4/4, lento','Puede ser tanto vocal como instrumental'],
 			[['influencia de la milonga pampeana (3+3+2)','']]],
 			['Danza de pareja enlazada no coreográfica'],
-			[]
+			[['','']]
 		],
 		[//Chamarrita
 			[['compás 2/4'],
 			['influencia de la milonga ciudadana corchea con punto semi corchea corchea','']],
 			['Sin danza'],
-			[]
+			[['','']]
 		]	
 	]);
 
@@ -149,26 +149,175 @@ let Cuyo = new Region('Cuyo',
 			[['3/4 y 6/8 vivaz','proviene de la zamacueca - parentesco con la zamba' ],//caract
 			[['Patrón rítmico característico: corchea con punto, semi, corchea corchea negra', ''],['Formalmente ligado a la danza. Dos vueltas de intro- estrofa 1- estrofa 2 escribillo','']]], //img
 			['Danza de pareja suelta con pañuelo coreografiada'],//danza
-			[[],
-			[]
+			[['',''],
 			]//ejemplos
 		],
 		[//Gato cuyano
 			[['3/4 y  6/8 moderado'],
 			[['Forma (ver gráfico)','']]],
 			['Danza de pareja suelta coreografiada', 'Se diferencia del gato porque aparece la figura del contragiro','Se baila con castañetas y paso básico'],
-			['ejemplo']
+			[['ejemplo','']]
 		],
 		[//Tonada
 			[['Canto solista, acompañado por caja, trifónico','Pueden ser improvisadas'],
 			[]],
 			['Sin danza'],
-			['ejemplo','<iframe  src="https://www.youtube.com/embed/TVFm7lH3a1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>']
+			[['ejemplo','<iframe  src="https://www.youtube.com/embed/TVFm7lH3a1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>']]
 		]	
 	]
 	);
 
+let Centro = new Region('Centro',
+	['Gato Norteño','Chacarera','Escondido'], 
+	[
+	"url('img/Centro/bailando.jpg')",
+	"url('img/Centro/columna-banda.jpg')",
+	"url('img/Centro/cuestablanca.jpg')",
+	"url('img/Centro/el-estadio.jpg')",
+	"url('img/Centro/embudo.jpg')",
+	"url('img/Centro/lagosanroque.jpg')",
+	"url('img/Centro/Patio-del-Indio-Froilan.jpg')",
+	"url('img/Centro/termas.jpg')"
+	],
+	"rgb(253, 225, 200)",
+		[
+		[//Gato Norteño
+			[['6/8 y 3/4','tempo alegre y ágil' ],//caract
+			[['Forma (gráfico)', '']]], //img
+			['Danza de pareja suelta coreografiada', 'Se baila con castañetas y paso básico'],//danza
+			[['', ''],			
+			]//ejemplos
+		],
+		[//Chacarera
+			[['6/8 y 3/4','tempo alegre y ágil' ],//caract
+			[['Forma (gráfico)', '']]], //img
+			['Danza de pareja suelta coreografiada', 'Se baila con castañetas y paso básico'],//danza
+			[['', ''],
+			]//ejemplos
+		],
+		[//Escondido
+			[['6/8 y 3/4','tempo alegre y ágil' ],//caract
+			[['Forma (gráfico)', '']]], //img
+			['Danza de pareja suelta coreografiada', 'Se baila con castañetas y paso básico'],//danza
+			[['', ''],
+			]//ejemplos
+		],	
+	]
+	);
 
+let Pampeana = new Region('Pampeana',
+	['Malambo','Huella','Payada'], 
+	[
+	"url('img/Pampeana/Atardecer-pampeano.jpg')",
+	"url('img/Pampeana/Ganado.jpg')",
+	"url('img/Pampeana/gaucho.jpg')",
+	"url('img/Pampeana/Girasol-La-Pampa.jpg')",
+	"url('img/Pampeana/ombu.jpg')",
+	"url('img/Pampeana/Paisaje-campestre.jpg')",
+	"url('img/Pampeana/Payador_rancho.jpg')",
+	"url('img/Pampeana/soja.jpg')"
+	],
+	"rgb(176, 191, 148)",
+		[
+		[//Malambo
+			[['6/8, I- IV- V','sin letra','baile de desafío' ],//caract
+			[['', '']]], //img
+			['Danza no coreográfica originalmente masculina','en base a un contrapunto de mudanzas (combinación de movimientos entre pies y piernas)'],//danza
+			[['', ''],
+			]//ejemplos
+		],
+		[//Huella
+			[['6/8, suele decir huella en su letra','Forma: Intro, estrofa, estrofa (menor), estribillo (mayor).','Ritmo lento y señorial' ],//caract
+			[['', '']]], //img
+			['Danza de pareja coreografiada','Figura especial: el hombre toma la mano de la mujer'],//danza
+			[['', ''],
+			]//ejemplos
+		],
+		[//Payada
+			[['Improvisación de versos con acompañamiento de guitarra que hace un payador; generalmente los versos relatan sucesos o sentimientos de la cotidianidad rural, y pueden tener un carácter lírico, trágico o humorístico.','payada de contrapunto Competencia poético-musical en la que, alternándose dos payadores, improvisan cantos con la guitarra, sobre un mismo tema, tratando de superar al otro en originalidad y destreza poética.' ],//caract
+			[['', '']]], //img
+			['Sin danza'],//danza
+			[['', ''],
+			]//ejemplos
+		],	
+	]
+	);
+
+let Ciudadana = new Region('Ciudadana',
+	['Tango','Milonga Ciudadana',''], 
+	[
+	"url('img/Ciudadana/caminito.jpg')",
+	"url('img/Ciudadana/diego_prenollio.jpg')",
+	"url('img/Ciudadana/floralis-generica.jpg')",
+	"url('img/Ciudadana/obelisco.jpg')",
+	"url('img/Ciudadana/orquesta.jpg')",
+	"url('img/Ciudadana/plazamayo.jpg')",
+	"url('img/Ciudadana/puerto-madero.jpg')",
+	"url('img/Ciudadana/tango.jpg')"
+	],
+	"rgb(213, 212, 198)",
+		[
+		[//Tango
+			[['Base binaria (2/4 o 4/4), tempo moderado','temática nostalgia','Esencialmente homofónico con imitaciones y compensaciones entre instrumentos' ],//caract
+			[['Patrones rítmicos', ''],['Arrastre','']]], //img
+			['Danza de pareja enlazada no coreográfica'],//danza
+			[['', ''],
+			]//ejemplos
+		],
+		[//Milonga Ciudadana
+			[['4/4 ritmo de habanera rápida, tempo vivo','letras pícaras' ],//caract
+			[['Forma (gráfico)', '']]], //img
+			['Danza de pareja enlazada no coreográfica'],//danza
+			[['', ''],
+			]//ejemplos
+		],
+		[//
+			[['','' ],//caract
+			[['', '']]], //img
+			['', ''],//danza
+			[['', ''],
+			]//ejemplos
+		],	
+	]
+	);
+
+let Patagonia = new Region('Patagonia',
+	['Loncomeo','',''], 
+	[
+	"url('img/Patagonia/7lagos.jpg')",
+	"url('img/Patagonia/Estancia.jpg')",
+	"url('img/Patagonia/glaciar.jpg')",
+	"url('img/Patagonia/manzanas.jpg')",
+	"url('img/Patagonia/mapuches.jpg')",
+	"url('img/Patagonia/Paisaje-patagónico.jpg')",
+	"url('img/Patagonia/Tulipanes-en-Chubut.jpg')",
+	"url('img/Patagonia/villa-traful.jpg')"
+	],
+	"rgb(153, 155, 180)",
+		[
+		[//Loncomeo
+			[['del mapuche, lonco (cabeza) y meu (aquí bajar).','rogativa mapuches (araucanos)  a partir de sonidos del kultrúm y la trutruka instrumentos ambos ejecutados en ceremonias rituales o religiosas.' ],//caract
+			[['', '']]], //img
+			['el loncomeo se baila principalmente con movimientos de cabeza.','Consiste en correr saltar, agacharse, erguirse, imitar a los animales con movimientos grotescos, sacudiendo fuertemente la cabeza. Se baila entre varios. El que resista mas tiempo será el vencedor. ','Los bailarines tocan su cabeza con pintorescas vinchas, tejidas por sus mujeres.'],//danza
+			[['', ''],
+			]//ejemplos
+		],
+		[//
+			[['','' ],//caract
+			[['', '']]], //img
+			['', ''],//danza
+			[['', ''],
+			]//ejemplos
+		],
+		[//
+			[['','' ],//caract
+			[['', '']]], //img
+			['', ''],//danza
+			[['', ''],
+			]//ejemplos
+		],	
+	]
+	);
 
 let regiones = document.getElementsByClassName("region");
 
@@ -183,15 +332,15 @@ let selRegion = function() {
     		break;
 	    case 'litoral' : Litoral.changeRegion();
 	    	break;
-	    case 'centro': changeRegion();
+	    case 'centro': Centro.changeRegion();
 	    	break
 	    case 'cuyo' : Cuyo.changeRegion();
 	    	break
-	    case 'pampeana' : changeRegion();
+	    case 'pampeana' : Pampeana.changeRegion();
 	    	break
-	    case 'ciudadana' : changeRegion();
+	    case 'ciudadana' : Ciudadana.changeRegion();
 	    	break
-	    case 'patagonia' : changeRegion();
+	    case 'patagonia' : Patagonia.changeRegion();
 	    	break
 
 
@@ -205,14 +354,12 @@ for (let i = 0; i < regiones.length; i++) {
 
 
 // Clear Info
-/*function clearInfo(){
-	const myNode = document.getElementsById("flip");
-
-  while (myNode.firstChild) {
-  	alert('si')
-    myNode.removeChild(myNode.lastChild);
-  };
-};*/
+function clearInfo(){
+	let myNode = document.getElementsByClassName("flip-card-back");
+	for (i = 0; i < myNode.length; i++){
+		myNode[i].removeChild(myNode[i].lastChild);
+    };
+};
  
 
 // Set frontside information
@@ -334,11 +481,11 @@ function changeBGImages(fotosRegion){
 
 // Background color
 function changeBGColor(fondo){
-	document.body.style.backgroundColor = fondo;
+	document.body.style.backgroundImage = `linear-gradient(to bottom right, grey, ${fondo})`;
 	
 	cardBackside = document.querySelectorAll('.flip-card-back');
 	for(tile of cardBackside){
-		tile.style.backgroundColor = fondo;
+		tile.style.backgroundImage = `linear-gradient(${fondo}, white)`;
 		
 	}
 }

@@ -36,6 +36,7 @@ flex-wrap: wrap;
 #colLeft {
  float: left;
  flex-direction: column;
+ border: 1px solid black;
   
 }
 
@@ -57,6 +58,7 @@ justify-content: center;
   min-height: calc((100vh)/3);
   min-width: calc((100vh)/3);
   flex: 1 0 33%;
+
 }
 
 ul > li, p{
@@ -73,6 +75,7 @@ img{
 .flip-card-back{
   overflow: scroll;
   font-size: 1.5rem;
+  border: 1px solid black;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -138,7 +141,7 @@ img{
 /* Style the back side */
 .flip-card-back {
   /*background-color: dodgerblue;*/
-  color: white;
+  color: black;
   transform: rotateY(180deg);
 
 }
