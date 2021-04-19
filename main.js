@@ -71,7 +71,7 @@ let selRegion = function() {
 for (let i = 0; i < regiones.length; i++) {
     regiones[i].addEventListener('click', selRegion, false);
 
-};
+};	
 //try LOOP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 var id = null;
 function hideBigMap(){
@@ -128,10 +128,12 @@ function createCards(generosRegion){
 
 	let tituloGen = document.createElement('h2');
 	tituloGen.setAttribute('class', 'titulo gen');
+	tituloGen.setAttribute('id',`h2rt${i}`);
 	r.appendChild(tituloGen);
 
 	let tituloHiddenCaract = document.createElement('h3');
 	tituloHiddenCaract.setAttribute('class', 'titulo hiddenCaract');
+	tituloHiddenCaract.setAttribute('id',`h3rt${i}`);
 	
 	switch(i%4){
 		case 0: tituloHiddenCaract.innerHTML = 'Características de la música';
@@ -389,6 +391,11 @@ function changeBGColor(fondo){
 		tile.style.backgroundImage = `linear-gradient(${fondo}, white)`;
 		
 	}
+
+	document.getElementById('overlayInfo').style.backgroundImage = `linear-gradient(${fondo}, white)`;
+	
+
+
 }
 
 
@@ -396,9 +403,38 @@ function changeBGColor(fondo){
 
 function showZoomInfoOverlay(tileCopied){
 	document.getElementById('overlayBackground').style.display = 'block';
-	let overlayInfo = document.getElementById('copiedCardInfo');
-	overlayInfo.innerHTML = tileCopied.innerHTML;
 
+	let copiedCardInfo = document.getElementById('copiedCardInfo');
+	let tileSelected = tileCopied.getAttribute("id");
+	
+	let overlayInfoH3Copied = document.getElementById(`h3${tileSelected}`);
+	//overlayInfoH3.style.position = 'static';
+	overlayInfoH3.innerHTML = overlayInfoH3Copied.innerHTML;
+
+	tileSelected.toString();
+	//loops if and isNan();
+	tileSelectedLastNumber = tileSelected.slice(-2);
+	if(isNan(tileSelectedLastNumber)){
+		tileSelectedLastNumber = tileSelected.slice(-1);
+		}else{
+			alert(tileSelectedLastNumber);
+	tileSelectedLastNumber = Math.floor(tileSelectedLastNumber/4);
+
+	tileSelected = tileSelected.slice(0, -1);
+
+	alert(tileSelectedLastNumber);
+
+
+	let overlayInfoH2Copied = document.getElementById(`h2${tileSelected+(tileSelectedLastNumber*4)}`);
+	//overlayInfoH2.style.position = 'static';
+	overlayInfoH2.innerHTML = overlayInfoH2Copied.innerHTML;
+
+	};
+	
+
+	let overlayInfo = document.getElementById('copiedCardInfo');
+	overlayInfoBody.innerHTML = tileCopied.innerHTML;
+	
 
 };
 
@@ -510,9 +546,46 @@ function createInstrumentsBar(instrumentos) {
 
 };
 
+//Show Info Region initial overlay
+
+let regionesBig = document.getElementsByClassName("regionBig"); 
+
+for (let i = 0; i < regionesBig.length; i++) {
+    regionesBig[i].addEventListener('mouseover', showRegionInfoFicha, false);
+
+};
+
+for (let i = 0; i < regionesBig.length; i++) {
+    regionesBig[i].addEventListener('mouseout', hideRegionInfoFicha, false);
+
+};
+
+for (let i = 0; i < regionesBig.length; i++) {
+    regionesBig[i].addEventListener('click', selRegion, false);
+
+};
 
 
 
+function showRegionInfoFicha() {
+	let regionBig = this.getAttribute("id");
+	document.getElementById(`irom-${regionBig}`).style.display = "block";
+}
+
+function hideRegionInfoFicha() {
+  let regionBig = this.getAttribute("id");
+  document.getElementById(`irom-${regionBig}`).style.display = "none";
+}
+
+
+//clear with escape key
+
+//detect Escape key press
+document.addEventListener("keydown", function(event) {
+    if(event.keyCode === 27){
+       hideZoomInfoOverlay()//Esc key was pressed
+   }
+});
 
 
 
