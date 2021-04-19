@@ -1,17 +1,90 @@
+
+/*layout*/
+
 * {
   box-sizing: border-box;
 }
+
+body {
+  display: flex;
+  margin: 0;
+  height: 100vh;
+  /*overflow: hidden;*/
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+}
+
+.sideBar {
+  width: 15vw;
+  height: 100vh;
+}
+
+.main {
+  width: 85vw;
+}
+
+.tile {
+
+ 
+}
+
+@media only screen and (max-width: 600px) {
+
+  section, body {
+    display: block;
+    height: auto;
+    overflow: auto;
+    width: 100vw;
+  }
+
+  .tile, .main, .sideBar {
+    width: 100vw !important;
+  }
+
+}
+
+/*Font*/
 h1, h2, h3, h4{
   font-family: 'Open Sans', sans-serif;
   font-weight: lighter;
 }
 
 html, body {
-  height: 100%;
-  margin: 0;
   font-family: 'Dosis', sans-serif;
 }
 
+/*Frontside card style*/
+
+.titulo {
+  
+  text-align: left;
+  left: 20px;
+  position: absolute;
+  color: white;
+  opacity: 0.8;
+
+}
+
+h2.titulo {
+ font-size: 200%;
+ margin-top: 0;
+ text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
+ 
+ 
+}
+h3.titulo {
+ font-size: 150%;
+ bottom: 0%;
+ text-shadow: 1px 1px 2px #000000;
+ 
+}
+
+/*Maps and overlays*/
 svg {
   height: 30vh;
   display: block;
@@ -19,8 +92,95 @@ svg {
   padding-top: 5%;
 }
 
+
 .region:hover {
   filter:  brightness(1.2);
+}
+
+ #regionMapa {
+ width: 250px;
+ height: 100%;
+
+ background-position: top center;
+ background-repeat: no-repeat;
+ background-size: contain;
+ }
+
+#l1 {
+  height: 40vh;  
+}
+#l2{
+  height: 50vh;
+  
+
+  
+}
+
+@media only screen and (max-width: 600px){
+  svg, #l1 {
+  height: 90vh;
+  }
+
+  body {
+    background-color: blue;
+  }
+}
+
+h2#regionNombre {
+  text-align: center;
+  color: white;
+  font-size: 250%;
+  margin: 0px;
+  text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
+}
+
+
+#overlayMap{
+  display: block;
+  position: absolute;
+  left: 0px;
+  z-index: 10;
+  height: 100vh;
+  width: 100vw;
+  background-color: blue;
+  opacity: 1;
+ }
+
+@media only screen and (max-width: 600px) {
+
+  #overlayMap {
+    display: none;
+  }
+
+}
+#overlayBackground{
+  display: none;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;  
+  z-index: 20;
+  backdrop-filter: blur(3px);
+
+}
+
+#outerOverlayInfo{
+  position: absolute;
+  left: 50%
+}
+
+#overlayInfo{
+  position: relative;
+  left: -50%;
+  top: 10vh;
+  min-height: 80vh;
+  min-width: 50vw;
+  background-color: green;
+  opacity: 1;
+ }
+
+
+#bigMap{
+  height: 95vh;
 }
 
 
@@ -44,9 +204,7 @@ justify-content: center;
 
 
 .tile {
-  min-height: calc((100vh)/3);
-  min-width: calc((100vh)/4);
-  flex: 1 0 25%;
+ 
 
 }
 
@@ -67,18 +225,21 @@ img{
   overflow: scroll;
   font-size: 150%;
   border: 1px solid black;
-}
+  }
 
 /* Zooming icon */
 
 .cardInfoDiv{
+  position: absolute;
+  z-index: 10;
   display: block;
+  right: 5px;
   height: 30px;
 
 }
 
 img.zoomInfo {
-  float: right;
+  
   margin: 5px;
 }
 
@@ -175,31 +336,7 @@ body, .flip-card-back{
   transform: rotateY(180deg);
 
 }
-/*Frontside card style*/
 
-.titulo {
-  
-  text-align: left;
-  left: 20px;
-  position: absolute;
-  color: white;
-  opacity: 0.8;
-
-}
-
-h2.titulo {
- font-size: 200%;
- margin-top: 0;
- text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
- 
- 
-}
-h3.titulo {
- font-size: 150%;
- bottom: 0%;
- text-shadow: 1px 1px 2px #000000;
- 
-}
 /*
 .hiddenCaract {
   display: none;
@@ -210,55 +347,15 @@ h3.titulo {
 
 
 
-#overlayMap{
-  display: block;
-  position: absolute;
-  left: 0px;
-  z-index: 10;
-  height: 100vh;
-  width: 100vw;
-  background-color: blue;
-  opacity: 1;
- }
-
-#overlayBackground{
-  display: none;
-  position: absolute;
-  height: 100vh;
-  width: 100vw;  
-  z-index: 20;
-  backdrop-filter: blur(3px);
-
-}
-
-#outerOverlayInfo{
-  position: absolute;
-  left: 50%
-}
-
-#overlayInfo{
-  position: relative;
-  left: -50%;
-  top: 10vh;
-  min-height: 80vh;
-  min-width: 50vw;
-  background-color: green;
-  opacity: 1;
- }
-
-
-#bigMap{
-  height: 95vh;
-}
 
 
 
 iframe {
   position: absolute;
-  top: 30px;
+  top: 20px;
   left: 20px;
-  width: 95%;
-  height: 95%;
+ /* width: 95%;
+  height: 95%; */
   border: 0;
 
 }
@@ -266,23 +363,13 @@ iframe {
 .videoContainer {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%;
+  /*padding-bottom: 56.25%;*/
 }
 
 h4 {
  display: none;
 
 }
-
-
-/*scrollable elements*/
-
-img.scrollDown {
- position: absolute;
- bottom: 10px;
- right: 5px;
-}
-
 
 
 
@@ -301,7 +388,7 @@ img.scrollDown {
 }
 
 */
-
+/*
 #colLeft {
  display: none;
  float: left;
@@ -309,12 +396,7 @@ img.scrollDown {
  border: 1px solid black;
   
 }
- img#regionMapa {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 250px;
- }
+
 
 #l1 {
   height: 33vh;  
@@ -326,25 +408,6 @@ img.scrollDown {
   margin: 0px;
 }
 
-@media only screen and (max-width: 600px) {
-#colLeft {
-width: 100vw;
-      }
-
-#l1 {
-  height: 50vh;  
-  }
-
-#l2 {
-  height: 50vh;  
-  }
-
-#mapa {
-  height: 50vh;
-}
-
-
-}
 
 h2#regionNombre {
   text-align: center;
@@ -354,9 +417,9 @@ h2#regionNombre {
   text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
 }
 
+*/
 
-
-/*Footer*/
+/*Footer
 
 footer {
   height: 10.7vh;
@@ -400,4 +463,4 @@ a:link {
   font-size: 200%;
   margin: 0px;
   text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
-}
+}*/

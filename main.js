@@ -33,7 +33,7 @@ this.changeRegion = function(nombre, provinciasMapa, generosRegion, fotosRegion,
 	changeBGColor(fondo);
 
 	instrumentos = this.instrumentos;
-	createInstrumentsBar(instrumentos);
+	//createInstrumentsBar(instrumentos);
 
 	};
 };
@@ -73,7 +73,6 @@ for (let i = 0; i < regiones.length; i++) {
 
 };
 //try LOOP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 var id = null;
 function hideBigMap(){
 	let overlayMap = document.getElementById('overlayMap'); 	
@@ -95,12 +94,12 @@ function hideBigMap(){
 function showBigMap(){
 	document.getElementById('overlayMap').style.display = 'block';
 	document.getElementById('overlayMap').style.opacity = '1';
-	document.getElementById('colLeft').style.display = 'none';
+	//document.getElementById('sideBar').style.display = 'none';
 };
 //Create cards
 
 function createCards(generosRegion){
-	let colRight = document.getElementById('colRight');
+	let main = document.getElementById('main');
 	let cardQty = generosRegion.length * 4;
 
 
@@ -108,7 +107,7 @@ function createCards(generosRegion){
 
 	let tile = document.createElement('div');
 	tile.setAttribute('class', 'tile');
-	colRight.appendChild(tile);
+	main.appendChild(tile);
 
 	let flipCard = document.createElement('div');
 	flipCard.setAttribute('class','flip-card');
@@ -135,11 +134,11 @@ function createCards(generosRegion){
 	tituloHiddenCaract.setAttribute('class', 'titulo hiddenCaract');
 	
 	switch(i%4){
-		case 0: tituloHiddenCaract.innerHTML = 'Música';
+		case 0: tituloHiddenCaract.innerHTML = 'Características de la música';
 		break;
 		case 1: tituloHiddenCaract.innerHTML = 'Ejemplo Música';
 		break;
-		case 2: tituloHiddenCaract.innerHTML = 'Danza';
+		case 2: tituloHiddenCaract.innerHTML = 'Características de la danza';
 		break;
 		case 3: tituloHiddenCaract.innerHTML = 'Ejemplo Danza';
 		break;
@@ -178,19 +177,19 @@ function createCards(generosRegion){
 function tilesPerRow(generosRegion){
 	let generosQty = generosRegion.length;
 	if (generosQty === 1){
-		var j = 50; var k = 2;
+		var j = 2; var k = 2;
 	}else if (generosQty === 2){
-		var j = 50; var k = 4;
+		var j = 4; var k = 2;
 	}else if (generosQty === 3){
-		var j = 25; var k = 3;
+		var j = 4; var k = 3;
 	}else if (generosQty === 4){
-		var j = 25; var k = 4;
+		var j = 4; var k = 4;
 	};
 	
 	let row = document.getElementsByClassName('tile');
 	for (i = 0; i < row.length; i++){
-		row[i].style.flex = `1 0 ${j}%`;
-		row[i].style.minHeight = `calc((89.3vh)/${k})`;
+		row[i].style.height = `calc(100vh/${j})`;
+		row[i].style.width = `calc(85vw/${k})`;
 	};
 
 };
@@ -201,9 +200,10 @@ function tilesPerRow(generosRegion){
 //Choose Region Info left side
 
 function showImgProvincia(nombre ,provinciasMapa){
-	document.getElementById('regionMapa').src = provinciasMapa;
+	document.getElementById('regionMapa').style.backgroundImage = provinciasMapa;
 	document.getElementById('regionNombre').innerHTML = nombre;
-	document.getElementById('colLeft').style.display = 'flex';
+	
+
 
 }
 
@@ -241,8 +241,12 @@ function changeInfoFrontside(generosRegion){
 	let generoTit = document.querySelectorAll('.gen');
 	for (let i = 0; i < generoTit.length;i++){
 		let j = Math.floor(i/4);
-		generoTit[i].innerHTML = generosRegion[j];
+		let k = i%4;
+		if(k === 0){
+			generoTit[i].innerHTML = generosRegion[j];
 		};
+	};
+		
 	};	
 	
 		
@@ -377,8 +381,8 @@ function changeBGImages(fotosRegion){
 // Background color
 function changeBGColor(fondo){
 	document.body.style.backgroundImage = `linear-gradient(to bottom right, grey, ${fondo})`;
-	document.getElementById('colLeft').style.backgroundImage = `linear-gradient(to bottom left, grey, ${fondo})`;
-	document.getElementById('instrumentsBar').style.backgroundImage = `linear-gradient(to bottom right, grey, ${fondo})`;
+	document.getElementById('sideBar').style.backgroundImage = `linear-gradient(to bottom left, grey, ${fondo})`;
+	//document.getElementById('instrumentsBar').style.backgroundImage = `linear-gradient(to bottom right, grey, ${fondo})`;
 	
 	cardBackside = document.querySelectorAll('.flip-card-back');
 	for(tile of cardBackside){
@@ -516,7 +520,7 @@ function createInstrumentsBar(instrumentos) {
 //DATA	
 
 let NOA = new Region('Noroeste',
-	'img/Regiones/noroeste.png',
+	"url('img/Regiones/noroeste.png')",
 	['Huayno y Carnavalito','Vidala o yaraví','Baguala'], 
 	[
 	"url('img/Puna/Chola.jpg')",
@@ -563,7 +567,7 @@ let NOA = new Region('Noroeste',
 	);
 
 let Litoral = new Region('Litoral',
-	'img/Regiones/litoral.png',
+	"url('img/Regiones/litoral.png')",
 	['Chamamé','Rasguido doble','Chamarrita'], 
 	[
 	"url('img/Litoral/Bañado.jpg')",
@@ -616,7 +620,7 @@ let Litoral = new Region('Litoral',
 
 
 let Cuyo = new Region('Cuyo',
-	'img/Regiones/cuyo.png',
+	"url('img/Regiones/cuyo.png')",
 	['Cueca','Gato cuyano','Tonada'], 
 	[
 	"url('img/Cuyo/Aconcagua-desde-arriba.jpg')",
@@ -662,7 +666,7 @@ let Cuyo = new Region('Cuyo',
 	);
 
 let Centro = new Region('Centro',
-	'img/Regiones/centro.png',
+	"url('img/Regiones/centro.png')",
 	['Gato Norteño','Chacarera','Escondido','Zamba'], 
 	[
 	"url('img/Centro/bailando.jpg')",
@@ -722,7 +726,7 @@ let Centro = new Region('Centro',
 	);
 
 let Pampeana = new Region('Pampeana',
-	'img/Regiones/pampeana.png',
+	"url('img/Regiones/pampeana.png')",
 	['Malambo','Huella','Payada'], 
 	[
 	"url('img/Pampeana/Atardecer-pampeano.jpg')",
@@ -770,7 +774,7 @@ let Pampeana = new Region('Pampeana',
 	);
 
 let Ciudadana = new Region('Ciudadana',
-	'img/Regiones/ciudadana.png',
+	"url('img/Regiones/ciudadana.png')",
 	['Tango','Milonga Ciudadana'//,''
 	], 
 	[
@@ -815,7 +819,7 @@ let Ciudadana = new Region('Ciudadana',
 	);
 
 let Patagonia = new Region('Patagonia',
-	'img/Regiones/patagonia.png',
+	"url('img/Regiones/patagonia.png')",
 	['Loncomeo'//,'',''
 						], 
 	[
