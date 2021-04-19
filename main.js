@@ -225,6 +225,8 @@ function clearInfo(){
 		instruments.remove();
     };
 
+    	clearInstrumentCard();
+
 };
  
 
@@ -403,24 +405,108 @@ function hideZoomInfoOverlay(){
 
 //Instruments info
 
+function Instrumento(nombre, caract){
+	this.nombre = nombre;
+	this.caract = caract;
+
+};
+
+function selInstrument(instrument){
+	
+switch (instrument.nombre){
+	case 'Caja' : createInstrumentInfo(instrument.nombre, instrument.caract);
+	break;
+	case 'Quena' : createInstrumentInfo(instrument.nombre, instrument.caract);
+	break;
+	case 'Siku o zampoña' : createInstrumentInfo(instrument.nombre, instrument.caract);
+	break;
+		};
+
+};
+
+function createInstrumentInfo(nombre, caract) {
+
+	clearInstrumentCard();
+
+	let body = document.body;
+	let instrumentCardOuter = document.createElement('div');
+	instrumentCardOuter.setAttribute('id', 'instrumentCardOuter');
+	body.insertBefore(instrumentCardOuter, body.firstChild);
+
+	let instrumentCardMiddle = document.createElement('div');
+	instrumentCardMiddle.setAttribute('id', 'instrumentCardMiddle');
+	instrumentCardOuter.appendChild(instrumentCardMiddle);
+
+	let instrumentCard = document.createElement('div');
+	instrumentCard.setAttribute('id', 'instrumentCard');
+	instrumentCardMiddle.appendChild(instrumentCard);
+
+	let close = document.createElement('a');
+	close.setAttribute('href','javascript:clearInstrumentCard()');
+	close.innerHTML = 'close';
+	instrumentCard.appendChild(close);
+
+	
+	let nombreTit = document.createElement('h3');
+	nombreTit.innerHTML = nombre;
+	instrumentCard.appendChild(nombreTit);
+
+	let caractList = document.createElement('ul');
+
+	for (i = 0; i < caract.length; i++){
+		let caractItem = document.createElement('li');
+		caractItem.innerHTML = caract[i];
+		caractList.appendChild(caractItem);
+	}
+
+	
+	instrumentCard.appendChild(caractList);
+	
+	
+	
+
+
+
+
+};
+
+function clearInstrumentCard(){
+	let myinstrumentCardOuter = document.getElementById("instrumentCardOuter");
+	
+	if(myinstrumentCardOuter){
+		instrumentCardOuter.remove();
+	   };
+
+};
+
+
 function createInstrumentsBar(instrumentos) {
 	let footer = document.querySelector('footer');
 
 	for (i = 0; i < instrumentos.length; i++){
+	let instrumentContainer = document.createElement('a');
+	instrumentContainer.setAttribute('class','instruments');
+
+	let instrumentoString = instrumentos[i].toString().split(' ');
+	let iValue = instrumentoString[0];
+	instrumentContainer.setAttribute('id', iValue);
+
+	instrumentContainer.setAttribute('href',`javascript:selInstrument(${iValue})`)
+
 	let instrument = document.createElement('div');
-	instrument.setAttribute('class','instruments');
+	
+	footer.appendChild(instrumentContainer);
+
 	instrument.innerHTML = instrumentos[i];
-	footer.appendChild(instrument);
+
+	instrumentContainer.appendChild(instrument);
 
 	};
 	
 
 };
 
-function instrumentsInfo() {
 
-
-};
 
 
 
@@ -440,7 +526,11 @@ let NOA = new Region('Noroeste',
 	"url('img/Puna/Paisaje-del-noroeste.jpg')",
 	"url('img/Puna/Yendo-a-la-escuela.jpg')",
 	"url('img/Puna/Quena.jpg')",
-	"url('img/Puna/Hornocal-Jujuy.jpg')"
+	"url('img/Puna/Hornocal-Jujuy.jpg')",
+	"url('img/Puna/carnaval.jpg')",
+	"url('img/Puna/pucaratilcara.jpg')",
+	"url('img/Puna/salinas-puna.jpg')",
+	"url('img/Puna/salta-ciudad.jpg')"
 	],
 	"rgb(215, 139, 125)",
 		[
@@ -469,7 +559,7 @@ let NOA = new Region('Noroeste',
 		]	
 	],
 	[//instrumentos
-	'Caja o tambor de mano','Quena','Siku o zampoña','Erke', 'Chajchaj', 'Charango']
+	'Caja','Quena','Siku o zampoña','Erke', 'Chajchaj', 'Charango']
 	);
 
 let Litoral = new Region('Litoral',
@@ -483,7 +573,11 @@ let Litoral = new Region('Litoral',
 	"url('img/Litoral/el-palmar.jpg')",
 	"url('img/Litoral/pesca-en-el-Paraná.jpg')",
 	"url('img/Litoral/Ruta-Jesuita-San-Ignacio-Miní-Misiones.jpg')",
-	"url('img/Litoral/tierra-roja-y-yerba.jpg')"
+	"url('img/Litoral/tierra-roja-y-yerba.jpg')",
+	"url('img/Litoral/Ave.jpg')",
+	"url('img/Litoral/Caraballo-Entre-Ríos.jpg')",
+	"url('img/Litoral/dorado.jpg')",
+	"url('img/Litoral/Flamencos-en-Santa-Fe.jpg')"
 	],
 	"rgb(146, 199, 222)",
 			[
@@ -517,7 +611,7 @@ let Litoral = new Region('Litoral',
 		]	
 	],
 	[//instrumentos
-	'Guitarra','Acordeón']
+	'Guitarra','Acordeón','Bandoneón']
 	);
 
 
@@ -532,7 +626,11 @@ let Cuyo = new Region('Cuyo',
 	"url('img/Cuyo/San-Juan.jpg')",
 	"url('img/Cuyo/San-luis.jpg')",
 	"url('img/Cuyo/San-Rafael.jpg')",
-	"url('img/Cuyo/uvas-viñedos-mendoza.jpg')"
+	"url('img/Cuyo/uvas-viñedos-mendoza.jpg')",
+	"url('img/Cuyo/Bodegas-de-San-Rafael.jpg')",
+	"url('img/Cuyo/lasleñas.jpg')",
+	"url('img/Cuyo/puente-inca.jpg')",
+	"url('img/Cuyo/sanjuan.jpg')"
 	],
 	"rgb(212, 172, 129)",
 		[
@@ -574,7 +672,15 @@ let Centro = new Region('Centro',
 	"url('img/Centro/embudo.jpg')",
 	"url('img/Centro/lagosanroque.jpg')",
 	"url('img/Centro/Patio-del-Indio-Froilan.jpg')",
-	"url('img/Centro/termas.jpg')"
+	"url('img/Centro/termas.jpg')",
+	"url('img/Centro/abuela.jpg')",
+	"url('img/Centro/carabajal.jpg')",
+	"url('img/Centro/empanadas.jpg')",
+	"url('img/Centro/Merlo.jpg')",
+	"url('img/Centro/Nono.jpg')",
+	"url('img/Centro/puente-carretero.jpg')",
+	"url('img/Centro/Rafaela.jpg')",
+	"url('img/Centro/rio-dulce.jpg')"
 	],
 	"rgb(253, 225, 200)",
 		[
@@ -626,7 +732,11 @@ let Pampeana = new Region('Pampeana',
 	"url('img/Pampeana/ombu.jpg')",
 	"url('img/Pampeana/Paisaje-campestre.jpg')",
 	"url('img/Pampeana/Payador_rancho.jpg')",
-	"url('img/Pampeana/soja.jpg')"
+	"url('img/Pampeana/soja.jpg')",
+	"url('img/Pampeana/ganadoyaves.jpg')",
+	"url('img/Pampeana/hornero.jpg')",
+	"url('img/Pampeana/pulperia.jpg')",
+	"url('img/Pampeana/trigo.jpg')"
 	],
 	"rgb(176, 191, 148)",
 		[
@@ -749,8 +859,12 @@ let Patagonia = new Region('Patagonia',
 	'Kultrum','Trutruka']
 	);
 
-var instrumentos = {
-	Caja: ['Caja o tambor de mano','Tambor pequeño, doble parche, se toca con una mano sosteniendola y con la otra con baqueta'],
-	Quena: ['Quena','Aerófono de caña, un solo tubo con agujeros, con bisel de muesca'],
-	Siku:['Siku o zampoña','Hileras de tubos de cañas, una nota cada tubo, Siku (aymará) tubo que da sonido'],
-}
+
+let Caja = new Instrumento('Caja',
+	['Tambor pequeño, doble parche, se toca con una mano sosteniendola y con la otra con baqueta']);
+
+let Quena = new Instrumento('Quena',
+	['Aerófono de caña, un solo tubo con agujeros, con bisel de muesca']);
+
+let Siku = new Instrumento('Siku o zampoña',
+	['Hileras de tubos de cañas, una nota cada tubo', 'Siku (aymará) tubo que da sonido']);

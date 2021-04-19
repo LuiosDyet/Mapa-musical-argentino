@@ -360,13 +360,42 @@ h2#regionNombre {
 
 footer {
   height: 10.7vh;
-  background-color: red;
   display: flex;
 }
 
-.instruments {
+#instrumentCardOuter {
+  
+  position: absolute;
+  height: 100vh;
+  width: 100vw;  
+  z-index: 20;
+  backdrop-filter: blur(3px);
+  
+
+}
+
+#instrumentCardMiddle {
+ position: absolute;
+  left: 50%
+
+}
+
+#instrumentCard {
+position: relative;
+  left: -50%;
+  top: 10vh;
+  min-height: 80vh;
+  min-width: 50vw;
+  background-color: green;
+  opacity: 1; 
+
+}
+
+a:link {
   flex: 1;
-  text-align: center;
+  display: block;
+  text-decoration: none;
+    text-align: center;
   color: white;
   font-size: 200%;
   margin: 0px;
