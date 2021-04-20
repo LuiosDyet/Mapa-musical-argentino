@@ -10,7 +10,30 @@ body {
   margin: 0;
   height: 100vh;
   overflow: hidden;
-}
+
+  background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+    }
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:51% 0%}
+        50%{background-position:50% 100%}
+        100%{background-position:51% 0%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:51% 0%}
+        50%{background-position:50% 100%}
+        100%{background-position:51% 0%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:51% 0%}
+        50%{background-position:50% 100%}
+        100%{background-position:51% 0%}
+    }
+
 
 section {
   display: flex;
@@ -26,11 +49,6 @@ section {
 
 .main {
   width: 85vw;
-}
-
-.tile {
-
- 
 }
 
 @media only screen and (max-width: 600px) {
@@ -109,21 +127,41 @@ svg {
 #l1 {
   height: 40vh;  
 }
+
 #l2{
   height: 50vh;
-  
-
-  
+  display: none;
 }
 
 @media only screen and (max-width: 600px){
   svg, #l1 {
-  height: 90vh;
+  height: 92vh;
   }
 
   body {
-    background-color: blue;
-  }
+   background: linear-gradient(246deg, #19199c, #62c2ab);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 24s ease infinite;
+    -moz-animation: AnimationName 24s ease infinite;
+    animation: AnimationName 24s ease infinite;
+    }
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 96%}
+        50%{background-position:100% 5%}
+        100%{background-position:0% 96%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:0% 96%}
+        50%{background-position:100% 5%}
+        100%{background-position:0% 96%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:0% 96%}
+        50%{background-position:100% 5%}
+        100%{background-position:0% 96%}
+    }
 }
 
 h2#regionNombre {
@@ -131,6 +169,7 @@ h2#regionNombre {
   color: white;
   font-size: 250%;
   margin: 0px;
+  margin-top: 5vh;
   text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
 }
 
@@ -142,9 +181,33 @@ h2#regionNombre {
   z-index: 10;
   height: 100vh;
   width: 100vw;
-  background-color: blue;
+  
   opacity: 1;
- }
+
+  background: linear-gradient(246deg, #19199c, #62c2ab);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 24s ease infinite;
+    -moz-animation: AnimationName 24s ease infinite;
+    animation: AnimationName 24s ease infinite;
+    }
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 96%}
+        50%{background-position:100% 5%}
+        100%{background-position:0% 96%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:0% 96%}
+        50%{background-position:100% 5%}
+        100%{background-position:0% 96%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:0% 96%}
+        50%{background-position:100% 5%}
+        100%{background-position:0% 96%}
+    }
+ 
 
 @media only screen and (max-width: 600px) {
 
@@ -167,25 +230,44 @@ h2#regionNombre {
   position: absolute;
   left: 50%
 }
-#overlayInfoBody, #overlayInfoH2, #overlayInfoH3{
- position: relative;
- top: 10vh;
 
+#overlayInfoBody {
+ position: relative;
 }
 
 #overlayInfo {
   position: relative;
   left: -50%;
-  top: 10vh;
-  min-height: 80vh;
+  top: 5vh;
+  max-height: 90vh;
   min-width: 50vw;
+  overflow: scroll;
+  border-style: outset;
+  border-width: 2px;
+}
+
+#overlayInfoH2 {
+  text-align: center;
+  color: white;
+  font-size: 250%;
+  margin: 0px;
+  text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
+}
+
+#overlayInfoH3 {
+  text-align: center;
+  color: white;
+  font-size: 150%;
+  text-shadow: 1px 1px 2px #000000;
+} 
+
+#overlayInfoBody {
+  font-size: 150%;
 }
 
 #closeImg {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  z-index: 30;
+  float: right;
+  margin: 20px;
 }
 
 #bigMap{
@@ -202,22 +284,11 @@ flex-wrap: wrap;
       }
 }
 
-
-
 .flexCol{
 display: flex;
 flex-wrap: wrap;
 justify-content: center;
-  
 }
-
-
-.tile {
- 
-
-}
-
-
 
 ul > li, p{
   text-align: left;
@@ -225,8 +296,7 @@ ul > li, p{
 
 img{
    display: block;
-  margin-left: 0;
-  
+  margin-left: 0; 
 }
 
 
@@ -357,13 +427,13 @@ iframe {
   border: 0;
 
 }
-
+/*
 #overlayInfo > div {
   min-height: 80vh;
   min-width: 50vw;
 
 }
-
+*/
 #overlayInfo > div > div  {
   position: relative;
   width: 100%;
@@ -398,13 +468,13 @@ h4 {
 
 .regionBig:hover {
   filter:  brightness(1.2);
+  cursor: pointer;
 }
 
 #centeredPosition{
    position: absolute;
    left: 50%;
    z-index: 10;
-
 }
 
 .infoRegionOverlayMap {
@@ -412,53 +482,54 @@ h4 {
   position: relative;
   background-color: green;
 }
-#irom-noroeste{ 
+
+#irom-noroeste{   
+  background: linear-gradient(0deg, white, #d78b7d); 
   left: -150%;
   top: 5vh; 
   display: none;
-  }
+}
 
 #irom-litoral{
+  background: linear-gradient(0deg, white, #92C7DE);
   left: 80%;
   top: 15vh; 
   display: none;
-  }
+}
 
 #irom-centro{
+  background: linear-gradient(0deg, white, #FDE1C8);
   left: -160%;
   top: 15vh; 
   display: none;
-  }
+}
 
 #irom-cuyo{
+  background: linear-gradient(0deg, white, #D4AC81);
   left: -165%;
   top: 25vh; 
   display: none;
-  }
+}
 
 #irom-pampeana{
+  background: linear-gradient(0deg, white, #B0BF94);
   left: 60%;
   top: 55vh; 
   display: none;
-  }
+}
 
 #irom-ciudadana{
+  background: linear-gradient(0deg, white, #D5D4C6);
   left: 65%;
   top: 40vh; 
   display: none;
-  }
+}
 
 #irom-patagonia{
+  background: linear-gradient(0deg, white, #999BB4);
   left: -175%;
   top: 50vh; 
   display: none;
   }
 
-#haceClick{
-  border: 3px solid black;
-  position: absolute;
-  z-index: 20;
-  left: 50%;
-  z-index: 20;
-  top: 2vh;
-}
+

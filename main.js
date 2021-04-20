@@ -99,6 +99,8 @@ function showBigMap(){
 //Create cards
 
 function createCards(generosRegion){
+	document.getElementById('l2').style.display = 'block';
+
 	let main = document.getElementById('main');
 	let cardQty = generosRegion.length * 4;
 
@@ -243,9 +245,10 @@ function changeInfoFrontside(generosRegion){
 	let generoTit = document.querySelectorAll('.gen');
 	for (let i = 0; i < generoTit.length;i++){
 		let j = Math.floor(i/4);
+		generoTit[i].innerHTML = generosRegion[j];
 		let k = i%4;
-		if(k === 0){
-			generoTit[i].innerHTML = generosRegion[j];
+		if(k !== 0){
+			generoTit[i].style.display = 'none'
 		};
 	};
 		
@@ -261,7 +264,7 @@ function changeInforBackside(caractGeneros){
 	for (let i = 0; i<genInfo.length; i++){
 		//j is external array
 		let j = Math.floor(i/4);
-		//k is internal arrya
+		//k is internal array
 		let k = i%4;
 		if (i%4 === 0) {
 			list = createInfoGeneroMus(caractGeneros,j)
@@ -286,7 +289,7 @@ function createInfoGeneroMus(caractGeneros, genIndex){
 	
 	let list = document.createElement('ul');	
 		
-		for (i = 0; i < caractGeneros[genIndex][0].length; i++)  {
+		for (i = 0; i < caractGeneros[genIndex][0][0].length; i++)  {
 			let k = i%4;
 
 			let listItem = document.createElement('li');
@@ -382,8 +385,8 @@ function changeBGImages(fotosRegion){
 
 // Background color
 function changeBGColor(fondo){
-	document.body.style.backgroundImage = `linear-gradient(to bottom right, grey, ${fondo})`;
-	document.getElementById('sideBar').style.backgroundImage = `linear-gradient(to bottom left, grey, ${fondo})`;
+	document.body.style.backgroundImage = `linear-gradient(180deg, grey, ${fondo})`;
+	//document.getElementById('sideBar').style.backgroundImage = `linear-gradient(to bottom left, grey, ${fondo})`;
 	//document.getElementById('instrumentsBar').style.backgroundImage = `linear-gradient(to bottom right, grey, ${fondo})`;
 	
 	cardBackside = document.querySelectorAll('.flip-card-back');
@@ -403,39 +406,19 @@ function changeBGColor(fondo){
 
 function showZoomInfoOverlay(tileCopied){
 	document.getElementById('overlayBackground').style.display = 'block';
-
+		
 	let copiedCardInfo = document.getElementById('copiedCardInfo');
 	let tileSelected = tileCopied.getAttribute("id");
 	
-	let overlayInfoH3Copied = document.getElementById(`h3${tileSelected}`);
-	//overlayInfoH3.style.position = 'static';
-	overlayInfoH3.innerHTML = overlayInfoH3Copied.innerHTML;
-
-	tileSelected.toString();
-	//loops if and isNan();
-	tileSelectedLastNumber = tileSelected.slice(-2);
-	if(isNan(tileSelectedLastNumber)){
-		tileSelectedLastNumber = tileSelected.slice(-1);
-		}else{
-			alert(tileSelectedLastNumber);
-	tileSelectedLastNumber = Math.floor(tileSelectedLastNumber/4);
-
-	tileSelected = tileSelected.slice(0, -1);
-
-	alert(tileSelectedLastNumber);
-
-
-	let overlayInfoH2Copied = document.getElementById(`h2${tileSelected+(tileSelectedLastNumber*4)}`);
-	//overlayInfoH2.style.position = 'static';
+	let overlayInfoH2Copied = document.getElementById(`h2${tileSelected}`);
 	overlayInfoH2.innerHTML = overlayInfoH2Copied.innerHTML;
 
-	};
-	
+	let overlayInfoH3Copied = document.getElementById(`h3${tileSelected}`);
+	overlayInfoH3.innerHTML = overlayInfoH3Copied.innerHTML;
 
 	let overlayInfo = document.getElementById('copiedCardInfo');
 	overlayInfoBody.innerHTML = tileCopied.innerHTML;
 	
-
 };
 
 function hideZoomInfoOverlay(){
@@ -612,7 +595,7 @@ let NOA = new Region('Noroeste',
 	"rgb(215, 139, 125)",
 		[
 		[//Huayno
-			[['Generalmente pentatónico (cinco notas)','Pie binario' ],//caract
+			[['Pie binario', 'Generalmente pentatónico (cinco notas)' ],//caract
 			[['Pie del huayno', 'img/PieHuayno.png'],['Pie del carnavalito','img/PieCarnavalito.png']]], //img
 			[['Ejemplo música', 'https://www.youtube.com/embed/BoLZRaM2vfA']
 			],//ejemplos música
