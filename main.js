@@ -9,15 +9,19 @@ function Region(nombre, provinciasMapa, generosRegion, fotosRegion, fondo,caract
 	this.caractGeneros = caractGeneros;
 	this.instrumentos = instrumentos
 
-this.changeRegion = function(nombre, provinciasMapa, generosRegion, fotosRegion, caractGeneros, instrumentos){
+this.changeRegion = function(nombre, provinciasMapa, generosRegion, fotosRegion, fondo, caractGeneros, instrumentos){
+
 	clearInfo();
 
 	generosRegion = this.generosRegion;
-	createCards(generosRegion);
-	tilesPerRow(generosRegion);
+
+	createCards(generosRegion.length*4);
+	tilesPerRow(generosRegion.length*4);
 	
 	generosRegion = this.generosRegion;
 	changeInfoFrontside(generosRegion);
+
+	frontsideSubtitulo(generosRegion.length*4);
 
 	caractGeneros = this.caractGeneros;
 	changeInforBackside(caractGeneros);
@@ -46,26 +50,29 @@ let selRegion = function() {
 	hideBigMap();
 	
     let region = this.getAttribute("id");
+
+  
     //alert(region);
     
     switch (region) {
-    	case 'noroeste' : NOA.changeRegion();
+    	case 'noroeste' : noroeste.changeRegion();
     		break;
-	    case 'litoral' : Litoral.changeRegion();
+	    case 'litoral' : litoral.changeRegion();
 	    	break;
-	    case 'centro': Centro.changeRegion();
+	    case 'centro': centro.changeRegion();
 	    	break
-	    case 'cuyo' : Cuyo.changeRegion();
+	    case 'cuyo' : cuyo.changeRegion();
 	    	break
-	    case 'pampeana' : Pampeana.changeRegion();
+	    case 'pampeana' : pampeana.changeRegion();
 	    	break
-	    case 'ciudadana' : Ciudadana.changeRegion();
+	    case 'ciudadana' : ciudadana.changeRegion();
 	    	break
-	    case 'patagonia' : Patagonia.changeRegion();
+	    case 'patagonia' : patagonia.changeRegion();
 	    	break
 
 
     };
+    document.getElementById('l3Opcion').innerHTML  = 'Instrumentos de la región';
 };
 
 for (let i = 0; i < regiones.length; i++) {
@@ -102,7 +109,7 @@ function createCards(generosRegion){
 	document.getElementById('l2').style.display = 'block';
 
 	let main = document.getElementById('main');
-	let cardQty = generosRegion.length * 4;
+	let cardQty = generosRegion;
 
 
 	for(i = 0; i < cardQty; i++){
@@ -133,22 +140,8 @@ function createCards(generosRegion){
 	tituloGen.setAttribute('id',`h2rt${i}`);
 	r.appendChild(tituloGen);
 
-	let tituloHiddenCaract = document.createElement('h3');
-	tituloHiddenCaract.setAttribute('class', 'titulo hiddenCaract');
-	tituloHiddenCaract.setAttribute('id',`h3rt${i}`);
+
 	
-	switch(i%4){
-		case 0: tituloHiddenCaract.innerHTML = 'Características de la música';
-		break;
-		case 1: tituloHiddenCaract.innerHTML = 'Ejemplo Música';
-		break;
-		case 2: tituloHiddenCaract.innerHTML = 'Características de la danza';
-		break;
-		case 3: tituloHiddenCaract.innerHTML = 'Ejemplo Danza';
-		break;
-	}
-	
-	r.appendChild(tituloHiddenCaract);
 
 	let flipCardBack = document.createElement('div');
 	flipCardBack.setAttribute('class','flip-card-back');
@@ -179,14 +172,28 @@ function createCards(generosRegion){
 };
 
 function tilesPerRow(generosRegion){
-	let generosQty = generosRegion.length;
+	let generosQty = generosRegion;
 	if (generosQty === 1){
-		var j = 2; var k = 2;
+		var j = 1; var k = 1;
 	}else if (generosQty === 2){
-		var j = 4; var k = 2;
+		var j = 2; var k = 1;
 	}else if (generosQty === 3){
-		var j = 4; var k = 3;
+		var j = 2; var k = 2;	
+
 	}else if (generosQty === 4){
+		var j = 2; var k = 2;
+	}else if (generosQty === 5){
+		var j = 3; var k = 2;
+	}else if (generosQty === 6){
+		var j = 3; var k = 2;
+	}else if (generosQty === 7){
+		var j = 4; var k = 2;
+		
+	}else if (generosQty === 8){
+		var j = 4; var k = 2;
+	}else if (generosQty === 12){
+		var j = 4; var k = 3;
+	}else if (generosQty === 16){
 		var j = 4; var k = 4;
 	};
 	
@@ -229,18 +236,14 @@ function clearInfo(){
 		instruments.remove();
     };
 
-    	clearInstrumentCard();
+    	
 
 };
  
 
-// Set frontside information
+// Set frontside information generos
 
 function changeInfoFrontside(generosRegion){
-	let caract = document.querySelectorAll('.hiddenCaract');
-	for(element of caract){
-		element.style.display = 'block'
-	};
 
 	let generoTit = document.querySelectorAll('.gen');
 	for (let i = 0; i < generoTit.length;i++){
@@ -253,9 +256,38 @@ function changeInfoFrontside(generosRegion){
 	};
 		
 	};	
+
+function frontsideSubtitulo(generosRegion){
 	
+	let cardQty = generosRegion;
+
+
+	for(i = 0; i < cardQty; i++){	
+
+		let r = document.getElementById(`r${i}`);
+
+		let tituloHiddenCaract = document.createElement('h3');
+		tituloHiddenCaract.setAttribute('class', 'titulo hiddenCaract');
+		tituloHiddenCaract.setAttribute('id',`h3rt${i}`);
+	
+	switch(i%4){
+		case 0: tituloHiddenCaract.innerHTML = 'Características de la música';
+		break;
+		case 1: tituloHiddenCaract.innerHTML = 'Ejemplo Música';
+		break;
+		case 2: tituloHiddenCaract.innerHTML = 'Características de la danza';
+		break;
+		case 3: tituloHiddenCaract.innerHTML = 'Ejemplo Danza';
+		break;
+		};
+	
+	r.appendChild(tituloHiddenCaract);
+	};
+};
+
+
 		
-// Backside information
+// Backside information generos
 
 
 
@@ -397,6 +429,7 @@ function changeBGColor(fondo){
 
 	document.getElementById('overlayInfo').style.backgroundImage = `linear-gradient(${fondo}, white)`;
 	
+	document.getElementById('l3Opcion').style.backgroundColor = `${fondo}`;
 
 
 }
@@ -426,108 +459,163 @@ function hideZoomInfoOverlay(){
 };
 
 
-//Instruments info
+//Change instrument- genre
 
-function Instrumento(nombre, caract){
-	this.nombre = nombre;
-	this.caract = caract;
+function changeInstrGene(){
+	let buttonInstGen = document.getElementById('l3Opcion');
+	if(buttonInstGen.innerHTML	 === 'Instrumentos de la región'){
+		buttonInstGen.innerHTML = 'Géneros de la región';
+		setCurrentRegionGeneros();
+		} else {
+		buttonInstGen.innerHTML	 = 'Instrumentos de la región';
+		setCurrentRegionInstrumentos();
+	};
+};
+
+  function setCurrentRegionGeneros(){
+  	clearInfo();
+
+  	let regionNombre = document.getElementById('regionNombre');
+  	regionNombre = regionNombre.innerHTML;
+  	regionNombre = regionNombre.toLowerCase();
+  	switch (regionNombre) {
+    	case 'noroeste' : ChangeInstruments(noroeste.instrumentos);
+    					  changeBGColor(noroeste.fondo);
+    		break;
+	    case 'litoral' : ChangeInstruments(litoral.instrumentos);
+	    				  changeBGColor(litoral.fondo);
+	    	break;
+	    case 'centro': ChangeInstruments(centro.instrumentos);
+	    				  changeBGColor(centro.fondo);
+	    	break
+	    case 'cuyo' : ChangeInstruments(cuyo.instrumentos);
+	    				  changeBGColor(cuyo.fondo);
+	    	break
+	    case 'pampeana' : ChangeInstruments(pampeana.instrumentos);
+	    				  changeBGColor(pampeana.fondo);
+	    	break
+	    case 'ciudadana' : ChangeInstruments(ciudadana.instrumentos);
+	    				  changeBGColor(ciudadana.fondo);
+	    	break
+	    case 'patagonia' : ChangeInstruments(patagonia.instrumentos);
+	    				  changeBGColor(patagonia.fondo);
+	    	break
+
+
+    };
 
 };
 
-function selInstrument(instrument){
+  function setCurrentRegionInstrumentos(){
+  	clearInfo();
+
+  	let regionNombre = document.getElementById('regionNombre');
+  	regionNombre = regionNombre.innerHTML;
+  	regionNombre = regionNombre.toLowerCase();
+  	switch (regionNombre) {
+    	case 'noroeste' : noroeste.changeRegion();
+    		break;
+	    case 'litoral' : litoral.changeRegion();
+	    	break;
+	    case 'centro': centro.changeRegion();
+	    	break
+	    case 'cuyo' : cuyo.changeRegion();
+	    	break
+	    case 'pampeana' : pampeana.changeRegion();
+	    	break
+	    case 'ciudadana' : ciudadana.changeRegion();
+	    	break
+	    case 'patagonia' : patagonia.changeRegion();
+	    	break
+
+
+    };
+
+};
+
+
+function ChangeInstruments(instrumentos){
+	clearInfo();
+
+	createCards(instrumentos[0].length);
+	tilesPerRow(instrumentos[0].length);
+
+	changeInfoFrontsideInstrumentos(instrumentos[0]);
+
+	changeInforBacksideInstrumentos(instrumentos);
+
+	fotosInstrumentos(instrumentos[2]);
 	
-switch (instrument.nombre){
-	case 'Caja' : createInstrumentInfo(instrument.nombre, instrument.caract);
-	break;
-	case 'Quena' : createInstrumentInfo(instrument.nombre, instrument.caract);
-	break;
-	case 'Siku o zampoña' : createInstrumentInfo(instrument.nombre, instrument.caract);
-	break;
+
+};
+
+// Set frontside information instrumentos
+
+function changeInfoFrontsideInstrumentos(instrumentos){
+
+	let generoTit = document.querySelectorAll('.gen');
+	for (let i = 0; i < generoTit.length;i++){
+		
+		generoTit[i].innerHTML = instrumentos[i];
+			};
+};	
+
+
+// Backside information instrumentos
+
+
+
+function changeInforBacksideInstrumentos(instrumentos){
+	let genInfo = document.querySelectorAll('.cardInfo');
+	for (let i = 0; i<genInfo.length; i++){
+		
+			list = createInfoInstrumento(instrumentos[1][i])
+			genInfo[i].appendChild(list);
+	
+	};
+
+};
+
+function createInfoInstrumento(instrumentos){
+	
+	let list = document.createElement('ul');	
+		
+		for (i = 0; i < instrumentos.length; i++)  {
+			
+			let listItem = document.createElement('li');
+
+			listItem.innerHTML = instrumentos[i];
+			list.appendChild(listItem);
+
 		};
 
-};
+		/*for (i = 0; i < caractGeneros[genIndex][0][1].length; i++)  {
+			let k = i%4;
 
-function createInstrumentInfo(nombre, caract) {
+			let imgData = document.createElement('p');
+			let img = document.createElement('img');
 
-	clearInstrumentCard();
+			imgData.innerHTML = caractGeneros[genIndex][0][1][k][0];
+			img.src = caractGeneros[genIndex][0][1][k][1];
 
-	let body = document.body;
-	let instrumentCardOuter = document.createElement('div');
-	instrumentCardOuter.setAttribute('id', 'instrumentCardOuter');
-	body.insertBefore(instrumentCardOuter, body.firstChild);
-
-	let instrumentCardMiddle = document.createElement('div');
-	instrumentCardMiddle.setAttribute('id', 'instrumentCardMiddle');
-	instrumentCardOuter.appendChild(instrumentCardMiddle);
-
-	let instrumentCard = document.createElement('div');
-	instrumentCard.setAttribute('id', 'instrumentCard');
-	instrumentCardMiddle.appendChild(instrumentCard);
-
-	let close = document.createElement('a');
-	close.setAttribute('href','javascript:clearInstrumentCard()');
-	close.innerHTML = 'close';
-	instrumentCard.appendChild(close);
-
-	
-	let nombreTit = document.createElement('h3');
-	nombreTit.innerHTML = nombre;
-	instrumentCard.appendChild(nombreTit);
-
-	let caractList = document.createElement('ul');
-
-	for (i = 0; i < caract.length; i++){
-		let caractItem = document.createElement('li');
-		caractItem.innerHTML = caract[i];
-		caractList.appendChild(caractItem);
-	}
-
-	
-	instrumentCard.appendChild(caractList);
-	
-	
-	
-
-
-
-
-};
-
-function clearInstrumentCard(){
-	let myinstrumentCardOuter = document.getElementById("instrumentCardOuter");
-	
-	if(myinstrumentCardOuter){
-		instrumentCardOuter.remove();
-	   };
-
+			list.appendChild(imgData);
+			list.appendChild(img);
+		};
+*/
+	return list;
 };
 
 
-function createInstrumentsBar(instrumentos) {
-	let footer = document.querySelector('footer');
+//fotos instrumentos
 
-	for (i = 0; i < instrumentos.length; i++){
-	let instrumentContainer = document.createElement('a');
-	instrumentContainer.setAttribute('class','instruments');
-
-	let instrumentoString = instrumentos[i].toString().split(' ');
-	let iValue = instrumentoString[0];
-	instrumentContainer.setAttribute('id', iValue);
-
-	instrumentContainer.setAttribute('href',`javascript:selInstrument(${iValue})`)
-
-	let instrument = document.createElement('div');
-	
-	footer.appendChild(instrumentContainer);
-
-	instrument.innerHTML = instrumentos[i];
-
-	instrumentContainer.appendChild(instrument);
-
+function fotosInstrumentos(instrumentos){
+	for(let i = 0; i < instrumentos.length; i++){
+	img = document.getElementById(`r${i}`)
+	img.style.backgroundImage = instrumentos[i];
 	};
-	
+};	
 
-};
+
 
 //Show Info Region initial overlay
 
@@ -575,7 +663,7 @@ document.addEventListener("keydown", function(event) {
 
 //DATA	
 
-let NOA = new Region('Noroeste',
+let noroeste = new Region('Noroeste',
 	"url('img/Regiones/noroeste.png')",
 	['Huayno y Carnavalito','Vidala o yaraví','Baguala'], 
 	[
@@ -618,11 +706,26 @@ let NOA = new Region('Noroeste',
 			[['','']]
 		]	
 	],
-	[//instrumentos
-	'Caja','Quena','Siku o zampoña','Erke', 'Chajchaj', 'Charango']
+	[[//instrumentos
+	'Caja','Quena','Siku o zampoña','Erke', 'Chajchaj', 'Charango'],
+	[//características instrumentos
+	['Tambor pequeño, doble parche, se toca con una mano sosteniendola y con la otra con baqueta'], 
+	['Aerófono de caña, un solo tubo con agujeros, con bisel de muesca'],
+	['Hileras de tubos de cañas, una nota cada tubo','Siku (aymará) tubo que da sonido'],
+	['Corneta o cuerno'],
+	['Sonajero de pezuñas'],
+	['Instrumento de 5 cuerdas dobles, pequeño']],
+	[//fotos instrumentos
+	"url('img/Instrumentos/caja.jpg')",
+	"url('img/Instrumentos/quena.jpg')",
+	"url('img/Instrumentos/siku.jpg')",
+	"url('img/Instrumentos/Erke.jpg')",
+	"url('img/Instrumentos/Chajchas.jpg')",
+	"url('img/Instrumentos/Charango.jpg')",
+	]]
 	);
 
-let Litoral = new Region('Litoral',
+let litoral = new Region('Litoral',
 	"url('img/Regiones/litoral.png')",
 	['Chamamé','Rasguido doble','Chamarrita'], 
 	[
@@ -670,12 +773,21 @@ let Litoral = new Region('Litoral',
 			[['','']]
 		]	
 	],
-	[//instrumentos
-	'Guitarra','Acordeón','Bandoneón']
+	[[//instrumentos
+	'Guitarra','Acordeón','Bandoneón'],
+	[//características instrumentos
+	['Instrumento de 6 cuerdas, pueden ser pulsadas o rasgueadas'],
+	['Instrumento armónico de viento, con un fuelle y botoneras o teclado.'],
+	['Instrumento armónico de viento, con un fuelle y botoneras']],
+	[//fotos instrumentos
+	"url('img/Instrumentos/Guitarra-chamamé.jpg')",
+	"url('img/Instrumentos/acordeon.jpg')",
+	"url('img/Instrumentos/bandoneon-chamamé.jpg')"
+	]]
 	);
 
 
-let Cuyo = new Region('Cuyo',
+let cuyo = new Region('Cuyo',
 	"url('img/Regiones/cuyo.png')",
 	['Cueca','Gato cuyano','Tonada'], 
 	[
@@ -717,11 +829,17 @@ let Cuyo = new Region('Cuyo',
 			[['ejemplo','https://www.youtube.com/embed/TVFm7lH3a1Qope']]
 		]	
 	],
-	[//instrumentos
-	'Guitarra']
+	[[//instrumentos
+	'Guitarra'],
+	[//características instrumentos
+	['Instrumento de 6 cuerdas, pueden ser pulsadas o rasgueadas']
+	],
+	[//fotos instrumen
+	"url('img/Instrumentos/guitarra-cuyana.jpg')"
+	]]
 	);
 
-let Centro = new Region('Centro',
+let centro = new Region('Centro',
 	"url('img/Regiones/centro.png')",
 	['Gato Norteño','Chacarera','Escondido','Zamba'], 
 	[
@@ -777,11 +895,20 @@ let Centro = new Region('Centro',
 			]//ejemplos
 		],	
 	],
-	[//instrumentos
-	'Guitarra','Bombo',	'Violín']
+	[[//instrumentos
+	'Guitarra','Bombo',	'Violín'],
+	[//características instrumentos
+	['Instrumento de 6 cuerdas, pueden ser pulsadas o rasgueadas'],
+	['Instrumento de doble parche que se toca en el aro o el parche con dos baquetas'],
+	['Instrumento de 4 cuerdas frotadas por un arco. También pueden ser pulsadas (pizzicato)']],
+	[//fotos instrumen
+	"url('img/Instrumentos/guitarra-chacarera.jpg')",
+	"url('img/Instrumentos/bombo.jpg')",
+	"url('img/Instrumentos/violín.jpg')"
+	]]
 	);
 
-let Pampeana = new Region('Pampeana',
+let pampeana = new Region('Pampeana',
 	"url('img/Regiones/pampeana.png')",
 	['Malambo','Huella','Payada'], 
 	[
@@ -825,11 +952,17 @@ let Pampeana = new Region('Pampeana',
 			]//ejemplos
 		],	
 	],
-	[//instrumentos
-	'Guitarra']
+	[[//instrumentos
+	'Guitarra'],
+	[//características instrumentos
+	['Instrumento de 6 cuerdas, pueden ser pulsadas o rasgueadas']
+	],
+	[//fotos instrumen
+	"url('img/Instrumentos/guitarra-pampeana.jpg')"
+	]]
 	);
 
-let Ciudadana = new Region('Ciudadana',
+let ciudadana = new Region('Ciudadana',
 	"url('img/Regiones/ciudadana.png')",
 	['Tango','Milonga Ciudadana'//,''
 	], 
@@ -870,11 +1003,17 @@ let Ciudadana = new Region('Ciudadana',
 			]//ejemplos
 		],	
 	],
-	[//instrumentos
-	'Bandoneón']
+	[[//instrumentos
+	'Bandoneón'],
+	[//características instrumentos
+	['Instrumento armónico de viento, con un fuelle y botoneras']
+	],
+	[//fotos instrumen
+	"url('img/Instrumentos/bandoneon-tango.jpg')"
+	]]
 	);
 
-let Patagonia = new Region('Patagonia',
+let patagonia = new Region('Patagonia',
 	"url('img/Regiones/patagonia.png')",
 	['Loncomeo'//,'',''
 						], 
@@ -915,16 +1054,16 @@ let Patagonia = new Region('Patagonia',
 			]//ejemplos
 		],	
 	],
-	[//instrumentos
-	'Kultrum','Trutruka']
+	[[//instrumentos
+	'Kultrum','Trutruka'],
+	[//características instrumentos
+	['Tambor ceremonial mapuche con una membrana'],
+	['Aerófono mapuche similar a la  trompeta y al Erke']
+	],
+	[//fotos instrumen
+	"url('img/Instrumentos/Kultrún.jpg')",
+	"url('img/Instrumentos/trutruca.jpg')"
+	]]
 	);
 
 
-let Caja = new Instrumento('Caja',
-	['Tambor pequeño, doble parche, se toca con una mano sosteniendola y con la otra con baqueta']);
-
-let Quena = new Instrumento('Quena',
-	['Aerófono de caña, un solo tubo con agujeros, con bisel de muesca']);
-
-let Siku = new Instrumento('Siku o zampoña',
-	['Hileras de tubos de cañas, una nota cada tubo', 'Siku (aymará) tubo que da sonido']);
