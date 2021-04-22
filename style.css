@@ -71,6 +71,9 @@ section {
   position: absolute;
 }
 
+a.clickZoom {
+  
+}
 /*Font*/
 h1, h2, h3, h4{
   font-family: 'Open Sans', sans-serif;
@@ -140,6 +143,7 @@ svg {
 
 #l3{
   height: 15%;
+  display: none;
   
 }
 
@@ -152,16 +156,25 @@ a:link {
 #l3Opcion {
   text-align: center;
   color: white;
-  font-size: 200%;
+  font-size: 190%;
   margin: 10px;
   max-width: 250px;
   text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
 }
 
 @media only screen and (max-width: 600px){
-  svg, #l1 {
+  svg {
   height: 92vh;
   }
+
+  #l2 {
+    margin-right: 20px;
+  }
+
+ #l2 {
+  height: 400px;
+ } 
+
 
   body {
    background: linear-gradient(246deg, #19199c, #62c2ab);
@@ -258,6 +271,7 @@ h2#regionNombre {
 
 #overlayInfoBody {
  position: relative;
+ margin: 20px;
 }
 
 #overlayInfo {
@@ -265,7 +279,7 @@ h2#regionNombre {
   left: -50%;
   top: 5vh;
   max-height: 90vh;
-  min-width: 50vw;
+  min-width: 70vw;
   overflow: scroll;
   border-style: outset;
   border-width: 2px;
@@ -297,6 +311,9 @@ h2#regionNombre {
 
 #bigMap{
   height: 95vh;
+  position: absolute;
+  z-index: 40;
+  left: 37%;
 }
 
 
@@ -315,13 +332,33 @@ flex-wrap: wrap;
 justify-content: center;
 }
 
+ul {
+  margin: 0px;
+  width: 100%;
+
+}
+
 ul > li, p{
   text-align: left;
 }
 
 img{
-   display: block;
+   display: inline;
   margin-left: 0; 
+}
+
+.ejemplosImg {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ejemplosImg > p {
+  width: 100%;
+}
+
+.ejemplosImg > img {
+  padding: 20px 0px;
+  border-bottom: 2px dashed grey;
 }
 
 
@@ -340,6 +377,10 @@ img{
   right: 5px;
   height: 30px;
 
+}
+
+.cardInfo {
+  margin: 30px;
 }
 
 img.zoomInfo {
@@ -364,7 +405,7 @@ img.zoomInfo {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-   background: url('img/scrollDown.gif') no-repeat bottom;
+   background: url('img/botones/scrollDown.gif') no-repeat bottom;
 }
 
 
@@ -510,15 +551,15 @@ h4 {
 
 #irom-noroeste{   
   background: linear-gradient(0deg, white, #d78b7d); 
-  left: -150%;
+  left: -180%;
   top: 5vh; 
-  display: none;
+ display: none;
 }
 
 #irom-litoral{
   background: linear-gradient(0deg, white, #92C7DE);
-  left: 80%;
-  top: 15vh; 
+  left: 70%;
+  top: 7vh; 
   display: none;
 }
 
@@ -531,29 +572,71 @@ h4 {
 
 #irom-cuyo{
   background: linear-gradient(0deg, white, #D4AC81);
-  left: -165%;
-  top: 25vh; 
+  left: -175%;
+  top: 19vh; 
   display: none;
 }
 
 #irom-pampeana{
   background: linear-gradient(0deg, white, #B0BF94);
   left: 60%;
-  top: 55vh; 
+  top: 20vh; 
   display: none;
 }
 
 #irom-ciudadana{
   background: linear-gradient(0deg, white, #D5D4C6);
   left: 65%;
-  top: 40vh; 
+  top: 23vh; 
   display: none;
 }
 
 #irom-patagonia{
   background: linear-gradient(0deg, white, #999BB4);
   left: -175%;
-  top: 50vh; 
+  top: 25vh; 
   display: none;
   }
 
+div.infoRegionOverlayMap > h3 {
+  text-align: center;
+  color: white;
+  font-size: 200%;
+  margin: 0px;
+  margin-top: 5vh;
+  text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;  
+
+}
+
+div.infoRegionOverlayMap > ul > h3 {
+  text-align: left;
+  color: white;
+  font-size: 150%;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+div.infoRegionOverlayMap > ul > li {
+  font-size: 125%;
+  
+}
+
+div.infoRegionOverlayMap > ul {
+  margin: 20px 0px;
+}
+
+/*aviso click*/
+
+#avisoClick {
+  position: absolute;
+  left: 37%;
+  top: 12%;
+  z-index: 50;
+  text-align: center;
+  color: white;
+  font-size: 400%;
+  width: 30vw;
+  margin: 0px;
+  margin-top: 5vh;
+  text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
+  opacity: 0.5;
+}

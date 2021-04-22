@@ -72,7 +72,7 @@ let selRegion = function() {
 
 
     };
-    document.getElementById('l3Opcion').innerHTML  = 'Instrumentos de la región';
+    document.getElementById('l3Opcion').innerHTML  = 'Ver instrumentos de la región';
 };
 
 for (let i = 0; i < regiones.length; i++) {
@@ -107,6 +107,7 @@ function showBigMap(){
 
 function createCards(generosRegion){
 	document.getElementById('l2').style.display = 'block';
+	document.getElementById('l3').style.display = 'block';
 
 	let main = document.getElementById('main');
 	let cardQty = generosRegion;
@@ -157,7 +158,7 @@ function createCards(generosRegion){
 	cardInfoDiv.appendChild(clickZoom);
 
 	let zoomInfo = document.createElement('img');
-	zoomInfo.src = 'img/Lupa.png';
+	zoomInfo.src = 'img/botones/Lupa.png';
 	zoomInfo.setAttribute('class','zoomInfo');
 	clickZoom.appendChild(zoomInfo);
 
@@ -174,9 +175,9 @@ function createCards(generosRegion){
 function tilesPerRow(generosRegion){
 	let generosQty = generosRegion;
 	if (generosQty === 1){
-		var j = 1; var k = 1;
+		var j = 2; var k = 2;
 	}else if (generosQty === 2){
-		var j = 2; var k = 1;
+		var j = 2; var k = 2;
 	}else if (generosQty === 3){
 		var j = 2; var k = 2;	
 
@@ -236,8 +237,26 @@ function clearInfo(){
 		instruments.remove();
     };
 
-    	
+    stopVideo()	
 
+};
+
+ 	
+function stopVideo() {
+	let iframes = document.querySelectorAll('iframe');
+	let videos = document.querySelectorAll('video');
+
+	for (iframe of iframes){
+		if ( iframe ) {
+		var iframeSrc = iframe.src;
+		iframe.src = iframeSrc;
+		};
+	};	
+	for( video of videos ){
+		if ( video ) {
+		video.pause();
+		};
+	};
 };
  
 
@@ -273,11 +292,11 @@ function frontsideSubtitulo(generosRegion){
 	switch(i%4){
 		case 0: tituloHiddenCaract.innerHTML = 'Características de la música';
 		break;
-		case 1: tituloHiddenCaract.innerHTML = 'Ejemplo Música';
+		case 1: tituloHiddenCaract.innerHTML = 'Ejemplos musicales';
 		break;
-		case 2: tituloHiddenCaract.innerHTML = 'Características de la danza';
+		case 2: tituloHiddenCaract.innerHTML = 'Para tocar';
 		break;
-		case 3: tituloHiddenCaract.innerHTML = 'Ejemplo Danza';
+		case 3: tituloHiddenCaract.innerHTML = 'Danza';
 		break;
 		};
 	
@@ -301,15 +320,21 @@ function changeInforBackside(caractGeneros){
 		if (i%4 === 0) {
 			list = createInfoGeneroMus(caractGeneros,j)
 			genInfo[i].appendChild(list);
+
+			imagesCont = createImgGeneroMus(caractGeneros,j)
+			genInfo[i].appendChild(imagesCont);
 		}else if (i%4 === 1){
 			list = createInfoGeneroEjemploMus(caractGeneros,j)
 			genInfo[i].appendChild(list);
 		}else if (i%4 === 2){
-			list = createInfoGeneroDan(caractGeneros,j)
-			genInfo[i].appendChild(list);
+			
 		}else if (i%4 === 3){
-		list = createInfoGeneroEjemploDan(caractGeneros,j)
+
+		list = createInfoGeneroDan(caractGeneros,j)
 		genInfo[i].appendChild(list);
+
+		videoCont = createInfoGeneroEjemploDan(caractGeneros,j)
+		genInfo[i].appendChild(videoCont);
 		};
 
 	};
@@ -322,29 +347,41 @@ function createInfoGeneroMus(caractGeneros, genIndex){
 	let list = document.createElement('ul');	
 		
 		for (i = 0; i < caractGeneros[genIndex][0][0].length; i++)  {
-			let k = i%4;
-
+			
 			let listItem = document.createElement('li');
 
-			listItem.innerHTML = caractGeneros[genIndex][0][0][k];
+			listItem.innerHTML = caractGeneros[genIndex][0][0][i];
 			list.appendChild(listItem);
 
 		};
 
+		return list;
+};
+
+function createImgGeneroMus(caractGeneros, genIndex) {
+
+	let imagesCont = document.createElement('div');
+	imagesCont.setAttribute('class', 'ejemplosImg');
+
 		for (i = 0; i < caractGeneros[genIndex][0][1].length; i++)  {
-			let k = i%4;
+			
+			if(caractGeneros[genIndex][0][1][i][0] !== undefined){
+				let list = document.createElement('ul');
+				let imgData = document.createElement('li');
+				imgData.innerHTML = caractGeneros[genIndex][0][1][i][0];
+				list.appendChild(imgData);
+				imagesCont.appendChild(list);
+			};
 
-			let imgData = document.createElement('p');
-			let img = document.createElement('img');
+			if(caractGeneros[genIndex][0][1][i][1] !== undefined){
+				let img = document.createElement('img');
+				img.src = caractGeneros[genIndex][0][1][i][1];
+				imagesCont.appendChild(img);
+			};
 
-			imgData.innerHTML = caractGeneros[genIndex][0][1][k][0];
-			img.src = caractGeneros[genIndex][0][1][k][1];
-
-			list.appendChild(imgData);
-			list.appendChild(img);
+			
 		};
-
-	return list;
+	return imagesCont;
 };
 
 function createInfoGeneroEjemploMus(caractGeneros, genIndex){
@@ -352,33 +389,34 @@ function createInfoGeneroEjemploMus(caractGeneros, genIndex){
 	list.setAttribute('class', 'videoContainer');
 
 	for (i = 0; i < caractGeneros[genIndex][1].length;i++){
-			let k = i%4;
-
+			
 			let videoData = document.createElement('h4');
-			let iframe = document.createElement('iframe');
-			
-			videoData.innerHTML = caractGeneros[genIndex][1][k][0];
-			iframe.src = caractGeneros[genIndex][1][k][1];
-			
+			videoData.innerHTML = caractGeneros[genIndex][1][i][0];
 			list.appendChild(videoData);
+
+		if(caractGeneros[genIndex][1][i][1] !== undefined){
+			let iframe = document.createElement('iframe');
+			iframe.src = caractGeneros[genIndex][1][i][1];
 			list.appendChild(iframe);
 		};
+
+	};
 		
 
 	return list
 
 }
 
+
 function createInfoGeneroDan(caractGeneros, genIndex){
 
 	let list = document.createElement('ul');
 
 	for (i = 0; i < caractGeneros[genIndex][2].length; i++)  {
-			let k = i%4;
-
+			
 			let listItem = document.createElement('li');
 
-			listItem.innerHTML = caractGeneros[genIndex][2][k];
+			listItem.innerHTML = caractGeneros[genIndex][2][i];
 			list.appendChild(listItem);
 
 		};
@@ -386,26 +424,28 @@ function createInfoGeneroDan(caractGeneros, genIndex){
 };
 
 function createInfoGeneroEjemploDan(caractGeneros, genIndex){
-	let list = document.createElement('div');
-	list.setAttribute('class', 'videoContainer');
+	let videoCont = document.createElement('div');
+	videoCont.setAttribute('class', 'videoContainer');
 
 	for (i = 0; i < caractGeneros[genIndex][3].length;i++){
-			let k = i%4;
-
+			
 			let videoData = document.createElement('h4');
+			videoData.innerHTML = caractGeneros[genIndex][3][i][0];
+			videoCont.appendChild(videoData);
+
+		if(caractGeneros[genIndex][3][i][1] !== undefined){
 			let iframe = document.createElement('iframe');
-			
-			videoData.innerHTML = caractGeneros[genIndex][3][k][0];
-			iframe.src = (caractGeneros[genIndex][3][k][1]);
-			
-			list.appendChild(videoData);
-			list.appendChild(iframe);
+			iframe.src = (caractGeneros[genIndex][3][i][1]);
+			videoCont.appendChild(iframe);
 		};
+
+	};
 		
 
-	return list
+	return videoCont
 
 };
+
 
 // Background images
 function changeBGImages(fotosRegion){
@@ -456,6 +496,8 @@ function showZoomInfoOverlay(tileCopied){
 
 function hideZoomInfoOverlay(){
 	document.getElementById('overlayBackground').style.display = 'none'
+	stopVideo();
+
 };
 
 
@@ -463,11 +505,11 @@ function hideZoomInfoOverlay(){
 
 function changeInstrGene(){
 	let buttonInstGen = document.getElementById('l3Opcion');
-	if(buttonInstGen.innerHTML	 === 'Instrumentos de la región'){
-		buttonInstGen.innerHTML = 'Géneros de la región';
+	if(buttonInstGen.innerHTML	 === 'Ver instrumentos de la región'){
+		buttonInstGen.innerHTML = 'Ver géneros de la región';
 		setCurrentRegionGeneros();
 		} else {
-		buttonInstGen.innerHTML	 = 'Instrumentos de la región';
+		buttonInstGen.innerHTML	 = 'Ver instrumentos de la región';
 		setCurrentRegionInstrumentos();
 	};
 };
@@ -655,11 +697,36 @@ function hideRegionInfoFicha() {
 document.addEventListener("keydown", function(event) {
     if(event.keyCode === 27){
        hideZoomInfoOverlay()//Esc key was pressed
+       
    }
 });
 
 
+// Click region
+/*
+function clickRegion(){
+	setTimeout(function(){ 
+		
+		let avisoCont = document.createElement('div');
+		avisoCont.setAttribute('id', 'avisoClick');
+		avisoCont.innerHTML = `Clickeá una región para ver más detalles`
 
+		document.body.appendChild(avisoCont);
+}, 20000);
+
+	setTimeout(function(){ 
+		
+		document.getElementById('avisoClick').remove();
+		
+}, 25000);
+
+
+
+
+//setInterval(clickRegion, 10000);
+
+
+}*/
 
 //DATA	
 
@@ -684,26 +751,26 @@ let noroeste = new Region('Noroeste',
 		[
 		[//Huayno
 			[['Pie binario', 'Generalmente pentatónico (cinco notas)' ],//caract
-			[['Pie del huayno', 'img/PieHuayno.png'],['Pie del carnavalito','img/PieCarnavalito.png']]], //img
+			[['Pie del huayno', 'img/ejemplos/PieHuayno.png'],['Pie del carnavalito','img/ejemplos/PieCarnavalito.png']]], //img
 			[['Ejemplo música', 'https://www.youtube.com/embed/BoLZRaM2vfA']
 			],//ejemplos música
 			['Danza grupal vivaz no coreografiada', 'Huayñunakunay: (quechua) bailar tomados de la mano'],//danza
-			[['Ejemplo danza', 'https://www.youtube.com/embed/s2EwDKiuAFs']
+			[['Carnavalito', 'https://www.youtube.com/embed/s2EwDKiuAFs']
 			]//ejemplos
 		],
 		[//Vidala
 			[['Forma estrófica con vuelo poético','Puede estar acompañada por instrumentos y ser a dos voces', 'Compás de 3/4, lenta'],
-			[['negra con punto, corchea, negra','img/PieHuayno.png']]],
-			[['ejemplo','']],
+			[['Pie de la Vidala','img/ejemplos/PieVidala.png']]],
+			[['ejemplo',]],
 			['Sin danza'],
-			[['ejemplo','']]
+			[['ejemplo',]]
 		],
 		[//Baguala
 			[['Canto solista, acompañado por caja, trifónico','Pueden ser improvisadas'],
 			[]],
-			[['','']],
+			[[,]],
 			['Sin danza'],
-			[['','']]
+			[[,]]
 		]	
 	],
 	[[//instrumentos
@@ -745,32 +812,32 @@ let litoral = new Region('Litoral',
 	"rgb(146, 199, 222)",
 			[
 		[//Chamamé
-			[['compás de 3/4 (tres negras en el grave) y 6/8 (corchea negra corchea negra en el agudo)',
-			    'Elementos carácteristicos: Sapucay (expresión de alegría o lamento que se manifiesta en un grito caracteristico) y tapa (acorde final que cierra la obra)',
-			    'Tiene un fluir relacionado al rio',
+			[[	'Tiene un fluir relacionado al rio',
 				'Tiene muchas variantes que van desde tempos moderados a muy vivaces',
-				'Puede ser tanto vocal como instrumental'
+			    'Elementos carácteristicos: Sapucay (expresión de alegría o lamento que se manifiesta en un grito caracteristico) y tapa (acorde final que cierra la obra)',
+			    'Puede ser tanto vocal como instrumental',
+			    'polirritmia entre el bajo y la melodía'
 			],//caract
-			[[]]], //img
-			[['','']],
+			[['compás de 3/4 (tres negras en el grave) y 6/8 (corchea negra corchea negra en el agudo)','img/ejemplos/ejChamamé.png']]], //img
+			[[,]],
 			['Danza de pareja enlazada no coreográfica'],//danza
-			[['Ejemplo música', ''],			
-			[['','']]
+			[['Ejemplo música', ],			
+			[[,]]
 			]//ejemplos
 		],
 		[//Resguido Doble
 			[['compás de 4/4, lento','Puede ser tanto vocal como instrumental'],
-			[['influencia de la milonga pampeana (3+3+2)','']]],
-			[['','']],
+			[['influencia de la milonga pampeana (3+3+2)','img/ejemplos/pieMilonga.png']]],
+			[[,]],
 			['Danza de pareja enlazada no coreográfica'],
-			[['','']]
+			[[,]]
 		],
 		[//Chamarrita
 			[['compás 2/4'],
-			['influencia de la milonga ciudadana corchea con punto semi corchea corchea','']],
-			[['','']],
+			[['influencia de la milonga ciudadana','img/ejemplos/PieChamarrita.png']]],
+			[[,]],
 			['Sin danza'],
-			[['','']]
+			[[,]]
 		]	
 	],
 	[[//instrumentos
@@ -808,25 +875,26 @@ let cuyo = new Region('Cuyo',
 		[
 		[//Cueca
 			[['3/4 y 6/8 vivaz','proviene de la zamacueca - parentesco con la zamba' ],//caract
-			[['Patrón rítmico característico: corchea con punto, semi, corchea corchea negra', ''],['Formalmente ligado a la danza. Dos vueltas de intro- estrofa 1- estrofa 2 escribillo','']]], //img
-			[['','']],
+			[['Patrón rítmico característico: corchea con punto, semi, corchea corchea negra', 'img/ejemplos/PieCueca.png'],
+			['Formalmente ligado a la danza. Dos vueltas de intro- estrofa 1- estrofa 2 escribillo',]]], //img
+			[[,]],
 			['Danza de pareja suelta con pañuelo coreografiada'],//danza
-			[['',''],
+			[[,],
 			]//ejemplos
 		],
 		[//Gato cuyano
 			[['3/4 y  6/8 moderado'],
-			[['Forma (ver gráfico)','']]],
-			[['','']],
+			[['Forma (ver gráfico)',]]],
+			[[,]],
 			['Danza de pareja suelta coreografiada', 'Se diferencia del gato porque aparece la figura del contragiro','Se baila con castañetas y paso básico'],
-			[['ejemplo','']]
+			[['ejemplo',]]
 		],
 		[//Tonada
 			[['Canto solista, acompañado por caja, trifónico','Pueden ser improvisadas'],
 			[]],
-			[['','']],
+			[[,]],
 			['Sin danza'],
-			[['ejemplo','https://www.youtube.com/embed/TVFm7lH3a1Qope']]
+			[[,]]
 		]	
 	],
 	[[//instrumentos
@@ -864,34 +932,41 @@ let centro = new Region('Centro',
 		[
 		[//Gato Norteño
 			[['6/8 y 3/4','tempo alegre y ágil' ],//caract
-			[['Forma (gráfico)', '']]], //img
-			[['','']], //ejemplo música
+			[['Forma (gráfico)', ]]], //img
+			[[,]], //ejemplo música
 			['Danza de pareja suelta coreografiada', 'Se baila con castañetas y paso básico'],//danza
-			[['', ''],			
+			[[, ],			
 			]//ejemplos
 		],
 		[//Chacarera
 			[['6/8 y 3/4','tempo alegre y ágil' ],//caract
-			[['Forma (gráfico)', '']]], //img
-			[['','']], //ejemplo música
+			[['Forma de la chacarera','img/ejemplos/Forma-Chacarera-01.png'],
+			[ ,'img/ejemplos/Forma-Chacarera-02.png'],
+			[ ,'img/ejemplos/Forma-Chacarera-03.png'],
+			[ ,'img/ejemplos/Forma-Chacarera-04.png'],
+			[ ,'img/ejemplos/Forma-Chacarera-05.png'],
+			[ ,'img/ejemplos/Forma-Chacarera-06.png'],
+			[ ,'img/ejemplos/Forma-Chacarera-07.png'],
+			]], //img
+			[[,]], //ejemplo música
 			['Danza de pareja suelta coreografiada', 'Se baila con castañetas y paso básico'],//danza
-			[['', ''],
+			[[, ],
 			]//ejemplos
 		],
 		[//Escondido
 			[['6/8 y 3/4','tempo alegre y ágil' ],//caract
-			[['Forma (gráfico)', '']]], //img
-			[['','']], //ejemplo música
+			[['Forma (gráfico)', ]]], //img
+			[[,]], //ejemplo música
 			['Danza de pareja suelta coreografiada', 'Se baila con castañetas y paso básico'],//danza
-			[['', ''],
+			[[, ],
 			]//ejemplos
 		],	
 		[//Zamba
 			[['6/8 y 3/4','tempo tranquilo' ],//caract
-			[['Forma (gráfico)', '']]], //img
-			[['','']], //ejemplo música
+			[['Forma (gráfico)', ]]], //img
+			[[,]], //ejemplo música
 			['Danza de pareja suelta coreografiada con lugar a improvisación, con pañuelo', 'Se baila con castañetas y paso básico'],//danza
-			[['', ''],
+			[['Zamba', 'https://www.youtube.com/embed/x2Ra80ktd9Y'],
 			]//ejemplos
 		],	
 	],
@@ -929,26 +1004,26 @@ let pampeana = new Region('Pampeana',
 		[
 		[//Malambo
 			[['6/8, I- IV- V','sin letra','baile de desafío' ],//caract
-			[['', '']]], //img
-			[['','']], //ejemplo música
+			[[, ]]], //img
+			[[,]], //ejemplo música
 			['Danza no coreográfica originalmente masculina','en base a un contrapunto de mudanzas (combinación de movimientos entre pies y piernas)'],//danza
-			[['', ''],
+			[[, ],
 			]//ejemplos
 		],
 		[//Huella
 			[['6/8, suele decir huella en su letra','Forma: Intro, estrofa, estrofa (menor), estribillo (mayor).','Ritmo lento y señorial' ],//caract
-			[['', '']]], //img
-			[['','']], //ejemplo música
+			[[, ]]], //img
+			[[,]], //ejemplo música
 			['Danza de pareja coreografiada','Figura especial: el hombre toma la mano de la mujer'],//danza
-			[['', ''],
+			[['Huella', 'https://www.youtube.com/embed/8fLPmHi62Ns'],
 			]//ejemplos
 		],
 		[//Payada
 			[['Improvisación de versos con acompañamiento de guitarra que hace un payador; generalmente los versos relatan sucesos o sentimientos de la cotidianidad rural, y pueden tener un carácter lírico, trágico o humorístico.','payada de contrapunto Competencia poético-musical en la que, alternándose dos payadores, improvisan cantos con la guitarra, sobre un mismo tema, tratando de superar al otro en originalidad y destreza poética.' ],//caract
-			[['', '']]], //img
-			[['','']], //ejemplo música
+			[[, ]]], //img
+			[[,]], //ejemplo música
 			['Sin danza'],//danza
-			[['', ''],
+			[[, ],
 			]//ejemplos
 		],	
 	],
@@ -964,7 +1039,7 @@ let pampeana = new Region('Pampeana',
 
 let ciudadana = new Region('Ciudadana',
 	"url('img/Regiones/ciudadana.png')",
-	['Tango','Milonga Ciudadana'//,''
+	['Tango','Milonga Ciudadana'//,
 	], 
 	[
 	"url('img/Ciudadana/caminito.jpg')",
@@ -980,26 +1055,26 @@ let ciudadana = new Region('Ciudadana',
 		[
 		[//Tango
 			[['Base binaria (2/4 o 4/4), tempo moderado','temática nostalgia','Esencialmente homofónico con imitaciones y compensaciones entre instrumentos' ],//caract
-			[['Patrones rítmicos', ''],['Arrastre','']]], //img
-			[['','']], //ejemplo música
+			[['Patrones rítmicos', ],['Arrastre',]]], //img
+			[['Ver hasta el minuto 6 sobre los orígenes del tango','https://www.youtube.com/embed/8hu2IyKjif4']], //ejemplo música
 			['Danza de pareja enlazada no coreográfica'],//danza
-			[['', ''],
+			[['Tango Canyengue', 'https://www.youtube.com/embed/8fLPmHi62Ns'],
 			]//ejemplos
 		],
 		[//Milonga Ciudadana
 			[['4/4 ritmo de habanera rápida, tempo vivo','letras pícaras' ],//caract
-			[['Forma (gráfico)', '']]], //img
-			[['','']], //ejemplo música
+			[['Forma (gráfico)', ]]], //img
+			[[,]], //ejemplo música
 			['Danza de pareja enlazada no coreográfica'],//danza
-			[['', ''],
+			[['Milonga Ciudadana', 'https://www.youtube.com/embed/bUFFLZVvttk'],
 			]//ejemplos
 		],
 		[//
-			[['','' ],//caract
-			[['', '']]], //img
-			[['','']], //ejemplo música
-			['', ''],//danza
-			[['', ''],
+			[[, ],//caract
+			[[, ]]], //img
+			[[,]], //ejemplo música
+			[, ],//danza
+			[[, ],
 			]//ejemplos
 		],	
 	],
@@ -1015,7 +1090,7 @@ let ciudadana = new Region('Ciudadana',
 
 let patagonia = new Region('Patagonia',
 	"url('img/Regiones/patagonia.png')",
-	['Loncomeo'//,'',''
+	['Loncomeo'//,,
 						], 
 	[
 	//"url('img/Patagonia/7lagos.jpg')",
@@ -1031,26 +1106,26 @@ let patagonia = new Region('Patagonia',
 		[
 		[//Loncomeo
 			[['del mapuche, lonco (cabeza) y meu (aquí bajar).','rogativa mapuches (araucanos)  a partir de sonidos del kultrúm y la trutruka instrumentos ambos ejecutados en ceremonias rituales o religiosas.' ],//caract
-			[['', '']]], //img
-			[['','']], //ejemplo música
+			[[, ]]], //img
+			[[,]], //ejemplo música
 			['el loncomeo se baila principalmente con movimientos de cabeza.','Consiste en correr saltar, agacharse, erguirse, imitar a los animales con movimientos grotescos, sacudiendo fuertemente la cabeza. Se baila entre varios. El que resista mas tiempo será el vencedor. ','Los bailarines tocan su cabeza con pintorescas vinchas, tejidas por sus mujeres.'],//danza
-			[['', ''],
+			[[, ],
 			]//ejemplos
 		],
 		[//
-			[['','' ],//caract
-			[['', '']]], //img
-			[['','']], //ejemplo música
-			['', ''],//danza
-			[['', ''],
+			[[, ],//caract
+			[[, ]]], //img
+			[[,]], //ejemplo música
+			[, ],//danza
+			[[, ],
 			]//ejemplos
 		],
 		[//
-			[['','' ],//caract
-			[['', '']]], //img
-			[['','']], //ejemplo música
-			['', ''],//danza
-			[['', ''],
+			[[, ],//caract
+			[[, ]]], //img
+			[[,]], //ejemplo música
+			[, ],//danza
+			[[, ],
 			]//ejemplos
 		],	
 	],

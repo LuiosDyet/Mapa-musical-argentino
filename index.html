@@ -9,12 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Dosis&family=Open+Sans&display=swap" rel="stylesheet">
   </head>
 
-  <body>
+  <body onload="clickRegion()">
 
     <div id="overlayBackground">
       <div id="outerOverlayInfo">
         <div id="overlayInfo">
-          <a id="closeImg" href="javascript:hideZoomInfoOverlay()"><img  src="img/Close.png"></a>
+          <a id="closeImg" href="javascript:hideZoomInfoOverlay()"><img  src="img/botones/Close.png"></a>
           <h2 id="overlayInfoH2"></h2>
           <h3 id="overlayInfoH3"></h3>
           <div id="overlayInfoBody"></div>
@@ -29,78 +29,154 @@
         <div class="infoRegionOverlayMap" id="irom-noroeste">
           <h3>Noroeste</h3>
           <ul>
-            Provincias que la componen
+            <h3>Provincias de la región</h3> 
             <li>Jujuy</li>
             <li>Salta</li>
             <li>Tucumán</li>
-            <li>norte de La Rioja</li>
+            <li>Norte de La Rioja y Santiago del Estero</li>
+            <li>Este de Chaco y Formosa</li>
           </ul>
+           <ul>
+            <h3>Géneros de la región</h3> 
+            <li>Huayno y Carnavalito</li>
+            <li>Vidala o yaraví</li>
+            <li>Baguala</li>
+           </ul>
+           <ul>
+            <h3>Instrumentos típicos</h3> 
+            <li>Caja</li>
+            <li>Chajchaj</li>
+            <li>Quena</li>
+            <li>Siku o zampoña</li>
+            <li>Erke</li>
+            <li>Charango</li>
+           </ul>
         </div> 
 
           <div class="infoRegionOverlayMap" id="irom-litoral">
           <h3>Litoral</h3>
           <ul>
-            Provincias que la componen
-            <li>Jujuy</li>
-            <li>Salta</li>
-            <li>Tucumán</li>
-            <li>norte de La Rioja</li>
+           <h3>Provincias de la región</h3>
+            <li>Misiones</li>
+            <li>Corrientes</li>
+            <li>Entre Ríos</li>
+            <li>Oeste de Chaco y Formosa</li>
+            <li>Noroeste de Santa Fé</li>
           </ul>
+          <ul>
+            <h3>Géneros de la región</h3> 
+            <li>Chamamé</li>
+            <li>Rasguido doble</li>
+            <li>Chamarrita</li>
+           </ul>
+           <ul>
+            <h3>Instrumentos típicos</h3> 
+            <li>Guitarra</li>
+            <li>Bandoneón</li>
+            <li>Acordeón</li>
+           </ul>
         </div> 
 
           <div class="infoRegionOverlayMap" id="irom-centro">
           <h3>Centro</h3>
-          <ul>
-            Provincias que la componen
-            <li>Jujuy</li>
-            <li>Salta</li>
-            <li>Tucumán</li>
-            <li>norte de La Rioja</li>
+         <ul>
+           <h3>Provincias de la región</h3>
+            <li>Norte de Córdoba, Santa Fé y San Luis</li>
+            <li>Este de la Rioja y Catamarca </li>
+            <li>Sur de Santiago del Estero</li>
           </ul>
+          <ul>
+            <h3>Géneros de la región</h3> 
+            <li>Gato Norteño</li>
+            <li>Chacarera</li>
+            <li>Escondio</li>
+            <li>Zamba</li>
+           </ul>
+           <ul>
+            <h3>Instrumentos típicos</h3> 
+            <li>Guitarra</li>
+            <li>Violín</li>
+            <li>Bombo</li>
+           </ul>
         </div> 
 
           <div class="infoRegionOverlayMap" id="irom-cuyo">
           <h3>Cuyo</h3>
           <ul>
-            Provincias que la componen
-            <li>Jujuy</li>
-            <li>Salta</li>
-            <li>Tucumán</li>
-            <li>norte de La Rioja</li>
+           <h3>Provincias de la región</h3> 
+            <li>Mendoza</li>
+            <li>San Juan</li>
+            <li>La Rioja</li>
+            <li>Oeste de San Luis</li>
           </ul>
+          <ul>
+            <h3>Géneros de la región</h3> 
+            <li>Cueca</li>
+            <li>Gato cuyano</li>
+            <li>Tonada</li>
+           </ul>
+           <ul>
+            <h3>Instrumentos típicos</h3> 
+            <li>Guitarra</li>
+           </ul>
         </div> 
 
           <div class="infoRegionOverlayMap" id="irom-pampeana">
           <h3>Pampeana</h3>
           <ul>
-            Provincias que la componen
-            <li>Jujuy</li>
-            <li>Salta</li>
-            <li>Tucumán</li>
-            <li>norte de La Rioja</li>
+            <h3>Provincias de la región</h3> 
+            <li>Buenos Aires</li>
+            <li>La Pampa</li>
+            <li>Sur de Córdoba y Santa Fé</li>
           </ul>
+          <ul>
+            <h3>Géneros de la región</h3> 
+            <li>Malambo</li>
+            <li>Huella</li>
+            <li>Payada</li>
+           </ul>
+           <ul>
+            <h3>Instrumentos típicos</h3> 
+            <li>Guitarra</li>
+           </ul>
         </div> 
 
           <div class="infoRegionOverlayMap" id="irom-ciudadana">
           <h3>Ciudadana</h3>
           <ul>
-            Provincias que la componen
-            <li>Jujuy</li>
-            <li>Salta</li>
-            <li>Tucumán</li>
-            <li>norte de La Rioja</li>
+           <h3>Provincias de la región</h3> 
+            <li>Ciudad de Buenos Aires</li>
           </ul>
+          <ul>
+            <h3>Géneros de la región</h3> 
+            <li>Tango</li>
+            <li>Milonga Ciudadana</li>
+           </ul>
+           <ul>
+            <h3>Instrumentos típicos</h3> 
+            <li>Bandoneón</li>
+           </ul>
         </div> 
 
           <div class="infoRegionOverlayMap" id="irom-patagonia">
           <h3>Patagonia</h3>
           <ul>
-            Provincias que la componen
-            <li>Jujuy</li>
-            <li>Salta</li>
-            <li>Tucumán</li>
-            <li>norte de La Rioja</li>
+           <h3>Provincias de la región</h3> 
+            <li>Neuquén</li>
+            <li>Río Negro</li>
+            <li>Chubut</li>
+            <li>Santa Cruz</li>
+            <li>Tierra del fuego e islas del atlántico sur</li>
           </ul>
+          <ul>
+            <h3>Géneros de la región</h3> 
+            <li>Loncomeo</li>
+           </ul>
+           <ul>
+            <h3>Instrumentos típicos</h3> 
+            <li>Kultrum</li>
+            <li>Trutruca</li>
+           </ul>
         </div> 
        
       </div> 
@@ -128,7 +204,7 @@
     <section id="sideBar">
       
              
-      <div class="tileL" id="l1"> <div id="lupaSidebar"><a href="javascript:showBigMap()" ><img src="img/Lupa.png" class="zoomInfo" ></a></div>
+      <div class="tileL" id="l1"> <div id="lupaSidebar"><a href="javascript:showBigMap()" ><img src="img/botones/Lupa.png" class="zoomInfo" ></a></div>
 
           
           <svg id="mapa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 532.37 1026.41"><defs><style>.cls-1{fill:#af1b02;}.cls-2{fill:#34396b;}.cls-3{fill:#3c4170;}.cls-4{fill:#3f4473;}.cls-5{fill:#f8f8fa;}.cls-6{fill:#2c92bf;}.cls-7{fill:#aa5b04;}.cls-8{fill:#ff9c48;}.cls-9{fill:#62802b;}.cls-10{fill:#adaa8d;}</style></defs><title>Argentina Regiones</title>
@@ -148,7 +224,7 @@
       </div>  
 
       <div class="tileL" id="l3">
-        <button id="l3Opcion" onclick="changeInstrGene()">Instrumentos de la región</button>
+        <button id="l3Opcion" onclick="changeInstrGene()">Ver instrumentos de la región</button>
       </div>
 
     </section>
