@@ -51,7 +51,7 @@ section {
   width: 85vw;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) and (max-height: 800px)  {
 
   section, body {
     display: block;
@@ -168,7 +168,7 @@ a:link {
   text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 600px) and (max-height: 800px) {
   svg {
   height: 92vh;
   }
@@ -253,7 +253,7 @@ h2#regionNombre {
     }
  
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) and (max-height: 800px)  {
 
   #overlayMap {
     display: none;
@@ -325,7 +325,7 @@ h2#regionNombre {
 
 /*Cards styles*/
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) and (max-height: 800px)  {
 .tilesContainer {
 display: flex;
 flex-wrap: wrap;
@@ -396,7 +396,7 @@ img.zoomInfo {
 }
 
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 600px) and (max-height: 800px) {
   img.zoomInfo {
   display: none;
 }
