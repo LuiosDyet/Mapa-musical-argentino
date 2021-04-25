@@ -793,7 +793,7 @@ let noroeste = new Region('Noroeste',
                 ['Carnavalito', 'https://www.youtube.com/embed/s2EwDKiuAFs']
             ],
             [//Partituras
-            	'partitura', 
+            	 
             ] 
         ],
         [ //Vidala
@@ -815,7 +815,7 @@ let noroeste = new Region('Noroeste',
                 ['ejemplo', ]
             ],
             [//Partituras
-            	'partitura', 
+            	
             ]
         ],
         [ //Baguala
@@ -837,7 +837,7 @@ let noroeste = new Region('Noroeste',
                 [, ]
             ],
             [//Partituras
-            	'partitura', 
+            	
         	]
 
         ]
@@ -907,7 +907,7 @@ let litoral = new Region('Litoral',
                 ['Ejemplo música', ]
             ],
             [//Partituras
-            	'partitura',	
+            		
             ]
             
         ],

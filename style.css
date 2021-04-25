@@ -132,7 +132,7 @@ svg {
  #regionMapa {
  width: 250px;
  height: 80%;
-
+ margin: auto;
  background-position: top center;
  background-repeat: no-repeat;
  background-size: contain;
@@ -150,6 +150,8 @@ svg {
 #l3{
   height: 15%;
   display: none;
+  max-width: 300px;
+  margin: auto;
   
 }
 
@@ -160,7 +162,6 @@ a:link {
 
 
 #l3Opcion {
-  text-align: center;
   color: white;
   font-size: 190%;
   margin: 10px;
