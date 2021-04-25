@@ -417,7 +417,7 @@ function createInfoGeneroEjemploMus(caractGeneros, genIndex){
 function createParaTocarMus(caractGeneros, genIndex) {
 
 	let imgParaTocar = document.createElement('div');
-	imgParaTocar.setAttribute('class', 'ejemplosImg');
+	imgParaTocar.setAttribute('class', 'partiturasImg');
 		
 		for (i = 0; i < caractGeneros[genIndex][4].length; i++)  {
 			
@@ -746,7 +746,7 @@ function clickRegion(){
 			document.body.appendChild(avisoCont);
 		};
 
-	}, 5000);
+	}, 10000);
 };
 
 
@@ -779,8 +779,8 @@ let noroeste = new Region('Noroeste',
                 	'Pie binario', 'Generalmente pentatónico (cinco notas)'
                 ], 
                 [//img mus
-                    ['Pie del huayno', 'img/ejemplos/PieHuayno.png'],
-                    ['Pie del carnavalito', 'img/ejemplos/PieCarnavalito.png']
+                    ['Pie del huayno', 'img/ejemplos/Pies/PieHuayno.png'],
+                    ['Pie del carnavalito', 'img/ejemplos/Pies/PieCarnavalito.png']
                 ]
             ], 
             [//Videos Ejemplos Mus
@@ -802,7 +802,7 @@ let noroeste = new Region('Noroeste',
                 	'Forma estrófica con vuelo poético', 'Puede estar acompañada por instrumentos y ser a dos voces', 'Compás de 3/4, lenta'
                 ],
                 [//img mus
-                    ['Pie de la Vidala', 'img/ejemplos/PieVidala.png']
+                    ['Pie de la Vidala', 'img/ejemplos/Pies/PieVidala.png']
                 ]
             ],
             [//Videos Ejemplos Mus
@@ -894,7 +894,7 @@ let litoral = new Region('Litoral',
                     'polirritmia entre el bajo y la melodía'
                 ], 
                 [//img mus
-                    ['compás de 3/4 (tres negras en el grave) y 6/8 (corchea negra corchea negra en el agudo)', 'img/ejemplos/ejChamamé.png']
+                    ['compás de 3/4 (tres negras en el grave) y 6/8 (corchea negra corchea negra en el agudo)', 'img/ejemplos/Pies/ejChamamé.png']
                 ]
             ], 
             [//Videos Ejemplos Mus
@@ -917,7 +917,7 @@ let litoral = new Region('Litoral',
                 	'compás de 4/4, lento', 'Puede ser tanto vocal como instrumental'
             	],
                 [//img mus
-                    ['influencia de la milonga pampeana (3+3+2)', 'img/ejemplos/pieMilonga.png']
+                    ['influencia de la milonga pampeana (3+3+2)', 'img/ejemplos/Pies/pieMilonga.png']
                 ]
             ],
             [//Videos Ejemplos Mus
@@ -939,7 +939,7 @@ let litoral = new Region('Litoral',
                 	'compás 2/4'
             	],
                 [//img mus
-                    ['influencia de la milonga ciudadana', 'img/ejemplos/PieChamarrita.png']
+                    ['influencia de la milonga ciudadana', 'img/ejemplos/Pies/PieChamarrita.png']
                 ]
             ],
             [//Videos Ejemplos Mus
@@ -999,7 +999,7 @@ let cuyo = new Region('Cuyo',
                 	'3/4 y 6/8 vivaz', 'proviene de la zamacueca - parentesco con la zamba'
             	],
                 [//img mus
-                    ['Patrón rítmico característico: corchea con punto, semi, corchea corchea negra', 'img/ejemplos/PieCueca.png'],
+                    ['Patrón rítmico característico: corchea con punto, semi, corchea corchea negra', 'img/ejemplos/Pies/PieCueca.png'],
                     ['Formalmente ligado a la danza. Dos vueltas de intro- estrofa 1- estrofa 2 escribillo', ]
                 ]
             ],
@@ -1125,13 +1125,13 @@ let centro = new Region('Centro',
                 	'6/8 y 3/4', 'tempo alegre y ágil'
             	], 
                 [//img mus
-                    ['Forma de la chacarera', 'img/ejemplos/Forma-Chacarera-01.png'],
-                    [, 'img/ejemplos/Forma-Chacarera-02.png'],
-                    [, 'img/ejemplos/Forma-Chacarera-03.png'],
-                    [, 'img/ejemplos/Forma-Chacarera-04.png'],
-                    [, 'img/ejemplos/Forma-Chacarera-05.png'],
-                    [, 'img/ejemplos/Forma-Chacarera-06.png'],
-                    [, 'img/ejemplos/Forma-Chacarera-07.png'],
+                    ['Forma de la chacarera', 'img/ejemplos/Forma/Forma-Chacarera-01.png'],
+                    [, 'img/ejemplos/Forma/Forma-Chacarera-02.png'],
+                    [, 'img/ejemplos/Forma/Forma-Chacarera-03.png'],
+                    [, 'img/ejemplos/Forma/Forma-Chacarera-04.png'],
+                    [, 'img/ejemplos/Forma/Forma-Chacarera-05.png'],
+                    [, 'img/ejemplos/Forma/Forma-Chacarera-06.png'],
+                    [, 'img/ejemplos/Forma/Forma-Chacarera-07.png'],
                 ]
             ], 
             [//Videos Ejemplos Mus
@@ -1144,7 +1144,7 @@ let centro = new Region('Centro',
                 [, ]
             ],
             [//Partituras
-
+            	['El puente carretero', 'img/ejemplos/Para tocar/El puente carretero.png'],
             ] 
         ],
         [ //Escondido
@@ -1188,32 +1188,9 @@ let centro = new Region('Centro',
                 ['Zamba', 'https://www.youtube.com/embed/x2Ra80ktd9Y']
             ],
             [ //Partituras
-                ['Zamba para olvidar', 'img/ejemplos/Zamba/Zamba para olvidar-01.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-02.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-03.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-04.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-05.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-06.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-07.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-08.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-09.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-10.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-11.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-12.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-13.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-14.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-15.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-16.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-17.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-18.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-19.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-20.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-21.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-22.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-23.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-24.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-25.png'],
-                [, 'img/ejemplos/Zamba/Zamba para olvidar-26.png'],
+                ['Zamba para olvidar', 'img/ejemplos/Para tocar/Zamba para olvidar-01.png'],
+                [, 'img/ejemplos/Para tocar/Zamba para olvidar-02.png'],
+                
 
             ] 
         ],

@@ -295,7 +295,7 @@ h2#regionNombre {
   text-align: center;
   color: white;
   font-size: 250%;
-  margin: 20px;
+  
   text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
 }
 
@@ -303,6 +303,8 @@ h2#regionNombre {
   text-align: center;
   color: white;
   font-size: 150%;
+  margin: 20px;
+  margin-right: 80px;
   text-shadow: 1px 1px 2px #000000;
 } 
 
@@ -353,9 +355,10 @@ img{
   margin-left: 0; 
 }
 
-.ejemplosImg {
+.ejemplosImg  {
   display: flex;
   flex-wrap: wrap;
+
 }
 
 .ejemplosImg > p {
@@ -364,7 +367,18 @@ img{
 
 .ejemplosImg > img {
   padding: 20px 0px;
+    
+}
+
+.cardinfo > .partiturasImg {
+width: 20%;  
+}
+
+.partiturasImg > img {
+  padding: 20px 0px;
   border-bottom: 2px dashed grey;
+  width: 100%;
+  height: auto;
 }
 
 
@@ -559,7 +573,7 @@ h4 {
 #irom-noroeste{   
   background: linear-gradient(0deg, white, #d78b7d); 
   left: -180%;
-  top: 5vh; 
+  top: 2vh; 
  display: none;
 }
 
@@ -601,7 +615,7 @@ h4 {
 #irom-patagonia{
   background: linear-gradient(0deg, white, #999BB4);
   left: -175%;
-  top: 25vh; 
+  top: 20vh; 
   display: none;
   }
 
