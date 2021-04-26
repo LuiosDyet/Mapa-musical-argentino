@@ -46,31 +46,37 @@ this.changeRegion = function(nombre, provinciasMapa, generosRegion, fotosRegion,
 
 let regiones = document.getElementsByClassName("region");
 
+var showGenerosHideInstrumentos = true;
+
 let selRegion = function() {
-	hideBigMap();
+
 	
-    let region = this.getAttribute("id");
+		hideBigMap();
+		
+	    let region = this.getAttribute("id");
 
-  
-    //alert(region);
-    
-    switch (region) {
-    	case 'noroeste' : noroeste.changeRegion();
-    		break;
-	    case 'litoral' : litoral.changeRegion();
-	    	break;
-	    case 'centro': centro.changeRegion();
-	    	break
-	    case 'cuyo' : cuyo.changeRegion();
-	    	break
-	    case 'pampeana' : pampeana.changeRegion();
-	    	break
-	    case 'ciudadana' : ciudadana.changeRegion();
-	    	break
-	    case 'patagonia' : patagonia.changeRegion();
-	    	break
-
-
+	  
+	    //alert(region);
+	    
+	    switch (region) {
+	    	case 'noroeste' : noroeste.changeRegion();
+	    		break;
+		    case 'litoral' : litoral.changeRegion();
+		    	break;
+		    case 'centro': centro.changeRegion();
+		    	break
+		    case 'cuyo' : cuyo.changeRegion();
+		    	break
+		    case 'pampeana' : pampeana.changeRegion();
+		    	break
+		    case 'ciudadana' : ciudadana.changeRegion();
+		    	break
+		    case 'patagonia' : patagonia.changeRegion();
+		    	break
+		};    
+	if(showGenerosHideInstrumentos === false){	
+	setCurrentRegionGeneros();
+	
     };
     document.getElementById('l3Opcion').innerHTML  = 'Ver instrumentos de la región';
 };
@@ -318,167 +324,57 @@ function frontsideSubtitulo(generosRegion){
 
 function changeInforBackside(caractGeneros){
 	let genInfo = document.querySelectorAll('.cardInfo');
-	for (let i = 0; i<genInfo.length; i++){
-		//j is external array
+	for (let i = 0; i < genInfo.length; i++){
+		//j es el género elegido (Huayno, Vidale, etc.)
 		let j = Math.floor(i/4);
-		//k is internal array
+		//k es el tipo de info (caract, ejemplo, partitura, danza)
 		let k = i%4;
-		if (i%4 === 0) {
-			list = createInfoGeneroMus(caractGeneros,j)
-			genInfo[i].appendChild(list);
 
-			imagesCont = createImgGeneroMus(caractGeneros,j)
-			genInfo[i].appendChild(imagesCont);
-		}else if (i%4 === 1){
-			list = createInfoGeneroEjemploMus(caractGeneros,j)
-			genInfo[i].appendChild(list);
-		}else if (i%4 === 2){
-			imgParaTocar = createParaTocarMus(caractGeneros,j)
-			genInfo[i].appendChild(imgParaTocar);
-		}else if (i%4 === 3){
+		
 
-		list = createInfoGeneroDan(caractGeneros,j)
-		genInfo[i].appendChild(list);
+		//alert(`gen ${j}, info ${k}`);
+		for(l = 0; l < caractGeneros[j][k].length; l++){
 
-		videoCont = createInfoGeneroEjemploDan(caractGeneros,j)
-		genInfo[i].appendChild(videoCont);
+			let type = caractGeneros[j][k][l][0];
+			let info = caractGeneros[j][k][l][1];
+
+				if (type === 'img'){
+			        let img = document.createElement('img');
+			        img.src = info;
+			        genInfo[i].appendChild(img);
+
+				  } else if (type === 'p') {
+			        let para =  document.createElement('p');
+			        para.innerHTML = info;
+			        genInfo[i].appendChild(para);
+
+				  } else if (type === 'h5'){
+			        let h5 = document.createElement('h5');
+			        h5.innerHTML = info;
+			        genInfo[i].appendChild(h5);
+
+				   } else if (type === 'li'){
+				   	let list = document.createElement('ul');	
+				    let li = document.createElement('li');
+				    li.innerHTML = info;
+				    list.appendChild(li);
+				    genInfo[i].appendChild(list);
+
+				  	} else if (type === 'iframe') {
+				    let iframe = document.createElement('iframe');
+				    iframe.src = info;
+				    genInfo[i].appendChild(iframe);
+					          
+				  	};
+
 		};
+					 
 
 	};
 
 };
 
-
-function createInfoGeneroMus(caractGeneros, genIndex){
-	
-	let list = document.createElement('ul');	
-		
-		for (i = 0; i < caractGeneros[genIndex][0][0].length; i++)  {
-			
-			let listItem = document.createElement('li');
-
-			listItem.innerHTML = caractGeneros[genIndex][0][0][i];
-			list.appendChild(listItem);
-
-		};
-
-		return list;
-};
-
-function createImgGeneroMus(caractGeneros, genIndex) {
-
-	let imagesCont = document.createElement('div');
-	imagesCont.setAttribute('class', 'ejemplosImg');
-
-		for (i = 0; i < caractGeneros[genIndex][0][1].length; i++)  {
-			
-			if(caractGeneros[genIndex][0][1][i][0] !== undefined){
-				let list = document.createElement('ul');
-				let imgData = document.createElement('li');
-				imgData.innerHTML = caractGeneros[genIndex][0][1][i][0];
-				list.appendChild(imgData);
-				imagesCont.appendChild(list);
-			};
-
-			if(caractGeneros[genIndex][0][1][i][1] !== undefined){
-				let img = document.createElement('img');
-				img.src = caractGeneros[genIndex][0][1][i][1];
-				imagesCont.appendChild(img);
-			};
-
-			
-		};
-	return imagesCont;
-};
-
-function createInfoGeneroEjemploMus(caractGeneros, genIndex){
-	let list = document.createElement('div');
-	list.setAttribute('class', 'videoContainer');
-
-	for (i = 0; i < caractGeneros[genIndex][1].length;i++){
-			
-			let videoData = document.createElement('h4');
-			videoData.innerHTML = caractGeneros[genIndex][1][i][0];
-			list.appendChild(videoData);
-
-		if(caractGeneros[genIndex][1][i][1] !== undefined){
-			let iframe = document.createElement('iframe');
-			iframe.src = caractGeneros[genIndex][1][i][1];
-			list.appendChild(iframe);
-		};
-
-	};
-		
-
-	return list
-
-}
-
-function createParaTocarMus(caractGeneros, genIndex) {
-
-	let imgParaTocar = document.createElement('div');
-	imgParaTocar.setAttribute('class', 'partiturasImg');
-		
-		for (i = 0; i < caractGeneros[genIndex][4].length; i++)  {
-			
-			if(caractGeneros[genIndex][4][i][0] !== undefined){
-				let list = document.createElement('ul');
-				let imgData = document.createElement('li');
-				imgData.innerHTML = caractGeneros[genIndex][4][i][0];
-				list.appendChild(imgData);
-				imgParaTocar.appendChild(list);
-			};
-
-			if(caractGeneros[genIndex][4][i][1] !== undefined){
-				let img = document.createElement('img');
-				img.src = caractGeneros[genIndex][4][i][1];
-				imgParaTocar.appendChild(img);
-			};
-
-				
-		};
-	return imgParaTocar;
-};
-
-
-function createInfoGeneroDan(caractGeneros, genIndex){
-
-	let list = document.createElement('ul');
-
-	for (i = 0; i < caractGeneros[genIndex][2].length; i++)  {
-			
-			let listItem = document.createElement('li');
-
-			listItem.innerHTML = caractGeneros[genIndex][2][i];
-			list.appendChild(listItem);
-
-		};
-	return list;
-};
-
-function createInfoGeneroEjemploDan(caractGeneros, genIndex){
-	let videoCont = document.createElement('div');
-	videoCont.setAttribute('class', 'videoContainer');
-
-	for (i = 0; i < caractGeneros[genIndex][3].length;i++){
-			
-			let videoData = document.createElement('h4');
-			videoData.innerHTML = caractGeneros[genIndex][3][i][0];
-			videoCont.appendChild(videoData);
-
-		if(caractGeneros[genIndex][3][i][1] !== undefined){
-			let iframe = document.createElement('iframe');
-			iframe.src = (caractGeneros[genIndex][3][i][1]);
-			videoCont.appendChild(iframe);
-		};
-
-	};
-		
-
-	return videoCont
-
-};
-
+  
 
 // Background images
 function changeBGImages(fotosRegion){
@@ -541,9 +437,11 @@ function changeInstrGene(){
 	if(buttonInstGen.innerHTML	 === 'Ver instrumentos de la región'){
 		buttonInstGen.innerHTML = 'Ver géneros de la región';
 		setCurrentRegionGeneros();
+		showGenerosHideInstrumentos = false;
 		} else {
 		buttonInstGen.innerHTML	 = 'Ver instrumentos de la región';
 		setCurrentRegionInstrumentos();
+		showGenerosHideInstrumentos = true;
 	};
 };
 
@@ -638,46 +536,46 @@ function changeInfoFrontsideInstrumentos(instrumentos){
 
 // Backside information instrumentos
 
-
-
 function changeInforBacksideInstrumentos(instrumentos){
 	let genInfo = document.querySelectorAll('.cardInfo');
-	for (let i = 0; i<genInfo.length; i++){
+	for (let i = 0; i < genInfo.length; i++){
+			let type = instrumentos[1][i][0];
+			let info = instrumentos[1][i][1];
+
+				if (type === 'img'){
+			        let img = document.createElement('img');
+			        img.src = info;
+			        genInfo[i].appendChild(img);
+
+				  } else if (type === 'p') {
+			        let para =  document.createElement('p');
+			        para.innerHTML = info;
+			        genInfo[i].appendChild(para);
+
+				  } else if (type === 'h5'){
+			        let h5 = document.createElement('h5');
+			        h5.innerHTML = info;
+			        genInfo[i].appendChild(h5);
+
+				   } else if (type === 'li'){
+				   	let list = document.createElement('ul');	
+				    let li = document.createElement('li');
+				    li.innerHTML = info;
+				    list.appendChild(li);
+				    genInfo[i].appendChild(list);
+
+				  	} else if (type === 'iframe') {
+				    let iframe = document.createElement('iframe');
+				    iframe.src = info;
+				    genInfo[i].appendChild(iframe);
+					          
+				  	};
+
 		
-			list = createInfoInstrumento(instrumentos[1][i])
-			genInfo[i].appendChild(list);
-	
+					 
+
 	};
 
-};
-
-function createInfoInstrumento(instrumentos){
-	
-	let list = document.createElement('ul');	
-		
-		for (i = 0; i < instrumentos.length; i++)  {
-			
-			let listItem = document.createElement('li');
-
-			listItem.innerHTML = instrumentos[i];
-			list.appendChild(listItem);
-
-		};
-
-		/*for (i = 0; i < caractGeneros[genIndex][0][1].length; i++)  {
-			let k = i%4;
-
-			let imgData = document.createElement('p');
-			let img = document.createElement('img');
-
-			imgData.innerHTML = caractGeneros[genIndex][0][1][k][0];
-			img.src = caractGeneros[genIndex][0][1][k][1];
-
-			list.appendChild(imgData);
-			list.appendChild(img);
-		};
-*/
-	return list;
 };
 
 
@@ -772,73 +670,71 @@ let noroeste = new Region('Noroeste',
         "url('img/Puna/salta-ciudad.jpg')"
     ],
     "rgb(215, 139, 125)",
-    [ //generos
+    [ //CaractGeneros
         [ //Huayno
             [//caract
-                [
-                	'Pie binario', 'Generalmente pentatónico (cinco notas)'
-                ], 
-                [//img mus
-                    ['Pie del huayno', 'img/ejemplos/Pies/PieHuayno.png'],
-                    ['Pie del carnavalito', 'img/ejemplos/Pies/PieCarnavalito.png']
-                ]
+       
+	        	['li', 'Pie binario'], 
+	        	['li', 'Generalmente pentatónico (cinco notas)'],      
+	            ['h5', 'Pie del huayno'],
+	            ['img', 'img/ejemplos/Pies/PieHuayno.png'],
+	            ['h5', 'Pie del carnavalito'],
+	            ['img', 'img/ejemplos/Pies/PieCarnavalito.png']
+        
             ], 
             [//Videos Ejemplos Mus
-                ['Ejemplo música', 'https://www.youtube.com/embed/BoLZRaM2vfA']
+                ['h5', 'Ejemplo música'], 
+                ['iframe', 'https://www.youtube.com/embed/BoLZRaM2vfA']
+            ], 
+           	[//Partituras
+            	 
             ], 
             [//danza
-            	'Danza grupal vivaz no coreografiada', 'Huayñunakunay: (quechua) bailar tomados de la mano'
-            ], 
-            [//Videos Ejemplos Danza
-                ['Carnavalito', 'https://www.youtube.com/embed/s2EwDKiuAFs']
-            ],
-            [//Partituras
-            	 
+            	['li', 'Danza grupal vivaz no coreografiada'],
+            	['li', 'Huayñunakunay: (quechua) bailar tomados de la mano'],
+            	['h5', 'Carnavalito'],
+            	['iframe', 'https://www.youtube.com/embed/s2EwDKiuAFs']
             ] 
+          
         ],
         [ //Vidala
             [//caract
-                [
-                	'Forma estrófica con vuelo poético', 'Puede estar acompañada por instrumentos y ser a dos voces', 'Compás de 3/4, lenta'
-                ],
-                [//img mus
-                    ['Pie de la Vidala', 'img/ejemplos/Pies/PieVidala.png']
-                ]
+                
+            	['li', 'Forma estrófica con vuelo poético'], 
+            	['li', 'Puede estar acompañada por instrumentos y ser a dos voces'], 
+            	['li', 'Compás de 3/4, lenta'],            
+                ['h5', 'Pie de la Vidala'], 
+                ['img', 'img/ejemplos/Pies/PieVidala.png']
+            
             ],
             [//Videos Ejemplos Mus
-                ['ejemplo', ]
-            ],
-            [//danza
-            	'Sin danza'
-        	],
-            [//Videos Ejemplos Danza
-                ['ejemplo', ]
+                
             ],
             [//Partituras
             	
-            ]
+            ],
+            [//danza
+            	['h5', 'Sin danza']
+        	]            
         ],
         [ //Baguala
             [//caract
-                [
-                	'Canto solista, acompañado por caja, trifónico', 'Pueden ser improvisadas'
-            	],
-                [//img mus
-
-                ]
+                
+            	['li', 'Canto solista, acompañado por caja, trifónico'], 
+            	['li', 'Pueden ser improvisadas']
+            	
             ],
             [//Videos Ejemplos Mus
                 [, ]
             ],
-            [//danza
-            	'Sin danza'
-            ],
-            [//Videos Ejemplos Danza
-                [, ]
-            ],
             [//Partituras
             	
-        	]
+        	],
+            [//danza
+            	['h5', 'Sin danza']
+            ]
+            
+            
 
         ]
     ],
@@ -847,12 +743,12 @@ let noroeste = new Region('Noroeste',
             'Caja', 'Quena', 'Siku o zampoña', 'Erke', 'Chajchaj', 'Charango'
         ],
         [ //características instrumentos
-            ['Tambor pequeño, doble parche, se toca con una mano sosteniendola y con la otra con baqueta'],
-            ['Aerófono de caña, un solo tubo con agujeros, con bisel de muesca'],
-            ['Hileras de tubos de cañas, una nota cada tubo', 'Siku (aymará) tubo que da sonido'],
-            ['Corneta o cuerno'],
-            ['Sonajero de pezuñas'],
-            ['Instrumento de 5 cuerdas dobles, pequeño']
+            ['h5','Tambor pequeño, doble parche, se toca con una mano sosteniendola y con la otra con baqueta'],
+            ['h5','Aerófono de caña, un solo tubo con agujeros, con bisel de muesca'],
+            ['h5','Hileras de tubos de cañas, una nota cada tubo', 'Siku (aymará) tubo que da sonido'],
+            ['h5','Corneta o cuerno'],
+            ['h5','Sonajero de pezuñas'],
+            ['h5','Instrumento de 5 cuerdas dobles, pequeño']
         ],
         [ //fotos instrumentos
             "url('img/Instrumentos/caja.jpg')",
@@ -886,74 +782,57 @@ let litoral = new Region('Litoral',
     [//generos
         [ //Chamamé
             [//caractMus
-                [
-                	'Tiene un fluir relacionado al rio',
-                    'Tiene muchas variantes que van desde tempos moderados a muy vivaces',
-                    'Elementos carácteristicos: Sapucay (expresión de alegría o lamento que se manifiesta en un grito caracteristico) y tapa (acorde final que cierra la obra)',
-                    'Puede ser tanto vocal como instrumental',
-                    'polirritmia entre el bajo y la melodía'
-                ], 
-                [//img mus
-                    ['compás de 3/4 (tres negras en el grave) y 6/8 (corchea negra corchea negra en el agudo)', 'img/ejemplos/Pies/ejChamamé.png']
-                ]
+                ['li', 'Tiene un fluir relacionado al rio'],
+                ['li', 'Tiene muchas variantes que van desde tempos moderados a muy vivaces'],
+				['li', 'Elementos carácteristicos: Sapucay (expresión de alegría o lamento que se manifiesta en un grito caracteristico) y tapa (acorde final que cierra la obra)'],
+                ['li', 'Puede ser tanto vocal como instrumental'],
+                ['li', 'polirritmia entre el bajo y la melodía'],
+                ['h5', 'compás de 3/4 (tres negras en el grave) y 6/8 (corchea negra corchea negra en el agudo)'], 
+                ['img', 'img/ejemplos/Pies/ejChamamé.png']
+               
             ], 
             [//Videos Ejemplos Mus
-                [ ]
-            ],
-            [//danza
-            	'Danza de pareja enlazada no coreográfica'
-        	], 
-            [//Videos Ejemplos Danza
-                ['Ejemplo música', ]
+                
             ],
             [//Partituras
             		
-            ]
-            
+            ],
+            [//danza
+            	['li', 'Danza de pareja enlazada no coreográfica']
+        	]            
         ],
         [ //Resguido Doble
             [//caract
-                [
-                	'compás de 4/4, lento', 'Puede ser tanto vocal como instrumental'
-            	],
-                [//img mus
-                    ['influencia de la milonga pampeana (3+3+2)', 'img/ejemplos/Pies/pieMilonga.png']
-                ]
+                ['li', 'compás de 4/4, lento'], 
+                ['li', 'Puede ser tanto vocal como instrumental'],
+            	['h5', 'influencia de la milonga pampeana (3+3+2)'], 
+            	['img', 'img/ejemplos/Pies/pieMilonga.png']
             ],
             [//Videos Ejemplos Mus
-                [, ]
-            ],
-            [//danza
-            	'Danza de pareja enlazada no coreográfica'
-        	],
-            [//Videos Ejemplos Danza
-                [, ]
+                
             ],
             [//Partituras
 
-            ]
+            ],
+            [//danza
+            	['li', 'Danza de pareja enlazada no coreográfica']
+        	]                    
         ],
         [ //Chamarrita
             [//caract
-                [
-                	'compás 2/4'
-            	],
-                [//img mus
-                    ['influencia de la milonga ciudadana', 'img/ejemplos/Pies/PieChamarrita.png']
-                ]
+                ['li', 'compás 2/4'],
+                ['h5', 'influencia de la milonga ciudadana'], 
+                ['img', 'img/ejemplos/Pies/PieChamarrita.png']              
             ],
             [//Videos Ejemplos Mus
-                [, ]
-            ],
-            [//danza
-           		'Sin danza'
-       		],
-            [//Videos Ejemplos Danza
-                [, ]
+                
             ],
             [//Partituras
 
-            ]
+            ],
+            [//danza
+           		['h5', 'Sin danza']
+       		]                      
         ]
     ],
     [
@@ -961,9 +840,9 @@ let litoral = new Region('Litoral',
             'Guitarra', 'Acordeón', 'Bandoneón'
         ],
         [ //características instrumentos
-            ['Instrumento de 6 cuerdas, pueden ser pulsadas o rasgueadas'],
-            ['Instrumento armónico de viento, con un fuelle y botoneras o teclado.'],
-            ['Instrumento armónico de viento, con un fuelle y botoneras']
+            ['h5','Instrumento de 6 cuerdas, pueden ser pulsadas o rasgueadas'],
+            ['h5','Instrumento armónico de viento, con un fuelle y botoneras o teclado.'],
+            ['h5','Instrumento armónico de viento, con un fuelle y botoneras']
         ],
         [ //fotos instrumentos
             "url('img/Instrumentos/Guitarra-chamamé.jpg')",
@@ -995,70 +874,55 @@ let cuyo = new Region('Cuyo',
     [//generos
         [ //Cueca
             [//caract
-                [
-                	'3/4 y 6/8 vivaz', 'proviene de la zamacueca - parentesco con la zamba'
-            	],
-                [//img mus
-                    ['Patrón rítmico característico: corchea con punto, semi, corchea corchea negra', 'img/ejemplos/Pies/PieCueca.png'],
-                    ['Formalmente ligado a la danza. Dos vueltas de intro- estrofa 1- estrofa 2 escribillo', ]
-                ]
+                ['li', '3/4 y 6/8 vivaz'], 
+                ['li', 'proviene de la zamacueca - parentesco con la zamba'],
+                ['h5', 'Patrón rítmico característico:'], 
+                ['img', 'img/ejemplos/Pies/PieCueca.png'],
+                ['p',''],
+                ['h5', 'Formalmente ligado a la danza'], 
+                ['p', 'Dos vueltas de intro- estrofa 1- estrofa 2 escribillo']
             ],
             [//Videos Ejemplos Mus
-                [, ]
-            ],
-            [//danza
-            	'Danza de pareja suelta con pañuelo coreografiada'
-        	], 
-            [//Videos Ejemplos Danza
-                [, ]
+                
             ],
             [//Partituras
 
-            ] 
+            ], 
+            [//danza
+            	['li', 'Danza de pareja suelta con pañuelo coreografiada']
+        	],    
         ],
         [ //Gato cuyano
             [//caract
-                [
-                	'3/4 y  6/8 moderado'
-        		],
-                [//img mus
-                    ['Forma (ver gráfico)', ]
-                ]
+                ['li', '3/4 y  6/8 moderado'],
+                ['h5','Forma (ver gráfico)' ]
             ],
             [//Videos Ejemplos Mus
-                [, ]
-            ],
-            [//danza
-            	'Danza de pareja suelta coreografiada', 'Se diferencia del gato porque aparece la figura del contragiro', 'Se baila con castañetas y paso básico'
-        	],
-            [//Videos Ejemplos Danza
-                ['ejemplo', ]
+                
             ],
             [//Partituras
 
-            ]
+            ],
+            [//danza
+            	['li', 'Danza de pareja suelta coreografiada'], 
+            	['li', 'Se diferencia del gato porque aparece la figura del contragiro', 'Se baila con castañetas y paso básico']
+        	]  
         ],
         [ //Tonada
             [//caract
-                [
-                	'Canto solista, acompañado por caja, trifónico', 'Pueden ser improvisadas'
-            	],
-                [//img mus
-                	[]
-                ]
+                ['li', 'Canto solista, acompañado por caja, trifónico'], 
+                ['li', 'Pueden ser improvisadas']
             ],
             [//Videos Ejemplos Mus
-                [, ]
-            ],
-            [//danza
-            	'Sin danza'
-        	],
-            [//Videos Ejemplos Danza
-                [, ]
+                
             ],
             [//Partituras
 
-            ]
+            ],
+            [//danza
+            	['h5', 'Sin danza']
+        	],
+           
         ]
     ],
     [
@@ -1066,7 +930,7 @@ let cuyo = new Region('Cuyo',
             'Guitarra'
         ],
         [ //características instrumentos
-            ['Instrumento de 6 cuerdas, pueden ser pulsadas o rasgueadas']
+            ['h5', 'Instrumento de 6 cuerdas, pueden ser pulsadas o rasgueadas']
         ],
         [ //fotos instrumen
             "url('img/Instrumentos/guitarra-cuyana.jpg')"
@@ -1099,110 +963,96 @@ let centro = new Region('Centro',
     [
         [ //Gato Norteño
             [//caract
-                [
-                	'6/8 y 3/4', 'tempo alegre y ágil'
-            	], 
-                [//img mus
-                    ['Forma (gráfico)', ]
-                ]
+                ['li', '6/8 y 3/4'], 
+                ['li', 'tempo alegre y ágil'], 
+				['h5', 'Forma (gráfico)']
             ], 
             [//Videos Ejemplos Mus
-                [, ]
+                
             ], 
-            [//danza
-            	'Danza de pareja suelta coreografiada', 'Se baila con castañetas y paso básico'
-        	], 
-            [//Videos Ejemplos Danza
-                [, ]
-            ],
             [//Partituras
 
-            ] 
+            ], 
+            [//danza
+            	['li', 'Danza de pareja suelta coreografiada'], 
+            	['li', 'Se baila con castañetas y paso básico']
+        	],            
         ],
         [ //Chacarera
             [//caract
-                [
-                	'6/8 y 3/4', 'tempo alegre y ágil'
-            	], 
-                [//img mus
-                    ['Forma de la chacarera', 'img/ejemplos/Forma/Forma-Chacarera-01.png'],
-                    [, 'img/ejemplos/Forma/Forma-Chacarera-02.png'],
-                    [, 'img/ejemplos/Forma/Forma-Chacarera-03.png'],
-                    [, 'img/ejemplos/Forma/Forma-Chacarera-04.png'],
-                    [, 'img/ejemplos/Forma/Forma-Chacarera-05.png'],
-                    [, 'img/ejemplos/Forma/Forma-Chacarera-06.png'],
-                    [, 'img/ejemplos/Forma/Forma-Chacarera-07.png'],
-                ]
+	                ['li', '6/8 y 3/4'], 
+	                ['li', 'tempo alegre y ágil'], 
+					['h5', 'Forma de la chacarera'],
+					['img' , 'img/ejemplos/Forma/Forma-Chacarera-01.png'],
+                    ['img' , 'img/ejemplos/Forma/Forma-Chacarera-02.png'],
+                    ['img' , 'img/ejemplos/Forma/Forma-Chacarera-03.png'],
+                    ['img' , 'img/ejemplos/Forma/Forma-Chacarera-04.png'],
+                    ['img' , 'img/ejemplos/Forma/Forma-Chacarera-05.png'],
+                    ['img' , 'img/ejemplos/Forma/Forma-Chacarera-06.png'],
+                    ['img' , 'img/ejemplos/Forma/Forma-Chacarera-07.png'] 
             ], 
             [//Videos Ejemplos Mus
-                [, ]
+                
+            ], 
+            [//Partituras
+            	['h5', 'El puente carretero'], 
+            	['p',''],
+            	['img', 'img/ejemplos/Para tocar/El puente carretero.png']
             ], 
             [//danza
-            	'Danza de pareja suelta coreografiada', 'Se baila con castañetas y paso básico'
-        	], 
-            [//Videos Ejemplos Danza
-                [, ]
-            ],
-            [//Partituras
-            	['El puente carretero', 'img/ejemplos/Para tocar/El puente carretero.png'],
-            ] 
+            	['li', 'Danza de pareja suelta coreografiada'], 
+            	['li', 'Se baila con castañetas y paso básico']
+        	]
         ],
         [ //Escondido
             [//caract
-                [
-                	'6/8 y 3/4', 'tempo alegre y ágil'
-                ], 
-                [//img mus
-                    ['Forma (gráfico)', ]
-                ]
+                ['li', '6/8 y 3/4'], 
+                ['li', 'tempo alegre y ágil'], 
+				['h5', 'Forma (gráfico)']
             ], 
             [//Videos Ejemplos Mus
-                [, ]
-            ],
-            [//danza
-            	'Danza de pareja suelta coreografiada', 'Se baila con castañetas y paso básico'
-            ], 
-            [//Videos Ejemplos Danza
-                [, ]
+                
             ],
             [//Partituras
 
-            ] 
+            ], 
+            [//danza
+            	['li', 'Danza de pareja suelta coreografiada'], 
+            	['li', 'Se baila con castañetas y paso básico']
+            ]
         ],
         [ //Zamba
             [//caract
-                [
-                	'6/8 y 3/4', 'tempo tranquilo'
-            	], 
-                [//img mus
-                    ['Forma (gráfico)', ]
-                ]
+                ['li', '6/8 y 3/4'], 
+                ['li', 'tempo tranquilo'], 
+                ['h5', 'Forma (gráfico)']
             ],
             [//Videos Ejemplos Mus
-                [, ]
+                
+            ], 
+            [ //Partituras
+                ['h5', 'Zamba para olvidar'], 
+                ['p',''],
+                ['img', 'img/ejemplos/Para tocar/Zamba para olvidar-01.png'],
+                ['p',''],
+                ['img', 'img/ejemplos/Para tocar/Zamba para olvidar-02.png']
             ], 
             [//danza
-            	'Danza de pareja suelta coreografiada con lugar a improvisación, con pañuelo', 'Se baila con castañetas y paso básico'
-            ], 
-            [//Videos Ejemplos Danza
-                ['Zamba', 'https://www.youtube.com/embed/x2Ra80ktd9Y']
-            ],
-            [ //Partituras
-                ['Zamba para olvidar', 'img/ejemplos/Para tocar/Zamba para olvidar-01.png'],
-                [, 'img/ejemplos/Para tocar/Zamba para olvidar-02.png'],
-                
-
-            ] 
-        ],
+            	['li', 'Danza de pareja suelta coreografiada con lugar a improvisación, con pañuelo'], 
+            	['li', 'Se baila con castañetas y paso básico'],
+            	['h5', 'Zamba'],
+            	['iframe', 'https://www.youtube.com/embed/x2Ra80ktd9Y']
+            ]            
+        ]
     ],
     [
         [ //instrumentos
             'Guitarra', 'Bombo', 'Violín'
         ],
         [ //características instrumentos
-            ['Instrumento de 6 cuerdas, pueden ser pulsadas o rasgueadas'],
-            ['Instrumento de doble parche que se toca en el aro o el parche con dos baquetas'],
-            ['Instrumento de 4 cuerdas frotadas por un arco. También pueden ser pulsadas (pizzicato)']
+            ['h5', 'Instrumento de 6 cuerdas, pueden ser pulsadas o rasgueadas'],
+            ['h5', 'Instrumento de doble parche que se toca en el aro o el parche con dos baquetas'],
+            ['h5', 'Instrumento de 4 cuerdas frotadas por un arco. También pueden ser pulsadas (pizzicato)']
         ],
         [ //fotos instrumen
             "url('img/Instrumentos/guitarra-chacarera.jpg')",
@@ -1233,77 +1083,61 @@ let pampeana = new Region('Pampeana',
     [
         [ //Malambo
             [//caract
-                [
-                	'6/8, I- IV- V', 'sin letra', 'baile de desafío'
-                ], 
-                [//img mus
-                    [, ]
-                ]
+                ['li', '6/8, I- IV- V'], 
+                ['li', 'sin letra'], 
+                ['li', 'baile de desafío']
             ], 
             [//Videos Ejemplos Mus
-                [, ]
-            ], 
-            [//danza
-            	'Danza no coreográfica originalmente masculina', 'en base a un contrapunto de mudanzas (combinación de movimientos entre pies y piernas)'
-            ], 
-            [//Videos Ejemplos Danza
-                [, ]
-            ],
+                
+            ],  
             [//Partituras
 
-            ]
+            ],
+            [//danza
+            	['li', 'Danza no coreográfica originalmente masculina'], 
+            	['li', 'en base a un contrapunto de mudanzas (combinación de movimientos entre pies y piernas)']
+            ]   
         ],
         [ //Huella
             [//caract
-                [
-                	'6/8, suele decir huella en su letra', 'Forma: Intro, estrofa, estrofa (menor), estribillo (mayor).', 'Ritmo lento y señorial'
-                ], 
-                [//img mus
-                    [, ]
-                ]
+                ['li', '6/8'], 
+                ['li', 'Forma: Intro, estrofa, estrofa (menor), estribillo (mayor)'], 
+                ['li', 'Ritmo lento y señorial']
             ], 
             [//Videos Ejemplos Mus
-                [, ]
-            ],
-            [//danza
-            	'Danza de pareja coreografiada', 'Figura especial: el hombre toma la mano de la mujer'
-            ], 
-            [//Videos Ejemplos Danza
-                ['Huella', 'https://www.youtube.com/embed/8fLPmHi62Ns']
+                
             ],
             [//Partituras
 
-            ]
+            ],
+            [//danza
+            	['li', 'Danza de pareja coreografiada'], 
+            	['li', 'Figura especial: el hombre toma la mano de la mujer'],
+            	['h5', 'Huella'], 
+            	['iframe', 'https://www.youtube.com/embed/8fLPmHi62Ns']
+            ]  
         ],
         [ //Payada
             [//caract
-                [
-                	'Improvisación de versos con acompañamiento de guitarra que hace un payador; generalmente los versos relatan sucesos o sentimientos de la cotidianidad rural, y pueden tener un carácter lírico, trágico o humorístico.', 'payada de contrapunto Competencia poético-musical en la que, alternándose dos payadores, improvisan cantos con la guitarra, sobre un mismo tema, tratando de superar al otro en originalidad y destreza poética.'
-                ], 
-                [//img mus
-                    [, ]
-                ]
+                ['li', 'Improvisación de versos con acompañamiento de guitarra que hace un payador; generalmente los versos relatan sucesos o sentimientos de la cotidianidad rural, y pueden tener un carácter lírico, trágico o humorístico.', 'payada de contrapunto Competencia poético-musical en la que, alternándose dos payadores, improvisan cantos con la guitarra, sobre un mismo tema, tratando de superar al otro en originalidad y destreza poética.'], 
             ], 
             [//Videos Ejemplos Mus
-                [, ]
-            ], 
-            [//danza
-            	'Sin danza'
-            ], 
-            [//Videos Ejemplos Danza
-                [, ]
+                
             ],
             [//Partituras
 
-            ]
-        ],
+            ], 
+            [//danza
+            	['h5', 'Sin danza']
+            ]  
+        ]
     ],
     [
         [ //instrumentos
             'Guitarra'
         ],
         [ //características instrumentos
-            ['Instrumento de 6 cuerdas, pueden ser pulsadas o rasgueadas']
+            ['h5', 'Instrumento de 6 cuerdas, pueden ser pulsadas o rasgueadas']
         ],
         [ //fotos instrumen
             "url('img/Instrumentos/guitarra-pampeana.jpg')"
@@ -1329,56 +1163,50 @@ let ciudadana = new Region('Ciudadana',
     [
         [ //Tango
             [//caract
-                [
-                	'Base binaria (2/4 o 4/4), tempo moderado', 'temática nostalgia', 'Esencialmente homofónico con imitaciones y compensaciones entre instrumentos'
-            	], 
-                [//img mus
-                    ['Patrones rítmicos', ],
-                    ['Arrastre', ]
-                ]
+                ['li', 'Base binaria (2/4 o 4/4), tempo moderado'], 
+                ['li', 'temática nostalgia'], 
+                ['li', 'Esencialmente homofónico con imitaciones y compensaciones entre instrumentos'],
+                ['h5', 'Patrones rítmicos'], 
+                ['h5', 'Arrastre']
             ], 
             [//Videos Ejemplos Mus
-                ['Ver hasta el minuto 6 sobre los orígenes del tango', 'https://www.youtube.com/embed/8hu2IyKjif4']
-            ], 
-            [//danza
-            	'Danza de pareja enlazada no coreográfica'
-            ], 
-            [//Videos Ejemplos Danza
-                ['Tango Canyengue', 'https://www.youtube.com/embed/8fLPmHi62Ns']
+                ['p', 'Ver hasta el minuto 6 sobre los orígenes del tango'], 
+                ['iframe', 'https://www.youtube.com/embed/8hu2IyKjif4']
             ],
             [//Partituras
 
-            ] 
+            ],  
+            [//danza
+            	['li', 'Danza de pareja enlazada no coreográfica'],
+                ['h5', 'Tango Canyengue'],
+                ['iframe', 'https://www.youtube.com/embed/8fLPmHi62Ns']
+            ]
         ],
         [ //Milonga Ciudadana
             [//caract
-                [
-                	'4/4 ritmo de habanera rápida, tempo vivo', 'letras pícaras'
-                ], 
-                [//img mus
-                    ['Forma (gráfico)', ]
-                ]
+                ['li', '4/4 ritmo de habanera rápida, tempo vivo'], 
+                ['li', 'letras pícaras'],
+                ['h5', 'Forma (gráfico)']
             ], 
             [//Videos Ejemplos Mus
-                [, ]
+                
             ], 
-            [//danza
-            	'Danza de pareja enlazada no coreográfica'
-            ], 
-            [//Videos Ejemplos Danza
-                ['Milonga Ciudadana', 'https://www.youtube.com/embed/bUFFLZVvttk']
-            ],
             [//Partituras
 
-            ]
-        ],
+            ],
+            [//danza
+            	['li', 'Danza de pareja enlazada no coreográfica'],
+                ['h5', 'Milonga Ciudadana'], 
+                ['iframe', 'https://www.youtube.com/embed/bUFFLZVvttk']
+            ] 
+        ]
    ],
     [
         [ //instrumentos
             'Bandoneón'
         ],
         [ //características instrumentos
-            ['Instrumento armónico de viento, con un fuelle y botoneras']
+            ['h5', 'Instrumento armónico de viento, con un fuelle y botoneras']
         ],
         [ //fotos instrumen
             "url('img/Instrumentos/bandoneon-tango.jpg')"
@@ -1404,34 +1232,29 @@ let patagonia = new Region('Patagonia',
     [
         [ //Loncomeo
             [//caract
-                [
-                	'del mapuche, lonco (cabeza) y meu (aquí bajar).', 'rogativa mapuches (araucanos)  a partir de sonidos del kultrúm y la trutruka instrumentos ambos ejecutados en ceremonias rituales o religiosas.'
-                ], 
-                [//img mus
-                    [, ]
-                ]
+                ['li', 'del mapuche, lonco (cabeza) y meu (aquí bajar)'], 
+                ['li', 'rogativa mapuches (araucanos)  a partir de sonidos del kultrúm y la trutruka instrumentos ambos ejecutados en ceremonias rituales o religiosas']
             ], 
             [//Videos Ejemplos Mus
-                [, ]
+                
             ], 
-            [//danza
-            	'el loncomeo se baila principalmente con movimientos de cabeza.', 'Consiste en correr saltar, agacharse, erguirse, imitar a los animales con movimientos grotescos, sacudiendo fuertemente la cabeza. Se baila entre varios. El que resista mas tiempo será el vencedor. ', 'Los bailarines tocan su cabeza con pintorescas vinchas, tejidas por sus mujeres.'
-            ], 
-            [//Videos Ejemplos Danza
-                [, ]
-	        ],
-	        [//Partituras
+            [//Partituras
 
-	        ] 
-        ],
+	        ],
+            [//danza
+            	['li', 'el loncomeo se baila principalmente con movimientos de cabeza'], 
+            	['li', 'Consiste en correr saltar, agacharse, erguirse, imitar a los animales con movimientos grotescos, sacudiendo fuertemente la cabeza. Se baila entre varios. El que resista mas tiempo será el vencedor'], 
+            	['li', 'Los bailarines tocan su cabeza con pintorescas vinchas, tejidas por sus mujeres']
+            ]
+        ]
     ],
     [
         [ //instrumentos
             'Kultrum', 'Trutruka'
         ],
         [ //características instrumentos
-            ['Tambor ceremonial mapuche con una membrana'],
-            ['Aerófono mapuche similar a la  trompeta y al Erke']
+            ['h5', 'Tambor ceremonial mapuche con una membrana'],
+            ['h5', 'Aerófono mapuche similar a la  trompeta y al Erke']
         ],
         [ //fotos instrumen
             "url('img/Instrumentos/Kultrún.jpg')",
