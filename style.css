@@ -172,6 +172,7 @@ a:link {
 @media only screen and (max-width: 1024px)  {
   svg {
   height: 92vh;
+  margin: 20px;
   }
 
   #l2 {
@@ -424,11 +425,22 @@ img.zoomInfo {
   margin: 5px;
 }
 
+img.zoomInfoFront {
+  display: none;
+}
 
 @media only screen and (max-width: 1024px)  {
   img.zoomInfo {
   display: none;
-}
+  }
+
+  img.zoomInfoFront {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+
+  }
 }
 
 
@@ -672,7 +684,8 @@ div.infoRegionOverlayMap > ul {
 
 #avisoClick {
   position: absolute;
-  left: 37%;
+  left: 50%;
+  top: 0%;
   z-index: 50;
   text-align: center;
   color: white;
@@ -680,4 +693,36 @@ div.infoRegionOverlayMap > ul {
   margin: 0px;
   text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
   opacity: 0.5;
+}
+
+
+/* Go to top button */
+
+#myBtn {
+  display: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+ 
+}
+
+#aviso {
+  display: none;
+  position: fixed;
+  height: 40px;
+  width: 100%;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  
+  background-color: grey;
+  opacity: 0.5;
+  text-align: center;
 }

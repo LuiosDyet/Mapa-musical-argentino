@@ -148,6 +148,11 @@ function createCards(generosRegion){
 	r.setAttribute('id',`r${i}`);
 	flipCardFront.appendChild(r);
 
+	let zoomInfoFront = document.createElement('img');
+	zoomInfoFront.src = 'img/botones/Lupa.png';
+	zoomInfoFront.setAttribute('class','zoomInfoFront');
+	r.appendChild(zoomInfoFront);
+
 	let tituloGen = document.createElement('h2');
 	tituloGen.setAttribute('class', 'titulo gen');
 	tituloGen.setAttribute('id',`h2rt${i}`);
@@ -633,22 +638,42 @@ document.addEventListener("keydown", function(event) {
 });
 
 
-// Click region
+// Click region 
 
-function clickRegion(){
-	setTimeout(function(){ 
-		if(bigMapShown === true){
-			let avisoCont = document.createElement('div');
-			avisoCont.setAttribute('id', 'avisoClick');
-			avisoCont.innerHTML = `Clickeá una región para ver más detalles`
-			document.body.appendChild(avisoCont);
+ function clickRegion(){
+			setTimeout(function(){ 
+				if(bigMapShown === true){
+					let avisoCont = document.createElement('div');
+					avisoCont.setAttribute('id', 'avisoClick');
+					avisoCont.innerHTML = `Clickeá una región para ver más detalles`
+					document.body.appendChild(avisoCont);
+				};
+
+			}, 10000);
 		};
 
-	}, 10000);
-};
 
+// Go to top Button
 
+//Get the button
+var mybutton = document.getElementById("myBtn");
 
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
 
 //DATA	
 
