@@ -458,7 +458,7 @@ img.zoomInfoFront {
 
 
 
-body, .flip-card-back{
+body, .flip-card-back, #overlayInfo{
   overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
@@ -555,15 +555,23 @@ h5 {
 
 }
 */
-#overlayInfo > div   {
+
+.iframeDiv {
   position: relative;
   width: 100%;
   padding-bottom: 56.25%;
+
+}
+
+#overlayInfo > div   {
+  position: relative;
+  width: 100%;
+ /*padding-bottom: 56.25%;*/
  
 
 }
 
-#overlayInfo > div >   iframe  {
+.iframeDiv >  iframe  {
  position: absolute;
   
   left: 20px;

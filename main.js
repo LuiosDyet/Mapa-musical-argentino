@@ -366,12 +366,14 @@ function changeInforBackside(caractGeneros){
 				    genInfo[i].appendChild(list);
 
 				  	} else if (type === 'iframe') {
+				  	let	iframeDiv = document.createElement('div');
+				   	iframeDiv.setAttribute('class', 'iframeDiv');
 				    let iframe = document.createElement('iframe');
 				    iframe.src = info;
-				    genInfo[i].appendChild(iframe);
+				    iframeDiv.appendChild(iframe);
+				    genInfo[i].appendChild(iframeDiv);
 					          
 				  	};
-
 		};
 					 
 
@@ -397,11 +399,30 @@ function changeBGColor(fondo){
 	
 	cardBackside = document.querySelectorAll('.flip-card-back');
 	for(tile of cardBackside){
-		tile.style.backgroundImage = `linear-gradient(${fondo}, white)`;
+		let color = fondo;
+		let randomLightness = (Math.floor(Math.random() * 6.6))*10 + 33;
+		color = color.replace(50, randomLightness);
+		tile.style.backgroundColor = `${color}`;
+		
+		//tile.style.backgroundImage = `linear-gradient(${fondo}, white)`;
+		
+	}
+	cardBackside = document.querySelectorAll('.flip-card-back');
+	for(tile of cardBackside){
+		let color = fondo;
+		let randomLightness = (Math.floor(Math.random() * 6.6))*10 + 33;
+		color = color.replace(50, randomLightness);
+		tile.style.backgroundColor = `${color}`;
+		
+		//tile.style.backgroundImage = `linear-gradient(${fondo}, white)`;
 		
 	}
 
-	document.getElementById('overlayInfo').style.backgroundImage = `linear-gradient(${fondo}, white)`;
+	let color = fondo;
+	let randomLightness = (Math.floor(Math.random() * 6.6))*10 + 33;
+	color = color.replace(50, randomLightness);
+
+	document.getElementById('overlayInfo').style.backgroundColor = `${color}`;
 	
 	document.getElementById('l3Opcion').style.backgroundColor = `${fondo}`;
 
@@ -570,9 +591,12 @@ function changeInforBacksideInstrumentos(instrumentos){
 				    genInfo[i].appendChild(list);
 
 				  	} else if (type === 'iframe') {
+				  	let iframeDiv = document.createElement('div');
+				  	iframeDiv.setAttribute('class', 'iframeDiv');
 				    let iframe = document.createElement('iframe');
 				    iframe.src = info;
-				    genInfo[i].appendChild(iframe);
+				    iframeDiv.appendChild(iframe);
+				    genInfo[i].appendChild(iframeDiv);
 					          
 				  	};
 
@@ -694,7 +718,7 @@ let noroeste = new Region('Noroeste',
         "url('img/Puna/salinas-puna.jpg')",
         "url('img/Puna/salta-ciudad.jpg')"
     ],
-    "rgb(215, 139, 125)",
+    "hsl(8, 98%, 50%)",
     [ //CaractGeneros
         [ //Huayno
             [//caract
@@ -803,7 +827,7 @@ let litoral = new Region('Litoral',
         "url('img/Litoral/dorado.jpg')",
         "url('img/Litoral/Flamencos-en-Santa-Fe.jpg')"
     ],
-    "rgb(146, 199, 222)",
+    "hsl(197, 76%, 50%)",
     [//generos
         [ //Chamamé
             [//caractMus
@@ -895,7 +919,7 @@ let cuyo = new Region('Cuyo',
         "url('img/Cuyo/puente-inca.jpg')",
         "url('img/Cuyo/sanjuan.jpg')"
     ],
-    "rgb(212, 172, 129)",
+    "hsl(26, 71%, 50%)",
     [//generos
         [ //Cueca
             [//caract
@@ -984,7 +1008,7 @@ let centro = new Region('Centro',
         "url('img/Centro/Rafaela.jpg')",
         "url('img/Centro/rio-dulce.jpg')"
     ],
-    "rgb(253, 225, 200)",
+    "hsl(31, 97%, 50%)",
     [
         [ //Gato Norteño
             [//caract
@@ -1104,7 +1128,7 @@ let pampeana = new Region('Pampeana',
         "url('img/Pampeana/pulperia.jpg')",
         "url('img/Pampeana/trigo.jpg')"
     ],
-    "rgb(176, 191, 148)",
+    "hsl(80, 66%, 50%)",
     [
         [ //Malambo
             [//caract
@@ -1184,7 +1208,7 @@ let ciudadana = new Region('Ciudadana',
         "url('img/Ciudadana/puerto-madero.jpg')",
         "url('img/Ciudadana/tango.jpg')"
     ],
-    "rgb(213, 212, 198)",
+    "hsl(53, 18%, 50%)",
     [
         [ //Tango
             [//caract
@@ -1253,7 +1277,7 @@ let patagonia = new Region('Patagonia',
         //"url('img/Patagonia/Tulipanes-en-Chubut.jpg')",
         //"url('img/Patagonia/villa-traful.jpg')"
     ],
-    "rgb(153, 155, 180)",
+    "hsl(234, 51%, 50%)",
     [
         [ //Loncomeo
             [//caract
