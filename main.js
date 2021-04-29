@@ -442,7 +442,13 @@ function showZoomInfoOverlay(tileCopied){
 	overlayInfoH2.innerHTML = overlayInfoH2Copied.innerHTML;
 
 	let overlayInfoH3Copied = document.getElementById(`h3${tileSelected}`);
-	overlayInfoH3.innerHTML = overlayInfoH3Copied.innerHTML;
+	if(overlayInfoH3Copied === null){
+		overlayInfoH3.innerHTML = ''
+	}else{
+		overlayInfoH3.innerHTML = overlayInfoH3Copied.innerHTML;
+	};
+	
+	
 
 	let overlayInfo = document.getElementById('copiedCardInfo');
 	overlayInfoBody.innerHTML = tileCopied.innerHTML;
