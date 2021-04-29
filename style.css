@@ -613,50 +613,57 @@ h4 {
   background-color: green;
 }
 
-#irom-noroeste{   
-  background: linear-gradient(0deg, white, #d78b7d); 
+#irom-noroeste{
+  background-color:#d78b7d;   
+  /*background: linear-gradient(0deg, white, #d78b7d); */
   left: -180%;
   top: 2vh; 
- display: none;
+  display: none;
 }
 
 #irom-litoral{
-  background: linear-gradient(0deg, white, #92C7DE);
+  background-color:#92C7DE;
+  /*background: linear-gradient(0deg, white, #92C7DE);*/
   left: 70%;
   top: 7vh; 
   display: none;
 }
 
 #irom-centro{
-  background: linear-gradient(0deg, white, #FDE1C8);
+  background-color:#FDE1C8;
+  /*background: linear-gradient(0deg, white, #FDE1C8);*/
   left: -160%;
   top: 15vh; 
   display: none;
 }
 
 #irom-cuyo{
-  background: linear-gradient(0deg, white, #D4AC81);
+  background-color:#D4AC81;
+  /*background: linear-gradient(0deg, white, #D4AC81);*/
   left: -175%;
   top: 19vh; 
   display: none;
 }
 
 #irom-pampeana{
-  background: linear-gradient(0deg, white, #B0BF94);
+  background-color:#B0BF94;
+  /*background: linear-gradient(0deg, white, #B0BF94);*/
   left: 60%;
   top: 20vh; 
   display: none;
 }
 
 #irom-ciudadana{
-  background: linear-gradient(0deg, white, #D5D4C6);
+  background-color:#D5D4C6;
+  /*background: linear-gradient(0deg, white, #D5D4C6);*/
   left: 65%;
   top: 23vh; 
   display: none;
 }
 
 #irom-patagonia{
-  background: linear-gradient(0deg, white, #999BB4);
+  background-color:#999BB4;
+  /*background: linear-gradient(0deg, white, #999BB4);*/
   left: -175%;
   top: 20vh; 
   display: none;
