@@ -76,9 +76,9 @@ let selRegion = function() {
 		};    
 	if(showGenerosHideInstrumentos === false){	
 	setCurrentRegionGeneros();
-	
+	//document.getElementById('l3Opcion').innerHTML  = 'Ver instrumentos de la región';
     };
-    document.getElementById('l3Opcion').innerHTML  = 'Ver instrumentos de la región';
+    
 };
 
 for (let i = 0; i < regiones.length; i++) {
@@ -400,7 +400,7 @@ function changeBGColor(fondo){
 	cardBackside = document.querySelectorAll('.flip-card-back');
 	for(tile of cardBackside){
 		let color = fondo;
-		let randomLightness = (Math.floor(Math.random() * 6.6))*10 + 33;
+		let randomLightness = Math.floor(Math.random() * 50) + 50;
 		color = color.replace(50, randomLightness);
 		tile.style.backgroundColor = `${color}`;
 		
