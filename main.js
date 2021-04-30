@@ -309,7 +309,7 @@ function frontsideSubtitulo(generosRegion){
 	switch(i%4){
 		case 0: tituloHiddenCaract.innerHTML = 'Características de la música';
 		break;
-		case 1: tituloHiddenCaract.innerHTML = 'Ejemplos musicales';
+		case 1: tituloHiddenCaract.innerHTML = 'Historia';
 		break;
 		case 2: tituloHiddenCaract.innerHTML = 'Para tocar';
 		break;
@@ -734,12 +734,13 @@ let noroeste = new Region('Noroeste',
 	            ['h5', 'Pie del huayno'],
 	            ['img', 'img/ejemplos/Pies/PieHuayno.png'],
 	            ['h5', 'Pie del carnavalito'],
-	            ['img', 'img/ejemplos/Pies/PieCarnavalito.png']
+	            ['img', 'img/ejemplos/Pies/PieCarnavalito.png'],
+	            ['h5', 'Ejemplo música'], 
+                ['iframe', 'https://www.youtube.com/embed/BoLZRaM2vfA']
         
             ], 
-            [//Videos Ejemplos Mus
-                ['h5', 'Ejemplo música'], 
-                ['iframe', 'https://www.youtube.com/embed/BoLZRaM2vfA']
+            [//Historia
+                
             ], 
            	[//Partituras
             	 
@@ -762,7 +763,7 @@ let noroeste = new Region('Noroeste',
                 ['img', 'img/ejemplos/Pies/PieVidala.png']
             
             ],
-            [//Videos Ejemplos Mus
+            [//Historia
                 
             ],
             [//Partituras
@@ -779,8 +780,8 @@ let noroeste = new Region('Noroeste',
             	['li', 'Pueden ser improvisadas']
             	
             ],
-            [//Videos Ejemplos Mus
-                [, ]
+            [//Historia
+               
             ],
             [//Partituras
             	
@@ -846,7 +847,7 @@ let litoral = new Region('Litoral',
                 ['img', 'img/ejemplos/Pies/ejChamamé.png']
                
             ], 
-            [//Videos Ejemplos Mus
+            [//Historia
                 
             ],
             [//Partituras
@@ -863,7 +864,7 @@ let litoral = new Region('Litoral',
             	['h5', 'influencia de la milonga pampeana (3+3+2)'], 
             	['img', 'img/ejemplos/Pies/pieMilonga.png']
             ],
-            [//Videos Ejemplos Mus
+            [//Historia
                 
             ],
             [//Partituras
@@ -879,7 +880,7 @@ let litoral = new Region('Litoral',
                 ['h5', 'influencia de la milonga ciudadana'], 
                 ['img', 'img/ejemplos/Pies/PieChamarrita.png']              
             ],
-            [//Videos Ejemplos Mus
+            [//Historia
                 
             ],
             [//Partituras
@@ -937,7 +938,7 @@ let cuyo = new Region('Cuyo',
                 ['h5', 'Formalmente ligado a la danza'], 
                 ['p', 'Dos vueltas de intro- estrofa 1- estrofa 2 escribillo']
             ],
-            [//Videos Ejemplos Mus
+            [//Historia
                 
             ],
             [//Partituras
@@ -950,9 +951,14 @@ let cuyo = new Region('Cuyo',
         [ //Gato cuyano
             [//caract
                 ['li', '3/4 y  6/8 moderado'],
-                ['h5','Forma (ver gráfico)' ]
+                ['h5','Forma del gato cuyano' ],
+                ['img' , 'img/ejemplos/Forma/Forma-GatoCuyano-01.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-GatoCuyano-02.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-GatoCuyano-03.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-GatoCuyano-04.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-GatoCuyano-05.png']
             ],
-            [//Videos Ejemplos Mus
+            [//Historia
                 
             ],
             [//Partituras
@@ -968,7 +974,7 @@ let cuyo = new Region('Cuyo',
                 ['li', 'Canto solista, acompañado por caja, trifónico'], 
                 ['li', 'Pueden ser improvisadas']
             ],
-            [//Videos Ejemplos Mus
+            [//Historia
                 
             ],
             [//Partituras
@@ -1020,17 +1026,31 @@ let centro = new Region('Centro',
             [//caract
                 ['li', '6/8 y 3/4'], 
                 ['li', 'tempo alegre y ágil'], 
-				['h5', 'Forma (gráfico)']
+				['h5', 'Forma del gato norteño'],
+				['img' , 'img/ejemplos/Forma/Forma-GatoNorteño-01.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-GatoNorteño-02.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-GatoNorteño-03.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-GatoNorteño-04.png']
             ], 
-            [//Videos Ejemplos Mus
-                
+            [//Historia
+                ['p', 'Danza de coreografía fija. Si bien desciende de Lima, hay documentos que atestiguan su presencia en México, Colombia, Chile, Bolivia, Uruguay y Paraguay. Pero es en nuestro país que, ingresada por el norte desde 1800, adquiere forma definitiva y se afinca en las diversas regiones culturales argentinas.'],
+                ['p', 'Ya como forma musical (instrumental o con letra cantada), el gato se compone, interpreta y danza en todas las regiones argentinas, pero es en Santiago del Estero donde mantiene mayor vigencia colectiva y tradicional.'],
+                ['p', 'Su enorme difusión no fue solamente territorial, sino también social pues lo abrazó tanto el gaucho como la aristocracia de todas las provincias. Se dice que el mismo Rosas “punte[o un gato” en cierta reunión en Los Cerrillos entre 1820 y 1821. Desde 1837 es acogido en el Circo Criollo que, como se sabe, fue un importante receptor y transmisor de las culturas populares.' ],
+                ['p', 'Es probable que su nombre derive de una antigua copla popular, con forma de “seguidilla” española, esto es, versos intercalados de siete y cinco sílabas. Esta forma, de gran arraigo, se mantiene hasta hoy en el gato y otras formas musicales, como la huella pampeana.'],
+                ['p', 'Salta la perdiz madre <br> Salta al infeliz <br> Que se la lleva el gato <br> El gato mis-mis'],
+                ['p', 'Los diversos nombre que tuvo esta danza, como perdiz o gato mis-mis, pueden originarse en esta copla popular.']
             ], 
             [//Partituras
 
             ], 
             [//danza
             	['li', 'Danza de pareja suelta coreografiada'], 
-            	['li', 'Se baila con castañetas y paso básico']
+            	['li', 'Se baila con castañetas y paso básico'],
+            	['h5', 'Forma del gato norteño'],
+				['img' , 'img/ejemplos/Forma/Forma-GatoNorteño-01.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-GatoNorteño-02.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-GatoNorteño-03.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-GatoNorteño-04.png']
         	],            
         ],
         [ //Chacarera
@@ -1046,8 +1066,10 @@ let centro = new Region('Centro',
                     ['img' , 'img/ejemplos/Forma/Forma-Chacarera-06.png'],
                     ['img' , 'img/ejemplos/Forma/Forma-Chacarera-07.png'] 
             ], 
-            [//Videos Ejemplos Mus
-                
+            [//Historia
+                	['p', 'Danza de coreografía fija. Si bien centrada y muy cultivada en Santiago del Estero, la chacarera navega también por las profundidades del inconsciente colectivo tucumano y salteño.'],
+                	['p', 'La chacarera forma parte de un grupo números de danzas folklóricas sustentadas en una célula rítmica que algunos llaman “tipo gato”, tal vez por ser el gato la especia más añeja de este grupo de danzas. Además de chacareras y gatos, esa base rítmica acompañará bailecitos, escondidos, huellas, triunfos y un buen número de danzas menos vigentes.'],
+                	['p', 'Tal vez menos pícara que el gato o menos tierna que un bailecito, la chacarera es tenaz y vigorosa, incansable como sus intérpretes, adecuada para es canto expansivo santiagueño, mucho menos introspectivo que el modo de los vecinos tucumanos. Y es danza vital, agreste y sensual como pocas.']
             ], 
             [//Partituras
             	['h5', 'El puente carretero'], 
@@ -1056,7 +1078,15 @@ let centro = new Region('Centro',
             ], 
             [//danza
             	['li', 'Danza de pareja suelta coreografiada'], 
-            	['li', 'Se baila con castañetas y paso básico']
+            	['li', 'Se baila con castañetas y paso básico'],
+        		['h5', 'Forma de la chacarera'],
+				['img' , 'img/ejemplos/Forma/Forma-Chacarera-01.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Chacarera-02.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Chacarera-03.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Chacarera-04.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Chacarera-05.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Chacarera-06.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Chacarera-07.png'] 
         	]
         ],
         [ //Escondido
@@ -1065,7 +1095,7 @@ let centro = new Region('Centro',
                 ['li', 'tempo alegre y ágil'], 
 				['h5', 'Forma (gráfico)']
             ], 
-            [//Videos Ejemplos Mus
+            [//Historia
                 
             ],
             [//Partituras
@@ -1080,10 +1110,19 @@ let centro = new Region('Centro',
             [//caract
                 ['li', '6/8 y 3/4'], 
                 ['li', 'tempo tranquilo'], 
-                ['h5', 'Forma (gráfico)']
+                ['h5', 'Forma de la zamba'],
+                ['img' , 'img/ejemplos/Forma/Forma-Zamba-01.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Zamba-02.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Zamba-03.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Zamba-04.png']
             ],
-            [//Videos Ejemplos Mus
-                
+            [//Historia
+                ['p','La zamba es una danza nacional. En tal sentido, su ubicación en la región central puede resultar arbitraria. Sin embargo, es en esta región y en el noroeste argentino donde reside el semillero más significativo de la zamba, no tan solo desde el punto de vista cuantitativo, sino también por haberse desarrollado allí la más dilatada proyección histórica del género: desde sus formas más tradicionales hasta las composiciones del Cuchi Leguizamón. '], 
+                ['p', 'Deriva de la zamacueca, que a su vez proviene del fandango español. La zamacueca, con centro ene l Perú y difusión hacia Chile, Bolivia, ingresa a nuestro territorio por Cuyo (desde Chile) y el Norte (desde Bolivia). Esta zamacueca toma del fandango el lenguaje amoroso, al que acrecienta con el agregado criollo del pañuelo. '],
+                ['p', 'En Chile adquiere la denominación de cueca o chilena, denominación esta última que estimuló el nacionalismo peruano cuando, en plena guerra con Chile, trocó la designación de zamacueca por marinera, en homenaje a su marina de guerra.'],
+                ['p', 'Ya en nuestro país y con la denominación de zamba, pasó a constituirse en el género nacional por excelencia, sea en forma de danza, canto o instrumental.'],
+                ['p', 'Danza amorosa, su coreografía es fija y se resume en una trama de seducción entre hombre y mujer. Decimos entre y no “del” hombre “hacia” la mujer, pues a pesar de la aparente iniciativa masculina en la búsqueda de su pareja, la mujer seduce al hombre con su propio “rehuir”. El alejamiento, en este caso, no pasa de una simulación o de un juego que se integra dialécticamente con el lenguaje de acercamiento de miradas y pañuelos.'],
+                ['p', 'El modo más completo de aprehender una zamba en su forma musical consiste en integrarla – sea como participe o espectador interesado – a sus expresiones coreográficas y poéticas.']
             ], 
             [ //Partituras
                 ['h5', 'Zamba para olvidar'], 
@@ -1095,6 +1134,11 @@ let centro = new Region('Centro',
             [//danza
             	['li', 'Danza de pareja suelta coreografiada con lugar a improvisación, con pañuelo'], 
             	['li', 'Se baila con castañetas y paso básico'],
+            	['h5', 'Forma de la zamba'],
+                ['img' , 'img/ejemplos/Forma/Forma-Zamba-01.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Zamba-02.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Zamba-03.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Zamba-04.png'],
             	['h5', 'Zamba'],
             	['iframe', 'https://www.youtube.com/embed/x2Ra80ktd9Y']
             ]            
@@ -1142,7 +1186,7 @@ let pampeana = new Region('Pampeana',
                 ['li', 'sin letra'], 
                 ['li', 'baile de desafío']
             ], 
-            [//Videos Ejemplos Mus
+            [//Historia
                 
             ],  
             [//Partituras
@@ -1159,7 +1203,7 @@ let pampeana = new Region('Pampeana',
                 ['li', 'Forma: Intro, estrofa, estrofa (menor), estribillo (mayor)'], 
                 ['li', 'Ritmo lento y señorial']
             ], 
-            [//Videos Ejemplos Mus
+            [//Historia
                 
             ],
             [//Partituras
@@ -1176,7 +1220,7 @@ let pampeana = new Region('Pampeana',
             [//caract
                 ['li', 'Improvisación de versos con acompañamiento de guitarra que hace un payador; generalmente los versos relatan sucesos o sentimientos de la cotidianidad rural, y pueden tener un carácter lírico, trágico o humorístico.', 'payada de contrapunto Competencia poético-musical en la que, alternándose dos payadores, improvisan cantos con la guitarra, sobre un mismo tema, tratando de superar al otro en originalidad y destreza poética.'], 
             ], 
-            [//Videos Ejemplos Mus
+            [//Historia
                 
             ],
             [//Partituras
@@ -1222,11 +1266,12 @@ let ciudadana = new Region('Ciudadana',
                 ['li', 'temática nostalgia'], 
                 ['li', 'Esencialmente homofónico con imitaciones y compensaciones entre instrumentos'],
                 ['h5', 'Patrones rítmicos'], 
-                ['h5', 'Arrastre']
-            ], 
-            [//Videos Ejemplos Mus
+                ['h5', 'Arrastre'],
                 ['p', 'Ver hasta el minuto 6 sobre los orígenes del tango'], 
                 ['iframe', 'https://www.youtube.com/embed/8hu2IyKjif4']
+            ], 
+            [//Historia
+                
             ],
             [//Partituras
 
@@ -1243,7 +1288,7 @@ let ciudadana = new Region('Ciudadana',
                 ['li', 'letras pícaras'],
                 ['h5', 'Forma (gráfico)']
             ], 
-            [//Videos Ejemplos Mus
+            [//Historia
                 
             ], 
             [//Partituras
@@ -1290,7 +1335,7 @@ let patagonia = new Region('Patagonia',
                 ['li', 'del mapuche, lonco (cabeza) y meu (aquí bajar)'], 
                 ['li', 'rogativa mapuches (araucanos)  a partir de sonidos del kultrúm y la trutruka instrumentos ambos ejecutados en ceremonias rituales o religiosas']
             ], 
-            [//Videos Ejemplos Mus
+            [//Historia
                 
             ], 
             [//Partituras
