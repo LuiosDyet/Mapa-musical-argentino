@@ -350,6 +350,7 @@ ul {
 
 ul > li, p{
   text-align: left;
+  padding-right: 20px;
 }
 
 img{

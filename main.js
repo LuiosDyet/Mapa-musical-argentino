@@ -368,7 +368,8 @@ function changeInforBackside(caractGeneros){
 				  	} else if (type === 'iframe') {
 				  	let	iframeDiv = document.createElement('div');
 				   	iframeDiv.setAttribute('class', 'iframeDiv');
-				    let iframe = document.createElement('iframe');
+				   	let iframe = document.createElement('iframe');
+				    iframe.setAttribute('allowFullScreen', '');
 				    iframe.src = info;
 				    iframeDiv.appendChild(iframe);
 				    genInfo[i].appendChild(iframeDiv);
@@ -400,7 +401,7 @@ function changeBGColor(fondo){
 	cardBackside = document.querySelectorAll('.flip-card-back');
 	for(tile of cardBackside){
 		let color = fondo;
-		let randomLightness = Math.floor(Math.random() * 50) + 50;
+		let randomLightness = Math.floor(Math.random() * 66) + 33;
 		color = color.replace(50, randomLightness);
 		tile.style.backgroundColor = `${color}`;
 		
@@ -410,7 +411,7 @@ function changeBGColor(fondo){
 	cardBackside = document.querySelectorAll('.flip-card-back');
 	for(tile of cardBackside){
 		let color = fondo;
-		let randomLightness = (Math.floor(Math.random() * 6.6))*10 + 33;
+		let randomLightness = Math.floor(Math.random() * 66) + 33;
 		color = color.replace(50, randomLightness);
 		tile.style.backgroundColor = `${color}`;
 		
@@ -419,7 +420,7 @@ function changeBGColor(fondo){
 	}
 
 	let color = fondo;
-	let randomLightness = (Math.floor(Math.random() * 6.6))*10 + 33;
+	let randomLightness = Math.floor(Math.random() * 66) + 33;
 	color = color.replace(50, randomLightness);
 
 	document.getElementById('overlayInfo').style.backgroundColor = `${color}`;
@@ -598,8 +599,9 @@ function changeInforBacksideInstrumentos(instrumentos){
 
 				  	} else if (type === 'iframe') {
 				  	let iframeDiv = document.createElement('div');
-				  	iframeDiv.setAttribute('class', 'iframeDiv');
+				  	iframeDiv.setAttribute('class', 'iframeDiv');				  	
 				    let iframe = document.createElement('iframe');
+				    iframe.setAttribute('allowFullScreen', '');
 				    iframe.src = info;
 				    iframeDiv.appendChild(iframe);
 				    genInfo[i].appendChild(iframeDiv);
@@ -663,6 +665,7 @@ function hideRegionInfoFicha() {
 document.addEventListener("keydown", function(event) {
     if(event.keyCode === 27){
        hideZoomInfoOverlay()//Esc key was pressed
+       stopVideo();
        
    }
 });
@@ -735,15 +738,19 @@ let noroeste = new Region('Noroeste',
 	            ['img', 'img/ejemplos/Pies/PieHuayno.png'],
 	            ['h5', 'Pie del carnavalito'],
 	            ['img', 'img/ejemplos/Pies/PieCarnavalito.png'],
-	            ['h5', 'Ejemplo música'], 
-                ['iframe', 'https://www.youtube.com/embed/BoLZRaM2vfA']
+	            ['h5', 'El humahuaqueño'], 
+                ['iframe', 'https://www.youtube.com/embed/AI_1LARRHsQ'],
+                ['h5', 'El humahuaqueño (versión del compositor)'], 
+                ['iframe', 'https://www.youtube.com/embed/zHFbHfAK8wU']
         
             ], 
             [//Historia
-                
+            	['p', 'En nuestro país, huayno y carnavalito son denominaciones de una misma especia musical. “Carnavalito” vendría a ser un bautismo argentino del huayno originario de Perú y Bolivia, países donde este género aparece con variantes regionales. La alusión al carnaval da cuenta de su importancia en cuanto fiesta popular de arraigadas tradiciones en el noroeste argentino, fiesta que cobra dimensiones particulares en La Rioja y el altiplano noroestico, región esta de difusión de huaynos o carnavalitos. '],
+                ['p', 'Es también danza, con la particularidad de constituir uno de los pocos géneros de bailes colectivo no sujeto a coreografías determinadas, sino a un paso rítmico acompañado de un movimiento corporal en dos tiempos (agachado y levantando la cabeza y tronco)']
             ], 
            	[//Partituras
-            	 
+           		['p',''],
+           		['img', 'img/ejemplos/Para tocar/El-humahuaqueño.png' ]	 
             ], 
             [//danza
             	['li', 'Danza grupal vivaz no coreografiada'],
@@ -764,9 +771,17 @@ let noroeste = new Region('Noroeste',
             
             ],
             [//Historia
-                
+            	['p', 'Género lírico, no coreográfico. Su emparentamiento con la baguala puede visualizarse en la rítmica de tres tiempos y en el carácter.'],
+                ['p', 'La vidala posiblemente signifique algo así como “¡Ah! Vida”, una forma exclamativa de referirse a la vida misma. '],
+                ['p', 'De carácter existencial, la vidala es el género adecuado para expresa cantando emociones y situaciones tales como el amor, el olvido, la distancia, la soledad, la muerte o la vida misma. '],
+                ['p', 'Definida por Atahualpa Yupanqui como “una oración que se canta”, la vidala tiene en efecto un carácter místico que la coloca en un plano singular y respetable, dentro del mosaico de las músicas tradicionales argentinas.'],
+                ['p', 'Su emparentamiento con las formas arcaicas del canto regional, le confieren un carácter antiguo y un fuerte atractivo, aún en sus variantes más modernas de proyección. '],
+                ['p', 'Desde el punto de vista morfológico, existen varias formas de Vidales (recuérdese que al no estar sujeta a coreografías, tiene mayor libertad formal). La más común es: Introducción (rasgueada o percutida, no necesariamente musical) A A… (en número indefinido). O esa misma distribución, pero intercalando el recitado de una o más coplas entre los periodos. '],
+                ['p', 'También es habitual que, de una vidala a otra, los períodos A tengan diferentes medidas en cuanto a frases y compases. ']
             ],
             [//Partituras
+            	['p',''],
+           		['img', 'img/ejemplos/Para tocar/Vidala-para-mi-sombra.png' ]	
             	
             ],
             [//danza
@@ -781,7 +796,19 @@ let noroeste = new Region('Noroeste',
             	
             ],
             [//Historia
-               
+               ['p','La baguala es el canto ancestral de nuestro país. Su área de difusión son los montes, valees y quebradas del noroeste, en particular los Valles Calchaquíes, que se extienden desde Jujuy hasta Catamarca, pasando por Salta y Tucumán.'],
+               ['p','Anterior a la llegada del conquistador y vigente en nuestros días, la baguala perdura como la única expresión indígena, libre de fusiones. Su canto se basa en melodías que transita los tres sonidos del acorde perfecto mayor, en diferentes combinaciones y octavas. '],
+               ['p','La amplia tesitura de una baguala exige del cantor o cantora una utilización de la voz de cabeza o falsete, técnica desarrollada en altísimo grado. Se acompaña con caja, que es percutida en tres tiempos por el mismo cantor. '],
+               ['p','La temática de la baguala es diversa, pero siempre espontánea. El propio interprete es el autor de la letra, basada en un motivo o situación presente. '],
+               ['p','Según Leda Valladares, la baguala es un canto cósmico, apreciación que seguramente remite al contexto en que se gesta esta expresión autóctona:'],
+               ['li','su carácter ancestral remite a los orígenes;'],
+               ['li','su entorno paisajístico (la montaña y su vecino inmediato que es el propio cosmos).'],
+               ['p','La fuerza intrínseca de esta forma de canto, ha teñido, sea melódica o rítmicamente, otras formas musicales del noroeste argentino. En particular, ha influenciado melódicamente en muchas zambas, vidalas y chayas. Citamos a Leda Valladares:'],
+               ['p','Grito en el cielo, nos instala en el canto ancestral con una técnica de expresión milenaria y poderosas melodías. '],
+               ['p','Los sagrados cantores de los valles, los “vallistos” que descienden de los siglos andinos nos están esperando en los cerros del noroeste argentino para revelarnos otra dimensión del canto, terrestre y sideral. Al escucharlos aterrizamos en América y la descubrimos. Su discurso de cantores es la suprema desnudez: solo tres notas escalofriadas por la voz del abismo. Este rayo nos inicia en el canto planetario que establece la jerarquía del grito y el lamento como sacralidades del iniciado. '],
+               ['p','Los “vallistos” nos alumbran el despeñadero del canto. De ellos buscamos sus secretos, su repertorio, su baqueanías y zarpazos.'],
+               ['p','Para los que claman “las fuentes” queda sonando esta magia, y para esas multitudes estudiantiles que sin saberlo van suplicando raíces para afincar su sed de rumbo y belleza.'],
+               ['p','La montaña nos muestra el milagro. Las ciudades deberán bendecirlo y enarbolarlo para que cumpla su misión de epicentro solar. ']
             ],
             [//Partituras
             	
@@ -1038,7 +1065,7 @@ let centro = new Region('Centro',
                 ['p', 'Su enorme difusión no fue solamente territorial, sino también social pues lo abrazó tanto el gaucho como la aristocracia de todas las provincias. Se dice que el mismo Rosas “punte[o un gato” en cierta reunión en Los Cerrillos entre 1820 y 1821. Desde 1837 es acogido en el Circo Criollo que, como se sabe, fue un importante receptor y transmisor de las culturas populares.' ],
                 ['p', 'Es probable que su nombre derive de una antigua copla popular, con forma de “seguidilla” española, esto es, versos intercalados de siete y cinco sílabas. Esta forma, de gran arraigo, se mantiene hasta hoy en el gato y otras formas musicales, como la huella pampeana.'],
                 ['p', 'Salta la perdiz madre <br> Salta al infeliz <br> Que se la lleva el gato <br> El gato mis-mis'],
-                ['p', 'Los diversos nombre que tuvo esta danza, como perdiz o gato mis-mis, pueden originarse en esta copla popular.']
+                ['p', 'Los diversos nombres que tuvo esta danza, como perdiz o gato mis-mis, pueden originarse en esta copla popular.']
             ], 
             [//Partituras
 
@@ -1050,7 +1077,7 @@ let centro = new Region('Centro',
 				['img' , 'img/ejemplos/Forma/Forma-GatoNorteño-01.png'],
                 ['img' , 'img/ejemplos/Forma/Forma-GatoNorteño-02.png'],
                 ['img' , 'img/ejemplos/Forma/Forma-GatoNorteño-03.png'],
-                ['img' , 'img/ejemplos/Forma/Forma-GatoNorteño-04.png']
+                ['img' , 'img/ejemplos/Forma/Forma-GatoNorteño-04.png']	
         	],            
         ],
         [ //Chacarera
@@ -1093,9 +1120,23 @@ let centro = new Region('Centro',
             [//caract
                 ['li', '6/8 y 3/4'], 
                 ['li', 'tempo alegre y ágil'], 
-				['h5', 'Forma (gráfico)']
+				['h5', 'Forma (gráfico)'],
+				['h5', 'El escondido'],
+				['img' , 'img/ejemplos/Forma/Forma-Escondido-01.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Escondido-02.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Escondido-03.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Escondido-04.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Escondido-05.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Escondido-06.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Escondido-07.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Escondido-08.png'],
+				['iframe', 'https://www.youtube.com/embed/v5oEOS0TIBk']
             ], 
             [//Historia
+            	['p', 'Es una danza de galanteo, de pareja suelta e independiente y de movimiento vivo, caracterizada por la pantomima del escondimiento.'],
+            	['p', 'El nombre de la danza surge inspirado del texto poético en el ocultamiento de los bailarines. En algunas regiones se lo llama “Gato Escondido”. Antiguamente, en el momento del escondimiento, uno de los bailarines se ocultaba detrás de los objetos o personas, y el que buscaba al compañero zarandeando o zapateando.'],
+            	['p', 'Arturo Berutti en 1862, publicó un artículo en una revista, bajo el nombre de “Aires Nacionales” y se refiere a esta danza describiéndola como la vió bailar en San Juan, utilizando pañuelo.'],
+            	['p', 'Se bailó en todo el territorio Nacional desde 1850, o quizás un poco antes. Actualmente se baila en el centro y noroeste, llegando hasta San Juan, Santa Fé, Salta, Catamarca, Jujuy, Córdoba, etc.']
                 
             ],
             [//Partituras
@@ -1103,7 +1144,16 @@ let centro = new Region('Centro',
             ], 
             [//danza
             	['li', 'Danza de pareja suelta coreografiada'], 
-            	['li', 'Se baila con castañetas y paso básico']
+            	['li', 'Se baila con castañetas y paso básico'],
+            	['h5', 'El escondido'],
+				['img' , 'img/ejemplos/Forma/Forma-Escondido-01.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Escondido-02.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Escondido-03.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Escondido-04.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Escondido-05.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Escondido-06.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Escondido-07.png'],
+                ['img' , 'img/ejemplos/Forma/Forma-Escondido-08.png']
             ]
         ],
         [ //Zamba
