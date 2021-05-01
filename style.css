@@ -70,12 +70,13 @@ section {
 
 }
 
-@media only screen and (max-width: 600px)   {
+/*@media only screen and (max-width: 600px)   {
 
   .tile {
     height: 66vh !important;
   }
-}
+}*/
+
 #lupaSidebar{
   position: absolute;
 }
