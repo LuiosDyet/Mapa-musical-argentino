@@ -1007,7 +1007,18 @@ let cuyo = new Region('Cuyo',
                 ['p', 'Dos vueltas de intro- estrofa 1- estrofa 2 escribillo']
             ],
             [//Historia
-                
+            	['p', 'Es danza de coreografía fija. Descendiente de la zamacueca peruana, adquiere forma de cueca o “chilena” en Chile y desde allí ingresa a nuestro país a través de Cuyo. Ya como cueca cuyana, este género se desarrolla más en la forma canción que en cuanto a danza. En cierto sentido, gana en refinamiento musical, pero ve diluirse aspectos rítmicos muy marcados en la cueca chilena (y más apropiados para la danza). '],
+                ['p', 'Existe una variante que es llamada cueca norteña o boliviana, que ingresa desde el norte chileno a Bolivia y desde este país al norte argentino. Esta cueca se diferencia de la cuyana en que es más rápida, su modo es usualmente menor y presenta diferencia morfológicas y coreográficas.'],
+                ['p', 'En cuanto sus aspectos rítmicos, suele definirse al rasgueo de la cueca como similar al de la zamba, pero más rápido, Esta opinión alude a las figuras del rasgueo, en verdad similares, y a su mecánica, también con movimientos similares. Sin embargo, ambos rasgueos son cualitativamente diferentes: el rasgueo de la zamba tiene más “aire” y graves profundos, mientras que el rasgueo de la cueca tiene golpes más stacattos y presencia mayor de sus figuras agudas, particularmente la que corresponde al segundo tiempo del 6/8.  En tal sentido, el rasgueo de la cueca se asocia al paso de su baile – más saltarín-, mientras que el de la zamba se asemeja al paso “caminado” de su danza. '],
+                ['p', 'La forma de la cueca es similar a la de la zamba, con la única diferencia de que en su primer periodo A, la frase de pregunta música se repite. Así la forma de la cueca será:'],
+                ['li', 'Int '],
+                ['li', 'A (16 compases)'],
+                ['li', 'A’ (12 compases) '],
+                ['li', 'B (12 compases) '],
+                ['li', 'Int '],
+                ['li', 'A (16 compases)'],
+                ['li', 'A’ (12 compases) '],
+                ['li', 'B (12 compases) ']
             ],
             [//Partituras
 
@@ -1027,7 +1038,8 @@ let cuyo = new Region('Cuyo',
                 ['img' , 'img/ejemplos/Forma/Forma-GatoCuyano-05.png']
             ],
             [//Historia
-                
+            	['p', '«No hay cueca sin gato…»(Así lo dice el refranero cuyano). Mientras que la cueca es una invitación, el gato es una respuesta positiva a ella, de ahí el refrán.'],
+            	['p', 'El gato es una alegre danza criolla que se bailó en Argentina desde antes de 1820 y que llegó desde el Perú.  Representa un discreto juego amoroso de cortejo. El hombre persigue a la mujer con las mejores mudanzas de sus zapateos hasta obtener su correspondencia en la coronación final. Es de ritmo vivo. Se bailó en varios países americanos – Perú, Chile, Uruguay, Paraguay y hasta México – pero en nuestro país arraigó con mayor fuerza, y en nuestra provincia tomó raíces el gato cuyano, una variante con giro y contragiro después de la vuelta entera (tiene cuatro compases más que el gato común).']
             ],
             [//Partituras
 
@@ -1043,7 +1055,18 @@ let cuyo = new Region('Cuyo',
                 ['li', 'Pueden ser improvisadas']
             ],
             [//Historia
-                
+            	['p', 'Género lírico no coreográfico. Es más apropiado hablar de tonada cuyana, pues bajo la denominación simple de tonada existen cantos característicos de diversas regiones de diferentes países. En Argentina existe tonadas en ´los Valles Calchaquíes, que nada tienen que ver con la que nos ocupa. '],
+            	['p', 'Formalmente, como todo género no coreográfico presenta diversas formas. La más tradicional es:'],
+            	['li', 'Int'],
+                ['li', 'A'],
+                ['li', 'Int'],
+                ['li', 'A'],
+                ['li', 'Int'],
+                ['li', 'A'],
+                ['li', '...'],
+                ['p', 'Dentro de las formas tradicionales existen las tonadas de melodías única, a la que se adaptan diversas letras. Asimismo, hay tonadas tradicionales cuyos periodos A difieren en la cantidad de compases o las medidas de sus frases musicales. '],
+                ['p', 'El “cogollo” es una dedicatoria improvisada y espontánea. Sobre la melodía tradicional, el cantor crea una letra que canta en homenaje a alguien presente, o simplemente para expresar diversas situaciones o afectos. '],
+                ['p', 'Junto con la payada, pero más vigente, el cogollo en las tonadas cuyanas es un raro vestigio de la impronta del canto, a la sazón poeta-cantor. ']
             ],
             [//Partituras
 
