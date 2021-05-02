@@ -875,9 +875,19 @@ let litoral = new Region('Litoral',
                
             ], 
             [//Historia
-                
+            	['p', 'El chamamé se inscribe dentro de las danzas de pareja enlazada, con coreografía libre. '],
+            	['p', 'Hay quienes sostienen que este baile – el más popular y masivamente practicado entre las especies argentinas – incorpora algunos elementos del tango, lo cual no resulta visible en lo musical, aunque si en el uso del bandoneón.'],
+            	['p', 'El vocablo “chamamé” (en guaraní algo así como “cosa hecha a la ligera”) aparece designando una composición de F. Precánico llamada “Corrientes potí”, en 1930. Si este hecho fuese considerado como el bautismo del chamamé, podrías suponerse que se trata de un género musical bastante nuevo. Sin embargo, aún sin la designación de chamamé, es de suponer que sus sedimentos son más antiguos. Compositores y autores que nacieron con el siglo, como Heraclio Pérez, dan testimonio de haber escuchado las formas incipientes del futuro chamamé, dos o tres décadas antes del nacimiento oficial de 1930. '],
+            	['p', 'Claramente emparentado con la polca paraguaya, el chamamé adquiere personalidad y desarrollo en Corrientes y se difunde rápidamente entre las restantes provincias de la región Litoral. En el caso de Misiones, vecina de Paraguay, se hace más notoria la influencia cultural de este país que, en el caso de las músicas, se traduce en la difusión de guaranias y galopas.'],
+            	['p', 'El chamamé se ha desarrollado por igual en sus tras aspectos interpretativos: baile, canto y versiones instrumentales. Pero es desde el punto de vista instrumental, donde aparece toda su potencialidad, pues se transforma en una muestra del tema y sus variaciones, con notable capacidad lúdica de sus intérpretes populares. '],
+            	['p', 'Su sencilla estructura armónica realza aún más esta capacidad en el arte de realizar variaciones sobre un tema básico. '],
+            	['p', 'Siendo este género el modo de expresión masivos y a veces excluyente de toda una región, se diversifica para expresar diferentes emociones o situaciones. De allí suponer que el chamamé es tan solo “alegre”, se trata de una falacia, pues no es solo alegría lo que expresa el hombre del litoral. Existe el chamamé alegre, el melancólico, el paisajista, el romántico, etc. '],
+            	['p', 'Se ejecuta con acordeón (desde el más simple de una hilera de botones, llamado “verdulera”, hasta los de dos y tres hileras), y bandoneón (de posterior inclusión en el género), siendo las guitarras instrumentos rítmicos acompañantes. '],
+            	['p', 'Sin embargo, hay una tendencia a una presencia mayor de la guitarra como instrumento también cantante, que suelte tocarse con púa o plectro. ']
             ],
             [//Partituras
+            	['p',''],
+            	['img', 'img/ejemplos/Para tocar/Merceditas.png']
             		
             ],
             [//danza
@@ -892,10 +902,14 @@ let litoral = new Region('Litoral',
             	['img', 'img/ejemplos/Pies/pieMilonga.png']
             ],
             [//Historia
-                
+            	['p', 'Uno de los pocos géneros que escapan al carácter birrítmico general, su compás es de 4/4.'],
+                ['p', 'Es muy popular en casi todo el litoral, pero principalmente en Corrientes y Chaco. En Uruguay existe un símil llamado “sobrepaso”. '],
+                ['p', 'El “rasguido doble” no alude a ninguna medida de tiempo musical, sino posiblemente a un modo más “cargado” de rasguear. Es también baile, sujeto a un paso y no a coreografía. '],
+                ['p', 'Morfológicamente acepta diversas estructuras, siendo las más habituales AAB o ABAB.']
             ],
             [//Partituras
-
+            	['p',''],
+            	['img', 'img/ejemplos/Para tocar/El-dominguero.png']
             ],
             [//danza
             	['li', 'Danza de pareja enlazada no coreográfica']
@@ -908,13 +922,17 @@ let litoral = new Region('Litoral',
                 ['img', 'img/ejemplos/Pies/PieChamarrita.png']              
             ],
             [//Historia
-                
+               ['p', 'Su área de difusión es la provincia de Entre Ríos (y Uruguay).'], 
+               ['p', 'Género nuevo, emparentado con la milonga y, por tanto, con la habanera. Su principal impulsor fue Linares Cardoso, a través de composiciones que ganaron adeptos al punto de representar el canto típico entrerriano. Cuando decimos “nuevo” nos referimos a su inserción en la región, pues la chamarrita como danza de pareja tomada, se bailaba allá por 1855 y, según algunas hipótesis, pude tener origen portugués. '],
+               ['p', 'También se la denomina chamarra, y en este sentido puede aludir a “enramada”, esto es, el lugar del campo en el que se acostumbra bailar. Si esta línea interpretativa del término fuses válida, cabría pensar en cierta relación entre “chamarra” y “chamamé”, ambos bailados en enramadas. '],
+               ['p', 'Una particularidad de la chamarrita, y en ello se nota el parentesco con la milonga pampeana o uruguaya, es que se acompaña en guitarras y con la técnica de arpegios. Esporádicamente se utilizan rasgueos. ']
             ],
             [//Partituras
-
+            	['p',''],
+            	['img', 'img/ejemplos/Para tocar/Pal-que-se-va.png']
             ],
             [//danza
-           		['h5', 'Sin danza']
+           		['li', 'Danza de pareja enlazada no coreográfica']
        		]                      
         ]
     ],
