@@ -618,6 +618,8 @@ h4 {
   position: relative;
   padding: 0 20px;
   background-color: green;
+  max-height: 70vh;
+  font-size: 70%;
 }
 
 #irom-noroeste{

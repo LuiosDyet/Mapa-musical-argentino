@@ -741,7 +741,9 @@ let noroeste = new Region('Noroeste',
 	            ['h5', 'El humahuaqueño'], 
                 ['iframe', 'https://www.youtube.com/embed/AI_1LARRHsQ'],
                 ['h5', 'El humahuaqueño (versión del compositor)'], 
-                ['iframe', 'https://www.youtube.com/embed/zHFbHfAK8wU']
+                ['iframe', 'https://www.youtube.com/embed/zHFbHfAK8wU'],
+                ['h5','El Quebradeño / El Humahuaqueño (carnavalitos) - Orquesta Argentina de Charangos'],
+                ['iframe','https://www.youtube.com/embed/X26-pLJoRcI']
         
             ], 
             [//Historia
@@ -767,7 +769,11 @@ let noroeste = new Region('Noroeste',
             	['li', 'Puede estar acompañada por instrumentos y ser a dos voces'], 
             	['li', 'Compás de 3/4, lenta'],            
                 ['h5', 'Pie de la Vidala'], 
-                ['img', 'img/ejemplos/Pies/PieVidala.png']
+                ['img', 'img/ejemplos/Pies/PieVidala.png'],
+                ['h5', "Mariana Carrizo - Te He'i De Olvidar - Vidala Popular"],
+                ['iframe', 'https://www.youtube.com/embed/1_NFv2Imrg8'],
+                ['h5','Sube (vidala) Rolando Valladares'],
+                ['iframe', 'https://www.youtube.com/embed/Pr_i8cdpyhU']
             
             ],
             [//Historia
@@ -781,8 +787,7 @@ let noroeste = new Region('Noroeste',
             ],
             [//Partituras
             	['p',''],
-           		['img', 'img/ejemplos/Para tocar/Vidala-para-mi-sombra.png' ]	
-            	
+           		['img', 'img/ejemplos/Para tocar/Vidala-para-mi-sombra.png' ]	            	
             ],
             [//danza
             	['h5', 'Sin danza']
@@ -792,7 +797,11 @@ let noroeste = new Region('Noroeste',
             [//caract
                 
             	['li', 'Canto solista, acompañado por caja, trifónico'], 
-            	['li', 'Pueden ser improvisadas']
+            	['li', 'Pueden ser improvisadas'],
+            	['h5', 'Leda Valladares Coplas de Baguala'],
+            	['iframe', 'https://www.youtube.com/embed/0mGpjD3a10E'],
+            	['h5', 'Baguala de las estrellas. Graciela Mendoza. Tierra en flor. Música ancestral para niños.'],
+            	['iframe', 'https://www.youtube.com/embed/uVYd0WfuxKM']
             	
             ],
             [//Historia
@@ -808,10 +817,13 @@ let noroeste = new Region('Noroeste',
                ['p','Los sagrados cantores de los valles, los “vallistos” que descienden de los siglos andinos nos están esperando en los cerros del noroeste argentino para revelarnos otra dimensión del canto, terrestre y sideral. Al escucharlos aterrizamos en América y la descubrimos. Su discurso de cantores es la suprema desnudez: solo tres notas escalofriadas por la voz del abismo. Este rayo nos inicia en el canto planetario que establece la jerarquía del grito y el lamento como sacralidades del iniciado. '],
                ['p','Los “vallistos” nos alumbran el despeñadero del canto. De ellos buscamos sus secretos, su repertorio, su baqueanías y zarpazos.'],
                ['p','Para los que claman “las fuentes” queda sonando esta magia, y para esas multitudes estudiantiles que sin saberlo van suplicando raíces para afincar su sed de rumbo y belleza.'],
-               ['p','La montaña nos muestra el milagro. Las ciudades deberán bendecirlo y enarbolarlo para que cumpla su misión de epicentro solar. ']
+               ['p','La montaña nos muestra el milagro. Las ciudades deberán bendecirlo y enarbolarlo para que cumpla su misión de epicentro solar. '],
+	           ['h5', 'DOC Pequeños Universos... // La Baguala // El canto de los Andes'],
+	           ['iframe', 'https://www.youtube.com/embed/7_Kf2Jt-MN4']
             ],
             [//Partituras
-            	
+            	['p',''],
+           		['img', 'img/ejemplos/Para tocar/Señores-dueños.png' ]
         	],
             [//danza
             	['h5', 'Sin danza']
@@ -871,8 +883,11 @@ let litoral = new Region('Litoral',
                 ['li', 'Puede ser tanto vocal como instrumental'],
                 ['li', 'polirritmia entre el bajo y la melodía'],
                 ['h5', 'compás de 3/4 (tres negras en el grave) y 6/8 (corchea negra corchea negra en el agudo)'], 
-                ['img', 'img/ejemplos/Pies/ejChamamé.png']
-               
+                ['img', 'img/ejemplos/Pies/ejChamamé.png'],
+                ['h5', 'Milagros Caliva - La Calandria'],
+                ['iframe', 'https://www.youtube.com/embed/v7ivX7mEktw'],
+                ['h5', 'Las Hermanas Vera - El Moncho'],
+                ['iframe', 'https://www.youtube.com/embed/B8eOP3NadA8']               
             ], 
             [//Historia
             	['p', 'El chamamé se inscribe dentro de las danzas de pareja enlazada, con coreografía libre. '],
@@ -899,7 +914,11 @@ let litoral = new Region('Litoral',
                 ['li', 'compás de 4/4, lento'], 
                 ['li', 'Puede ser tanto vocal como instrumental'],
             	['h5', 'influencia de la milonga pampeana (3+3+2)'], 
-            	['img', 'img/ejemplos/Pies/pieMilonga.png']
+            	['img', 'img/ejemplos/Pies/pieMilonga.png'],
+            	['h5', 'Los Hermanos Barrios - Puente Pexoa'],
+            	['iframe', 'https://www.youtube.com/embed/4J7dxrN9GcM'],
+            	['h5', 'Ramón Ayala - El cosechero'],
+            	['iframe', 'https://www.youtube.com/embed/8Got6COhC18']
             ],
             [//Historia
             	['p', 'Uno de los pocos géneros que escapan al carácter birrítmico general, su compás es de 4/4.'],
@@ -919,7 +938,11 @@ let litoral = new Region('Litoral',
             [//caract
                 ['li', 'compás 2/4'],
                 ['h5', 'influencia de la milonga ciudadana'], 
-                ['img', 'img/ejemplos/Pies/PieChamarrita.png']              
+                ['img', 'img/ejemplos/Pies/PieChamarrita.png'],
+                ['h5', 'Chamarrita de la costa - Larralde'],
+                ['iframe', 'https://www.youtube.com/embed/7VmDgOee1s8'],
+                ['h5', 'Mi novia la chamarrita - Los hermanos Cuestas'], 
+                ['iframe', 'https://www.youtube.com/embed/c7ABck_nS8g']              
             ],
             [//Historia
                ['p', 'Su área de difusión es la provincia de Entre Ríos (y Uruguay).'], 
@@ -1086,7 +1109,8 @@ let centro = new Region('Centro',
                 ['p', 'Los diversos nombres que tuvo esta danza, como perdiz o gato mis-mis, pueden originarse en esta copla popular.']
             ], 
             [//Partituras
-
+            	['p',''],
+            	['img', 'img/ejemplos/Para tocar/El-pintao.png']
             ], 
             [//danza
             	['li', 'Danza de pareja suelta coreografiada'], 
@@ -1117,7 +1141,6 @@ let centro = new Region('Centro',
                 	['p', 'Tal vez menos pícara que el gato o menos tierna que un bailecito, la chacarera es tenaz y vigorosa, incansable como sus intérpretes, adecuada para es canto expansivo santiagueño, mucho menos introspectivo que el modo de los vecinos tucumanos. Y es danza vital, agreste y sensual como pocas.']
             ], 
             [//Partituras
-            	['h5', 'El puente carretero'], 
             	['p',''],
             	['img', 'img/ejemplos/Para tocar/El puente carretero.png']
             ], 
@@ -1158,7 +1181,8 @@ let centro = new Region('Centro',
                 
             ],
             [//Partituras
-
+            	['p',''],
+            	['img', 'img/ejemplos/Para tocar/El-escondido.png']
             ], 
             [//danza
             	['li', 'Danza de pareja suelta coreografiada'], 
