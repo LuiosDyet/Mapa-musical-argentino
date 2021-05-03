@@ -52,6 +52,8 @@ let selRegion = function() {
 
 	
 		hideBigMap();
+
+		showBtnDown();
 		
 	    let region = this.getAttribute("id");
 
@@ -690,6 +692,8 @@ document.addEventListener("keydown", function(event) {
 
 //Get the button
 var mybutton = document.getElementById("myBtn");
+var mybuttonDown = document.getElementById("myBtnDown");
+var mybuttonUp = document.getElementById("myBtnUp");
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
@@ -700,6 +704,20 @@ function scrollFunction() {
   } else {
     mybutton.style.display = "none";
   }
+
+    if (document.body.scrollTop > 640 || document.documentElement.scrollTop > 640) {
+    mybuttonUp.style.display = "block";
+  } else {
+    mybuttonUp.style.display = "none";
+  }
+
+
+  if (document.body.scrollTop > -640 || document.documentElement.scrollTop > -640) {
+    mybuttonDown.style.display = "block";
+  } else {
+    mybuttonDown.style.display = "none";
+  }
+
 }
 
 // When the user clicks on the button, scroll to the top of the document
@@ -707,6 +725,31 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+
+
+// Go down Button
+
+//Get the button
+
+
+function showBtnDown() {
+      mybuttonDown.style.display = "block";
+  
+}
+
+function scrollDown() {
+	document.body.scrollTop += 640;
+  	document.documentElement.scrollTop += 640;
+
+}
+
+
+function scrollUp() {
+	document.body.scrollBy(0, -640);
+  	document.documentElement.scrollBy(0, -640);
+
+}
+
 
 //DATA	
 
@@ -1312,7 +1355,7 @@ let centro = new Region('Centro',
 
 let pampeana = new Region('Pampeana',
     "url('img/Regiones/pampeana.png')",
-    ['Malambo', 'Huella', 'Payada'],
+    ['Triunfo', 'Huella', 'Payada'],
     [
         "url('img/Pampeana/Atardecer-pampeano.jpg')",
         "url('img/Pampeana/Ganado.jpg')",
