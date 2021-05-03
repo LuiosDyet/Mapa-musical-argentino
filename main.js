@@ -1004,7 +1004,14 @@ let cuyo = new Region('Cuyo',
                 ['img', 'img/ejemplos/Pies/PieCueca.png'],
                 ['p',''],
                 ['h5', 'Formalmente ligado a la danza'], 
-                ['p', 'Dos vueltas de intro- estrofa 1- estrofa 2 escribillo']
+                ['p', 'Dos vueltas de intro- estrofa 1- estrofa 2 escribillo'],
+                ['h5', 'Calle Angosta (Cueca Cuyana)'],
+                ['iframe', 'https://www.youtube.com/embed/kQ34P6dnCVA'],
+                ['h5', "Pa' la Celeste"],
+                ['iframe', 'https://www.youtube.com/embed/aQcbQir7wYQ'],
+                ['h5', 'Póngale por las hileras (Cueca cuyana) / Orozco - Barrientos'],
+                ['iframe', 'https://www.youtube.com/embed/F6J4p5hG0os']
+                
             ],
             [//Historia
             	['p', 'Es danza de coreografía fija. Descendiente de la zamacueca peruana, adquiere forma de cueca o “chilena” en Chile y desde allí ingresa a nuestro país a través de Cuyo. Ya como cueca cuyana, este género se desarrolla más en la forma canción que en cuanto a danza. En cierto sentido, gana en refinamiento musical, pero ve diluirse aspectos rítmicos muy marcados en la cueca chilena (y más apropiados para la danza). '],
@@ -1021,7 +1028,8 @@ let cuyo = new Region('Cuyo',
                 ['li', 'B (12 compases) ']
             ],
             [//Partituras
-
+            	['p',''],
+            	['img', 'img/ejemplos/Para tocar/Pongale-por-las-hileras.png']
             ], 
             [//danza
             	['li', 'Danza de pareja suelta con pañuelo coreografiada']
@@ -1035,14 +1043,19 @@ let cuyo = new Region('Cuyo',
                 ['img' , 'img/ejemplos/Forma/Forma-GatoCuyano-02.png'],
                 ['img' , 'img/ejemplos/Forma/Forma-GatoCuyano-03.png'],
                 ['img' , 'img/ejemplos/Forma/Forma-GatoCuyano-04.png'],
-                ['img' , 'img/ejemplos/Forma/Forma-GatoCuyano-05.png']
+                ['img' , 'img/ejemplos/Forma/Forma-GatoCuyano-05.png'],
+                ['h5', 'Los Quilla Huasi - El Chulengo'],
+                ['iframe', 'https://www.youtube.com/embed/4Ec9JLJeYos'],
+                ['h5', 'Algarroba.com - El marucho'],
+                ['iframe', 'https://www.youtube.com/embed/CYBa3ITCm88']
             ],
             [//Historia
             	['p', '«No hay cueca sin gato…»(Así lo dice el refranero cuyano). Mientras que la cueca es una invitación, el gato es una respuesta positiva a ella, de ahí el refrán.'],
             	['p', 'El gato es una alegre danza criolla que se bailó en Argentina desde antes de 1820 y que llegó desde el Perú.  Representa un discreto juego amoroso de cortejo. El hombre persigue a la mujer con las mejores mudanzas de sus zapateos hasta obtener su correspondencia en la coronación final. Es de ritmo vivo. Se bailó en varios países americanos – Perú, Chile, Uruguay, Paraguay y hasta México – pero en nuestro país arraigó con mayor fuerza, y en nuestra provincia tomó raíces el gato cuyano, una variante con giro y contragiro después de la vuelta entera (tiene cuatro compases más que el gato común).']
             ],
             [//Partituras
-
+            	['p',''],
+            	['img', 'img/ejemplos/Para tocar/El-Marucho.png']
             ],
             [//danza
             	['li', 'Danza de pareja suelta coreografiada'], 
@@ -1052,7 +1065,11 @@ let cuyo = new Region('Cuyo',
         [ //Tonada
             [//caract
                 ['li', 'Canto solista, acompañado por caja, trifónico'], 
-                ['li', 'Pueden ser improvisadas']
+                ['li', 'Pueden ser improvisadas'],
+                ['h5', 'Mi amor en una tonada'],
+                ['iframe', 'https://www.youtube.com/embed/fRUg1doBSv8'],
+                ['h5', 'Dúo Nuevo Cuyo - A mi compadre'],
+                ['iframe', 'https://www.youtube.com/embed/9VXYJ66VpH4']
             ],
             [//Historia
             	['p', 'Género lírico no coreográfico. Es más apropiado hablar de tonada cuyana, pues bajo la denominación simple de tonada existen cantos característicos de diversas regiones de diferentes países. En Argentina existe tonadas en ´los Valles Calchaquíes, que nada tienen que ver con la que nos ocupa. '],
@@ -1069,7 +1086,7 @@ let cuyo = new Region('Cuyo',
                 ['p', 'Junto con la payada, pero más vigente, el cogollo en las tonadas cuyanas es un raro vestigio de la impronta del canto, a la sazón poeta-cantor. ']
             ],
             [//Partituras
-
+            	
             ],
             [//danza
             	['h5', 'Sin danza']
@@ -1121,7 +1138,12 @@ let centro = new Region('Centro',
 				['img' , 'img/ejemplos/Forma/Forma-GatoNorteño-01.png'],
                 ['img' , 'img/ejemplos/Forma/Forma-GatoNorteño-02.png'],
                 ['img' , 'img/ejemplos/Forma/Forma-GatoNorteño-03.png'],
-                ['img' , 'img/ejemplos/Forma/Forma-GatoNorteño-04.png']
+                ['img' , 'img/ejemplos/Forma/Forma-GatoNorteño-04.png'],
+                ['h5', 'Duo Coplanacu - El 180'],
+                ['iframe', 'https://www.youtube.com/embed/b5g9vTzXg-I'],
+                ['h5', 'Raly Barrionuevo - Gato de festival'],
+                ['iframe', 'https://www.youtube.com/embed/jQQDH646uTw']
+
             ], 
             [//Historia
                 ['p', 'Danza de coreografía fija. Si bien desciende de Lima, hay documentos que atestiguan su presencia en México, Colombia, Chile, Bolivia, Uruguay y Paraguay. Pero es en nuestro país que, ingresada por el norte desde 1800, adquiere forma definitiva y se afinca en las diversas regiones culturales argentinas.'],
@@ -1156,7 +1178,11 @@ let centro = new Region('Centro',
                     ['img' , 'img/ejemplos/Forma/Forma-Chacarera-04.png'],
                     ['img' , 'img/ejemplos/Forma/Forma-Chacarera-05.png'],
                     ['img' , 'img/ejemplos/Forma/Forma-Chacarera-06.png'],
-                    ['img' , 'img/ejemplos/Forma/Forma-Chacarera-07.png'] 
+                    ['img' , 'img/ejemplos/Forma/Forma-Chacarera-07.png'],
+                    ['h5', 'Peteco Carabajal - Borrando Fronteras'],
+                    ['iframe', 'https://www.youtube.com/embed/dLfGMx3dZw4'],
+                    ['h5', 'Néstor Garnica - Chacarera del Violín'],
+                    ['iframe', 'https://www.youtube.com/embed/Nu09TNvxinQ'] 
             ], 
             [//Historia
                 	['p', 'Danza de coreografía fija. Si bien centrada y muy cultivada en Santiago del Estero, la chacarera navega también por las profundidades del inconsciente colectivo tucumano y salteño.'],
@@ -1194,7 +1220,11 @@ let centro = new Region('Centro',
                 ['img' , 'img/ejemplos/Forma/Forma-Escondido-06.png'],
                 ['img' , 'img/ejemplos/Forma/Forma-Escondido-07.png'],
                 ['img' , 'img/ejemplos/Forma/Forma-Escondido-08.png'],
-				['iframe', 'https://www.youtube.com/embed/v5oEOS0TIBk']
+				['iframe', 'https://www.youtube.com/embed/v5oEOS0TIBk'],
+				['h5', 'La chacarerata santiagueña - Escondido de los bombos'],
+				['iframe', 'https://www.youtube.com/embed/9ymnYegbB8c'],
+				['h5', 'Escondido para Bailar'],
+				['iframe', 'https://www.youtube.com/embed/TAR7ngkhEr0']
             ], 
             [//Historia
             	['p', 'Es una danza de galanteo, de pareja suelta e independiente y de movimiento vivo, caracterizada por la pantomima del escondimiento.'],
@@ -1229,7 +1259,11 @@ let centro = new Region('Centro',
                 ['img' , 'img/ejemplos/Forma/Forma-Zamba-01.png'],
                 ['img' , 'img/ejemplos/Forma/Forma-Zamba-02.png'],
                 ['img' , 'img/ejemplos/Forma/Forma-Zamba-03.png'],
-                ['img' , 'img/ejemplos/Forma/Forma-Zamba-04.png']
+                ['img' , 'img/ejemplos/Forma/Forma-Zamba-04.png'],
+                ['h5', 'Zamba del ángel - Raly Barrionuevo'],
+                ['iframe', 'https://www.youtube.com/embed/1yMRSn-iqxU'],
+                ['h5', 'Juan Falú - Zamba del Lozano'],
+                ['iframe', 'https://www.youtube.com/embed/5am2eS4Yq04']
             ],
             [//Historia
                 ['p','La zamba es una danza nacional. En tal sentido, su ubicación en la región central puede resultar arbitraria. Sin embargo, es en esta región y en el noroeste argentino donde reside el semillero más significativo de la zamba, no tan solo desde el punto de vista cuantitativo, sino también por haberse desarrollado allí la más dilatada proyección histórica del género: desde sus formas más tradicionales hasta las composiciones del Cuchi Leguizamón. '], 
@@ -1295,11 +1329,12 @@ let pampeana = new Region('Pampeana',
     ],
     "hsl(80, 66%, 50%)",
     [
-        [ //Malambo
+        [ //Triunfo
             [//caract
-                ['li', '6/8, I- IV- V'], 
-                ['li', 'sin letra'], 
-                ['li', 'baile de desafío']
+            	['h5', 'Emiliano Zerbini - La vuelta de obligado'],
+            	['iframe', 'https://www.youtube.com/embed/_xlSpj1nTPk' ],
+            	['h5', 'La Yegua Mía · Aquí Les Luthiers'],
+            	['iframe', 'https://www.youtube.com/embed/M5HhIbSyYgg' ]                
             ], 
             [//Historia
                 
@@ -1308,15 +1343,18 @@ let pampeana = new Region('Pampeana',
 
             ],
             [//danza
-            	['li', 'Danza no coreográfica originalmente masculina'], 
-            	['li', 'en base a un contrapunto de mudanzas (combinación de movimientos entre pies y piernas)']
+            	
             ]   
         ],
         [ //Huella
             [//caract
                 ['li', '6/8'], 
                 ['li', 'Forma: Intro, estrofa, estrofa (menor), estribillo (mayor)'], 
-                ['li', 'Ritmo lento y señorial']
+                ['li', 'Ritmo lento y señorial'],
+                ['h5', 'Huella sin huella - Omar Moreno Palacios ft Los Indios Tacunau'],
+                ['iframe', 'https://www.youtube.com/embed/t3xatKM3eME'],
+                ['h5', 'Juan Quintero y Luna Monti - De Ida y Vuelta'],
+                ['iframe', 'https://www.youtube.com/embed/fU69grGpnoU']
             ], 
             [//Historia
                 
@@ -1334,6 +1372,10 @@ let pampeana = new Region('Pampeana',
         [ //Payada
             [//caract
                 ['li', 'Improvisación de versos con acompañamiento de guitarra que hace un payador; generalmente los versos relatan sucesos o sentimientos de la cotidianidad rural, y pueden tener un carácter lírico, trágico o humorístico.', 'payada de contrapunto Competencia poético-musical en la que, alternándose dos payadores, improvisan cantos con la guitarra, sobre un mismo tema, tratando de superar al otro en originalidad y destreza poética.'], 
+            	['h5', 'Contrapunto entre Martín Fierro y el Moreno'],
+            	['iframe', 'https://www.youtube.com/embed/WnDyA1toSaA'],
+            	['h5', 'Payada de la Vaca · Aquí Les Luthiers'],
+            	['iframe', 'https://www.youtube.com/embed/7ydlVCj94x4']
             ], 
             [//Historia
                 
@@ -1448,11 +1490,17 @@ let patagonia = new Region('Patagonia',
         [ //Loncomeo
             [//caract
                 ['li', 'del mapuche, lonco (cabeza) y meu (aquí bajar)'], 
-                ['li', 'rogativa mapuches (araucanos)  a partir de sonidos del kultrúm y la trutruka instrumentos ambos ejecutados en ceremonias rituales o religiosas']
-            ], 
+                ['li', 'rogativa mapuches (araucanos)  a partir de sonidos del kultrúm y la trutruka instrumentos ambos ejecutados en ceremonias rituales o religiosas'],
+            	['h5', 'Loncomeo del Amor Mapuche - Los Hermanos Berbel'],
+            	['iframe', 'https://www.youtube.com/embed/Qgebs-ggLRs'],
+            	['h5', 'José Larralde - Quimey Neuquén'],
+            	['iframe', 'https://www.youtube.com/embed/hxq_hC4wgvM']
+            ],	
             [//Historia
-                
+            	['h5', 'El Loncomeo // El Legado de Marcelo Berbel // Neuquén'],
+            	['iframe', 'https://www.youtube.com/embed/3ceyigDGOIs']
             ], 
+               
             [//Partituras
 
 	        ],
@@ -1461,8 +1509,8 @@ let patagonia = new Region('Patagonia',
             	['li', 'Consiste en correr saltar, agacharse, erguirse, imitar a los animales con movimientos grotescos, sacudiendo fuertemente la cabeza. Se baila entre varios. El que resista mas tiempo será el vencedor'], 
             	['li', 'Los bailarines tocan su cabeza con pintorescas vinchas, tejidas por sus mujeres']
             ]
-        ]
-    ],
+        ], 
+	],
     [
         [ //instrumentos
             'Kultrum', 'Trutruka'
