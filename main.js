@@ -289,6 +289,7 @@ function changeInfoFrontside(generosRegion){
 		generoTit[i].innerHTML = generosRegion[j];
 		let k = i%4;
 		if(k !== 0){
+			generoTit[i].setAttribute('class', 'titulo NameForCel');
 			generoTit[i].style.display = 'none'
 		};
 	};
@@ -699,7 +700,7 @@ var mybuttonUp = document.getElementById("myBtnUp");
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+  if (document.body.scrollTop > 640 || document.documentElement.scrollTop > 640) {
     mybutton.style.display = "block";
   } else {
     mybutton.style.display = "none";
@@ -711,14 +712,15 @@ function scrollFunction() {
     mybuttonUp.style.display = "none";
   }
 
-
-  if (document.body.scrollTop > -640 || document.documentElement.scrollTop > -640) {
-    mybuttonDown.style.display = "block";
-  } else {
+  if (window.innerHeight + window.innerHeight + window.scrollY + 640 > document.body.clientHeight) {
     mybuttonDown.style.display = "none";
+  } else {
+  	mybuttonDown.style.display = "block";
   }
 
+
 }
+
 
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
@@ -737,20 +739,10 @@ function showBtnDown() {
   
 }
 
-function scrollDown() {
-	document.body.scrollTop += 640;
-  	document.documentElement.scrollTop += 640;
 
+function scrollWin(x, y) {
+  window.scrollBy(x, y);
 }
-
-
-function scrollUp() {
-	document.body.scrollBy(0, -640);
-  	document.documentElement.scrollBy(0, -640);
-
-}
-
-
 //DATA	
 
 let noroeste = new Region('Noroeste',
@@ -956,7 +948,7 @@ let litoral = new Region('Litoral',
             [//caract
                 ['li', 'compás de 4/4, lento'], 
                 ['li', 'Puede ser tanto vocal como instrumental'],
-            	['h5', 'influencia de la milonga pampeana (3+3+2)'], 
+            	['h5', 'influencia de la milonga "mal acentuada"'], 
             	['img', 'img/ejemplos/Pies/pieMilonga.png'],
             	['h5', 'Los Hermanos Barrios - Puente Pexoa'],
             	['iframe', 'https://www.youtube.com/embed/4J7dxrN9GcM'],
@@ -980,7 +972,7 @@ let litoral = new Region('Litoral',
         [ //Chamarrita
             [//caract
                 ['li', 'compás 2/4'],
-                ['h5', 'influencia de la milonga ciudadana'], 
+                ['h5', 'influencia de la milonga'], 
                 ['img', 'img/ejemplos/Pies/PieChamarrita.png'],
                 ['h5', 'Chamarrita de la costa - Larralde'],
                 ['iframe', 'https://www.youtube.com/embed/7VmDgOee1s8'],
@@ -1380,10 +1372,15 @@ let pampeana = new Region('Pampeana',
             	['iframe', 'https://www.youtube.com/embed/M5HhIbSyYgg' ]                
             ], 
             [//Historia
-                
+            	['p', 'Danza de coreografía Fija. Se dice que rememora victorias militares y se ubican sus orígenes en un período inmediatamente posterior a la Revolución de Mayo.'],
+                ['p', 'Otrora se bailaba en todo el país, pero se ha radicado como canto vigoroso en la región pampeana. '],
+                ['p', 'Morfológicamente, se compone de introducciones de seis compases, que luego se han de intercalar (en forma de interludios) a lo largo de 5 períodos A. Estos períodos están distribuidos en tres frases de dos compases cada una. Estos períodos se cantan con coplas de “seguidilla” o “pie quebrado”. '],
+                ['p', 'Rítmicamente, el triunfo se asemeja al malambo, en sus introducciones y se acompaña de modo similar al de gato y chacarera, durante su canto. En este sentido, es un género birrímico, con melodías en 6/8 y base rítmica en 3/4.'],
+                ['p', 'La célula rítmica básica es igual a la del gato y la chacarera. ']
             ],  
             [//Partituras
-
+            	['p',''],
+            	['img', 'img/ejemplos/Para tocar/Triunfo-de-la-vuelta-de-obligado.png']
             ],
             [//danza
             	
@@ -1400,10 +1397,19 @@ let pampeana = new Region('Pampeana',
                 ['iframe', 'https://www.youtube.com/embed/fU69grGpnoU']
             ], 
             [//Historia
-                
+            	['p', 'De coreografía fija, es una danza señorial que se cultivó casi un siglo entre 1830 y 1920, para ir perdiendo fuerza y afincarse como una expresión más de la canción. Si bien tuvo carácter nacional, acabó regionalizándose en la campaña bonaerense y la provincia de La Pampa, donde mantiene total vigencia. '],
+            	['p', 'Armónicamente, se sitúa en el campo del modo menor, con permanentes pasajes al relativo mayor. Como forma de proyección, suele emplearse el modo mayor en los periodos B. '],
+                ['p', 'Generalmente, las huellas tradicionales, o las actuales a ala usanza tradicional, se desarrollan dentro de la misma secuencia armónica (válida también para las introducciones). '],
+                ['p', 'La huella es, morfológicamente, constituida como sigue:'],
+                ['li', 'Int. A A B B A Int. A A B B A '],
+                ['p', 'Las más tradicionales, tienen la misma cantidad de periodos, pero son todos A. '],
+                ['p', 'Cada periodo contiene estrofas de cuatro versos de 7, 5, 7 y 5 silabas respectivamente. Desde el punto de vista poético, esta estructura (que puede observarse también en gatos y cuecas) corresponde al a copla de “pie quebrado” o “seguidilla”.'],
+                ['p', 'La huella está emparentada rítmicamente con el gato, chacarera y bailecito, pero si rasgueo es más suave, más lento y menos percutido. El 3/4 ha de aparecer esporádicamente en acompañamientos o desenlaces de las melodías, pero ello bastará para sentar su presencia y utilizarla en mayor o menor medida, a gusto del intérprete. ']
             ],
             [//Partituras
-
+            	['p',''],
+            	['img', 'img/ejemplos/Para tocar/Huella-de-ida-y-vuelta.png'],
+            	['p','esta huella es Formalmente una excepción']
             ],
             [//danza
             	['li', 'Danza de pareja coreografiada'], 
@@ -1474,7 +1480,10 @@ let ciudadana = new Region('Ciudadana',
                 
             ],
             [//Partituras
-
+            	['p',''],
+            	['img', 'img/ejemplos/Para tocar/Caminito-01.png'],
+            	['p',''],
+            	['img', 'img/ejemplos/Para tocar/Caminito-02.png']
             ],  
             [//danza
             	['li', 'Danza de pareja enlazada no coreográfica'],
