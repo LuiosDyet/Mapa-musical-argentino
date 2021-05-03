@@ -768,7 +768,7 @@ div.infoRegionOverlayMap > ul {
 #myBtnDown {
   display: none;
   position: fixed;
-  bottom: 10%;
+  top: 17%;
   left: 10px;
   z-index: 99;
   border: none;
