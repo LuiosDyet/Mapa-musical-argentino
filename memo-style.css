@@ -5,7 +5,7 @@
 body {
   display: flex;
   margin: 0;
-  width: 100vw;
+  /*width: 100vw;*/
   /*height: 100vh;*/
   overflow: hidden;
 }
@@ -15,6 +15,7 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
   height: 90vh;
+  width: 100vw;
 }
 
 #botonesVolver {

@@ -2259,6 +2259,8 @@ function newGame(){
 	if(document.getElementById('felicitaciones')){
 		document.getElementById('felicitaciones').remove();
 	}
+	if(document.getElementById('reiniciar')){document.getElementById('reiniciar').style.display = 'none';}
+	
 	
 
 	document.getElementById('first-page').style.display = 'grid';
