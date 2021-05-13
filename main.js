@@ -2224,6 +2224,7 @@ cardsFliped = [];
 };
 	
 function findeJuego(){
+	document.getElementById('reiniciar').style.display = 'none';
 
 	let felicitaciones = document.createElement('div');
 	felicitaciones.setAttribute('id', 'felicitaciones');
@@ -2258,7 +2259,7 @@ function newGame(){
 	if(document.getElementById('felicitaciones')){
 		document.getElementById('felicitaciones').remove();
 	}
-	document.getElementById('reiniciar').style.display = 'none';
+	
 
 	document.getElementById('first-page').style.display = 'grid';
 
