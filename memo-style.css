@@ -3,27 +3,19 @@
 }
 
 body {
-  display: flex;
+ 
   margin: 0;
   width: 100vw;
-  /*height: 100vh;*/
-  overflow: hidden;
+    
+  /*overflow: hidden;*/
 }
 
 #main {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
  
 }
 
-@media only screen and (min-width: 1024px)   {
-
-#main {
-   height: 90vh;
-  
-}
-}
 
 #botonesVolver {
   position: absolute;
@@ -45,7 +37,7 @@ html, body {
 h3, #puntaje {
   text-align: center;
   color: white;
-  font-size: 150%;
+  font-size: 1.5em;
   margin: 0px;
   margin-top: 5vh;
   text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
@@ -71,6 +63,7 @@ img.zoomInfoFront {
 }
 
 
+
 /*Frontside card style*/
 
 .titulo {
@@ -84,14 +77,14 @@ img.zoomInfoFront {
 }
 
 h2.titulo {
- font-size: 200%;
+ font-size: 2em;
  margin-top: 0;
  text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
  
  
 }
 h3.titulo {
- font-size: 150%;
+ font-size: 1.5em;
  bottom: 0%;
  text-shadow: 1px 1px 2px #000000;
  
@@ -100,7 +93,7 @@ h3.titulo {
 h2#regionNombre {
   text-align: center;
   color: white;
-  font-size: 250%;
+  font-size: 2.5em;
   margin: 0px;
   margin-top: 5vh;
   text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
@@ -137,7 +130,13 @@ svg {
   "leftTopGrid centerTopGrid rightGrid"
   "leftBottomGrid centerBottomGrid rightGrid"
 }
-
+/*
+@media only screen and (min-width: 1024px)   {
+  section#first-page {
+      font-size: xxx-large;
+  }
+}
+*/
 .grid-top {
   grid-area: topGrid;
 }
@@ -165,7 +164,7 @@ svg {
 
 .grid-center-top {
   grid-area: centerTopGrid;
-  font-size: 200%;
+  font-size: 2em;
 }
 
 
@@ -179,7 +178,7 @@ svg {
 }
 
 #slidecontainer {
-  font-size: 200%;
+  font-size: 2em;
   display: grid;
   grid-template-columns: 60% 40%;  
 }
@@ -281,7 +280,7 @@ td, td > div {
 .slider {
   display: block;
   /*-webkit-appearance: none;*/
-  width: 50%;
+  width: 100%; /* Full-width */
   height: 30px;
   border-radius: 5px;  
   background: #d3d3d3;
@@ -289,6 +288,22 @@ td, td > div {
   opacity: 0.7;
   -webkit-transition: .2s;
   transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  
+  cursor: pointer; /* Cursor on hover */
 }
 
 
@@ -300,21 +315,18 @@ td, td > div {
 
 @media only screen and (min-width: 1024px)   {
 #myRange {
-  /*height: 330px;*/
 
-  
-  /*-webkit-appearance: slider-vertical; */
-  position:relative;
-    top: 150px;
-    width: 300px;
-    height: 20px;
-    right: 100px;
+    position:relative;
+    top: 15vh;
+    width: 30vh;
+    height: 2vh;
+    right: 10vh;
     border: 0
 
     -webkit-transform: rotate(270deg);
        -moz-transform: rotate(270deg);
             transform: rotate(270deg);
-}
+  }
 
 }
 
@@ -337,13 +349,13 @@ td, td > div {
   margin: 30px auto ; 
   width: 90%;
   height: 50%;
-  font-size: 200%;
+  font-size: 2em;
 
 }
 
 #newGameBtn{
   margin: auto;
-  font-size: 200%;
+  font-size: 2em;
 }
 
 
@@ -425,7 +437,7 @@ td, td > div {
 }
 
 .score {
-  font-size: 200%;
+  font-size: 2em;
 }
 
 .memo-flip-card-back{
@@ -541,7 +553,7 @@ h4 {
   width: 70vw;
   top: 15%;
   left: 15%;
-  font-size: 200%;
+  font-size: 2em;
   padding: 30px;  
 
 }
@@ -550,7 +562,7 @@ h4 {
 #felicitaciones {
   text-align: center;
   color: white;
-  font-size: 250%;
+  font-size: 2.5em;
   
   margin-top: 10vh;
   text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
