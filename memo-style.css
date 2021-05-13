@@ -14,8 +14,15 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 90vh;
+ 
+}
+
+@media only screen and (min-width: 1024px)   {
+
+#main {
+   height: 90vh;
   
+}
 }
 
 #botonesVolver {
@@ -646,7 +653,7 @@ button {
 #main {
   display: grid;
   grid-template-columns: 50% 50%;
-  height: auto;
+  
   overflow: scroll;
 }
 
