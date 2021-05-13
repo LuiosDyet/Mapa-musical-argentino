@@ -681,6 +681,18 @@ button {
 }
 
 
+#myBtn {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 199;
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+ 
+}
 
 #showOnlyOnCel{
   display: none;
@@ -705,7 +717,7 @@ button {
   position: fixed;
   top: 10%;
   left: 10px;
-  z-index: 99;
+  z-index: 199;
   border: none;
   outline: none;
   background-color: transparent;
@@ -717,7 +729,7 @@ button {
   position: fixed;
   top: 17%;
   left: 10px;
-  z-index: 99;
+  z-index: 199;
   border: none;
   outline: none;
   background-color: transparent;
