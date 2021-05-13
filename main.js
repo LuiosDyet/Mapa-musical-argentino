@@ -9,7 +9,7 @@ function Region(nombre, provinciasMapa, generosRegion, fotosRegion, fondo,caract
 	this.caractGeneros = caractGeneros;
 	this.instrumentos = instrumentos
 
-this.changeRegion = function(nombre, provinciasMapa, generosRegion, fotosRegion, fondo, caractGeneros, instrumentos){
+	this.changeRegion = function(nombre, provinciasMapa, generosRegion, fotosRegion, fondo, caractGeneros, instrumentos){
 
 	clearInfo();
 
@@ -38,6 +38,26 @@ this.changeRegion = function(nombre, provinciasMapa, generosRegion, fotosRegion,
 
 	instrumentos = this.instrumentos;
 	//createInstrumentsBar(instrumentos);
+
+	};
+
+	this.createMemotest = function(nombre, generosRegion, caractGeneros, fondo){
+
+	nombre = this.nombre;
+	generosRegion = this.generosRegion;
+	caractGeneros = this.caractGeneros;
+	fondo = this.fondo;
+
+	selectedRegions(nombre, generosRegion, caractGeneros, fondo);
+
+	
+	//storeBGColorMemo(fondo);
+	
+
+	
+
+	
+
 
 	};
 };
@@ -411,16 +431,8 @@ function changeBGColor(fondo){
 		//tile.style.backgroundImage = `linear-gradient(${fondo}, white)`;
 		
 	}
-	cardBackside = document.querySelectorAll('.flip-card-back');
-	for(tile of cardBackside){
-		let color = fondo;
-		let randomLightness = Math.floor(Math.random() * 66) + 33;
-		color = color.replace(50, randomLightness);
-		tile.style.backgroundColor = `${color}`;
-		
-		//tile.style.backgroundImage = `linear-gradient(${fondo}, white)`;
-		
-	}
+
+	
 
 	let color = fondo;
 	let randomLightness = Math.floor(Math.random() * 66) + 33;
@@ -429,6 +441,8 @@ function changeBGColor(fondo){
 	document.getElementById('overlayInfo').style.backgroundColor = `${color}`;
 	
 	document.getElementById('l3Opcion').style.backgroundColor = `${fondo}`;
+
+	document.getElementById('cuantoSabes').style.backgroundColor = `${fondo}`;
 
 
 }
@@ -1578,3 +1592,770 @@ let patagonia = new Region('Patagonia',
     ]
 );
 
+////////////////////////////////////////////////////////////////////////
+
+
+//MEMOTEST
+
+//Select Regiones
+
+let regionesMemotest = document.getElementsByClassName("regionMemotest");
+
+var showGenerosHideInstrumentos = true;
+
+let selRegionMemotest = function() {
+
+	
+				
+	    let region = this.getAttribute("id");
+
+	  
+	    //alert(region);
+	    
+	    switch (region) {
+	    	case 'noroeste' : noroeste.createMemotest();
+	    		break;
+		    case 'litoral' : litoral.createMemotest();
+		    	break;
+		    case 'centro': centro.createMemotest();
+		    	break
+		    case 'cuyo' : cuyo.createMemotest();
+		    	break
+		    case 'pampeana' : pampeana.createMemotest();
+		    	break
+		    case 'ciudadana' : ciudadana.createMemotest();
+		    	break
+		    case 'patagonia' : patagonia.createMemotest();
+		    	break
+		};    
+	if(showGenerosHideInstrumentos === false){	
+	setCurrentRegionGeneros();
+	//document.getElementById('l3Opcion').innerHTML  = 'Ver instrumentos de la región';
+    };
+    
+};
+
+for (let i = 0; i < regionesMemotest.length; i++) {
+    regionesMemotest[i].addEventListener('click', selRegionMemotest, false);
+
+};	
+
+
+
+//Select Cantidad de Géneros por región y crear Arrays for Cards
+
+function random(num){
+	let randomNum = Math.floor(Math.random() * num);  
+	return randomNum;
+}
+
+/* Shuffle del array */
+	function shuffle(array) {
+		var i=array.length;
+		while(i--){
+			var j=Math.floor( Math.random() * (i+1) );
+			var tmp=array[i];
+			array[i]=array[j];
+			array[j]=tmp;
+		}
+	}
+let isRegionSelected = false;
+if(document.getElementById('crearMemotest')){
+document.getElementById('crearMemotest').disabled = true;
+document.getElementById('crearMemotest').addEventListener('click', createCardsMemotest,false);
+};
+
+var generosQtyTotalNum = 0;
+var regionesSelected = [];
+let memoArray = []
+let memoArrayAux = []
+
+
+
+function selectedRegions(nombre, generosRegion, caractGeneros, fondo){
+	
+	let nombreLowercase = nombre.toLocaleLowerCase();
+	selectedRegion = document.getElementById(nombreLowercase);
+
+	let tnombreLowercase = 't'+nombreLowercase;
+	let selTableName = document.getElementById(tnombreLowercase);
+	
+	let selectedRegionClass = selectedRegion.getAttribute('class');
+	if(selectedRegionClass === "regionMemotest selected"){
+		
+		selTableName.style.display = 'none';
+		selectedRegion.style.filter = 'brightness(1)';
+		selectedRegion.setAttribute('class', 'regionMemotest ');
+		let regionIndex = regionesSelected.indexOf(selectedRegion);
+		
+		regionesSelected.splice(regionIndex, 1);
+		regionIndex = regionIndex * 24
+		memoArray.splice(regionIndex, 24);
+		
+		generosQtyTotalNum -= generosRegion.length;
+		
+	}else{
+		selTableName.style.display = 'block';
+		selectedRegion.style.filter = 'brightness(1.4)';
+		selectedRegion.classList.add('selected');
+		generosQtyTotalNum += generosRegion.length;
+		regionesSelected.push(selectedRegion);
+
+		
+		
+	};
+
+	let selRegCartel = document.getElementsByClassName('selRegCartel');
+	let isRegionSelectedArray = []
+for(i = 0; i < selRegCartel.length; i++){
+	if(selRegCartel[i].style.display === 'block' ){
+		isRegionSelectedArray.push(true);
+	} else {
+		isRegionSelectedArray.push(false);
+	}	
+}	
+
+if(isRegionSelectedArray.includes(true)){
+	isRegionSelected = true 
+
+}else {
+	isRegionSelected = false;
+}
+//console.log(isRegionSelected)
+
+
+createMemoArray(nombreLowercase, generosRegion, caractGeneros, fondo);
+
+
+	//console.log(generosQtyTotalNum)
+	//console.log(regionesSelected)
+	//console.log(memoArray)
+
+if(isRegionSelected === true){
+	document.getElementById('crearMemotest').disabled = false;
+	document.getElementById('noHayRegionesElegidas').style.display = 'none'
+}else{
+	document.getElementById('crearMemotest').disabled = true;
+	document.getElementById('noHayRegionesElegidas').style.display = 'inline-block'
+}
+
+};
+
+
+function createMemoArray(nombreLowercase, generosRegion, caractGeneros, fondo){
+	
+	for(i = 0; i < 96; i++){
+		let generoNum = random(generosRegion.length);
+		let caractType = random(4);
+		let memoInfo = caractGeneros[generoNum][caractType][random(caractGeneros[generoNum][caractType].length)]
+		if(memoInfo === undefined || memoInfo[1] === '' ||  memoInfo[0] === 'h5'){
+
+		}else{	
+		let arrayPair = [];
+		arrayPair.push(nombreLowercase);
+		arrayPair.push(generosRegion[generoNum]);
+		arrayPair.push(memoInfo);
+		color = randomColorLightness(fondo);
+
+		arrayPair.push(color);
+		
+		memoArray.push(arrayPair);
+		
+
+		};
+
+	};
+	
+
+};
+
+function randomColorLightness(fondo){
+	let color = fondo;
+	let randomLightness = Math.floor(Math.random() * 66) + 33;
+	color = color.replace(50, randomLightness);
+	return color;
+}
+
+function prepareMemoArray(){
+	for (j = 0; j < regionesSelected.length; j++){
+		regionesSelected[j] = regionesSelected[j].id
+	};
+
+	if(regionesSelected.length === 0){
+		memoArray = [];
+	}else{
+		for (i = memoArray.length-1; i >= 0; i--){
+			if (memoArray[i][0] === regionesSelected[0]||
+				memoArray[i][0] === regionesSelected[1]||
+				memoArray[i][0] === regionesSelected[2]||
+				memoArray[i][0] === regionesSelected[3]||
+				memoArray[i][0] === regionesSelected[4]||
+				memoArray[i][0] === regionesSelected[5]||
+				memoArray[i][0] === regionesSelected[6]||
+				memoArray[i][0] === regionesSelected[7]){
+				memoArray[i].splice(0,1)
+			}else{
+				memoArray.splice(i,1);
+				//console.log(memoArray[])
+			}	
+		}
+	
+	}
+	
+shuffle(memoArray);
+}
+
+//Select cards Quantity
+
+var cardsQty = 12;
+
+function selectCardsQty(){
+	document.getElementById('moveElSlider').style.display = 'none';
+	let slider =  document.getElementById('myRange');
+	let sliderValue = document.getElementById('sliderValue');
+	switch (slider.value){
+		case '1' :  sliderValue.innerHTML = '4';
+					cardsQty = 4;
+			break;
+		case '2' :  sliderValue.innerHTML = '8';
+					cardsQty = 8;
+			break;
+		case '3' :  sliderValue.innerHTML = '12';
+					cardsQty = 12;
+			break;
+		case '4' :  sliderValue.innerHTML = '16';
+					cardsQty = 16;
+			break;
+		case '5' :  sliderValue.innerHTML = '20';
+					cardsQty = 20;
+			break;
+		case '6' :  sliderValue.innerHTML = '24';
+					cardsQty = 24;
+			break;
+		case '7' :  sliderValue.innerHTML = '30';
+					cardsQty = 30;
+			break;
+		case '8' :  sliderValue.innerHTML = '36';
+					cardsQty = 36;
+			break;
+		case '9' :  sliderValue.innerHTML = '42';
+					cardsQty = 42;
+			break;
+		case '10' :  sliderValue.innerHTML = '48';
+					cardsQty = 48;
+			break;
+						
+
+	}
+	
+}
+
+
+
+//Create cards
+
+function createCardsMemotest(){
+	document.getElementById('reiniciar').style.display = 'block';
+	prepareMemoArray();
+	document.getElementById('first-page').style.display = 'none';
+	document.getElementById('memoSideBar').style.display = 'flex'
+
+	let main = document.getElementById('main');
+	let cardQty = cardsQty;
+
+
+	for(i = 0; i < cardQty; i++){
+
+
+	let memoCard = document.createElement('div');
+	memoCard.setAttribute('class', 'memoCard');
+	main.appendChild(memoCard);
+
+	let memoFlipCard = document.createElement('div');
+	memoFlipCard.setAttribute('class','memoFlip-card');
+	memoFlipCard.setAttribute('id',`m${i}`);
+	//memoFlipCard.setAttribute('onclick', 'checkMemotestCards(this)');
+	memoCard.appendChild(memoFlipCard);
+
+	let flipCardInner = document.createElement('div');
+	flipCardInner.setAttribute('class','memo-flip-card-inner');
+	flipCardInner.setAttribute('id',`fci${i}`);
+	memoFlipCard.appendChild(flipCardInner);
+
+	let flipCardFront = document.createElement('div');
+	flipCardFront.setAttribute('class','memo-flip-card-front');
+	flipCardInner.appendChild(flipCardFront);
+
+	let r = document.createElement('div');
+	r.setAttribute('class','center-cropped');
+	r.setAttribute('id',`r${i}`);
+	flipCardFront.appendChild(r);
+
+	let imgInfoFront = document.createElement('img');
+	imgInfoFront.src = 'img/Argentina con Provincias.png';
+	imgInfoFront.setAttribute('class','front-memotest-img');
+	r.appendChild(imgInfoFront);
+
+		
+
+	let flipCardBack = document.createElement('div');
+	flipCardBack.setAttribute('class','memo-flip-card-back');
+	flipCardInner.appendChild(flipCardBack);
+
+	let cardInfoDiv = document.createElement('div');
+	cardInfoDiv.setAttribute('class','memo-cardInfoDiv');
+	flipCardBack.appendChild(cardInfoDiv);
+
+	let clickZoom = document.createElement('a');
+	//clickZoom.setAttribute('href',`javascript:memoShowZoomInfoOverlay(rt${i})`);
+	clickZoom.setAttribute('class','clickZoom');
+	cardInfoDiv.appendChild(clickZoom);
+
+	let zoomInfo = document.createElement('img');
+	zoomInfo.src = 'img/botones/Lupa.png';
+	zoomInfo.setAttribute('class','zoomInfo');
+	zoomInfo.setAttribute('id',`zi${i}`);
+	clickZoom.appendChild(zoomInfo);
+
+	let cardInfo = document.createElement('div');
+	cardInfo.setAttribute('class','memo-cardInfo');
+	cardInfo.setAttribute('id',`rt${i}`);
+	flipCardBack.appendChild(cardInfo);
+
+	};
+
+
+//Events
+
+
+
+
+let memocards = document.getElementsByClassName('memoFlip-card');
+
+for (let i = 0; i <  memocards.length; i++) {
+    memocards[i].addEventListener('click', checkMemotestCards, false);
+
+};		
+
+
+let memoZooms = document.getElementsByClassName('zoomInfo');
+
+
+for (let i = 0; i <  memoZooms.length; i++) {
+    memoZooms[i].addEventListener('mousemove', memoShowZoomInfoOverlay,false);
+
+};	
+/*
+for (let i = 0; i <  memoZooms.length; i++) {
+    memoZooms[i].addEventListener('mousemove', memoHideZoomInfoOverlay,false);
+
+};	
+*/
+
+
+
+tilesPerRowMemotest(cardQty);
+};
+
+function tilesPerRowMemotest(cardQty){
+	//let cardQty = cardQty;
+	if (cardQty === 4){
+		var j = 2; var k = 2;
+	}else if (cardQty === 8){
+		var j = 4; var k = 2;
+	}else if (cardQty === 12){
+		var j = 4; var k = 3;	
+
+	}else if (cardQty === 16){
+		var j = 4; var k = 4;
+	}else if (cardQty === 20){
+		var j = 4; var k = 5;
+	}else if (cardQty === 24){
+		var j = 4; var k = 6;
+	}else if (cardQty === 30){
+		var j = 6; var k = 5;
+		
+	}else if (cardQty === 36){
+		var j = 6; var k = 6;
+	}else if (cardQty === 42){
+		var j = 6; var k = 7;
+	}else if (cardQty === 48){
+		var j = 6; var k = 8;
+	};
+
+		
+	let row = document.getElementsByClassName('memoCard');
+	for (i = 0; i < row.length; i++){
+		row[i].style.height = `calc(90vh/${j})`;
+		row[i].style.width = `calc(100vw/${k})`;
+	};
+
+
+memoCardBack()
+};
+
+
+function memoCardBack(){
+	let cards = document.getElementsByClassName('memo-cardInfo');
+	let memoFlipCards = document.getElementsByClassName('memo-flip-card-inner');
+	let backgroundCard = document.getElementsByClassName('memo-flip-card-back');
+
+	
+
+
+
+	memoArray.splice(cards.length/2, memoArray.length-(cards.length/2));
+	let randArray = [];
+	//console.log(memoArray)
+	for (i = 0; i < cards.length; i++){	randArray.push([i]);};
+	shuffle(randArray);
+
+	//console.log(randArray)
+	for (j = 0; j < cards.length/2; j++ ){
+		
+			l = randArray[j]
+			let tit = document.createElement('h3');
+			let infoTit = memoArray[j][0];
+			tit.innerHTML = infoTit; //infoTit;
+			cards[l].appendChild(tit);	
+			let idGen = memoArray[j][0].toLocaleLowerCase().split(' ');
+			memoFlipCards[l].classList.add(idGen[0]);
+			memoFlipCards[l].classList.add('Tit');
+			backgroundCard[l].style.backgroundColor = memoArray[j][2];
+		
+	}
+		
+	for (k = 0; k < cards.length/2; k++ ){	
+			m = randArray[k+(cards.length/2)];
+			let type = memoArray[k][1][0];
+			let info = memoArray[k][1][1];
+			let idGen = memoArray[k][0].toLocaleLowerCase().split(' ');
+			memoFlipCards[m].classList.add(idGen[0]);
+			memoFlipCards[m].classList.add('Info');
+			backgroundCard[m].style.backgroundColor = memoArray[k][2];
+		
+			if (type === 'img'){
+		        let img = document.createElement('img');
+		        img.src = info;
+		        img.setAttribute('class','imgMemo');
+		        cards[m].appendChild(img);
+
+			  } else if (type === 'p') {
+		        let para =  document.createElement('p');
+		        para.innerHTML = info;
+		        cards[m].appendChild(para);
+
+			  } else if (type === 'h5'){
+		        let h5 = document.createElement('h5');
+		        h5.innerHTML = info;
+		        cards[m].appendChild(h5);
+
+			   } else if (type === 'li'){
+			   	let list = document.createElement('ul');	
+			    let li = document.createElement('li');
+			    li.innerHTML = info;
+			    list.appendChild(li);
+			    cards[m].appendChild(list);
+
+			  	} else if (type === 'iframe') {
+			  	let	iframeDiv = document.createElement('div');
+			   	iframeDiv.setAttribute('class', 'iframeDiv');
+			   	let iframe = document.createElement('iframe');
+			    iframe.setAttribute('allowFullScreen', '');
+			    iframe.src = info;
+			    iframeDiv.appendChild(iframe);
+			    cards[m].appendChild(iframeDiv);
+				          
+			};
+
+		};
+	puntaje = generosQtyTotalNum * cardsQty + puntaje;
+	score();
+	//changeBGColorMemo()
+};
+
+//BG Color Memotes
+
+let memoFondoColors = [];
+function storeBGColorMemo(fondo){
+	if(memoFondoColors.includes(fondo)){
+		let colorIndex = memoFondoColors.indexOf(fondo);
+		memoFondoColors.splice(colorIndex, 1);
+	}else{
+		memoFondoColors.push(fondo);
+	}
+	
+}
+function changeBGColorMemo(){
+	//document.body.style.backgroundImage = `linear-gradient(180deg, grey, ${fondo})`;
+	
+	
+	cardBackside = document.querySelectorAll('.memo-flip-card-back');
+	for(tile of cardBackside){
+		let color = memoFondoColors[random(memoFondoColors.length)];
+		let randomLightness = Math.floor(Math.random() * 66) + 33;
+		color = color.replace(50, randomLightness);
+		tile.style.backgroundColor = `${color}`;
+	
+		
+	}
+
+function memoCardBgColor(){
+	cardBackside = document.querySelectorAll('.memo-flip-card-back');
+	for(tile of cardBackside){
+		let color = memoFondoColors[random(memoFondoColors.length)];
+		let randomLightness = Math.floor(Math.random() * 66) + 33;
+		color = color.replace(50, randomLightness);
+		tile.style.backgroundColor = `${color}`;
+	
+		
+	}
+
+}
+
+	
+/*
+	let color = fondo;
+	let randomLightness = Math.floor(Math.random() * 66) + 33;
+	color = color.replace(50, randomLightness);
+
+	document.getElementById('overlayInfo').style.backgroundColor = `${color}`;
+	
+	document.getElementById('l3Opcion').style.backgroundColor = `${fondo}`;
+*/
+
+}				
+
+
+
+
+
+//Flip Cards
+
+
+let firstCard = true;
+let secondCard = false;
+let cardsFliped = [];
+let cardClassFirst;
+let total = 0;
+
+function checkMemotestCards(){
+	
+	let card = this.getAttribute('id');
+	//console.log(card);
+	if(secondCard){	document.getElementById('main').addEventListener('click', unflip());};	
+	
+	//card = card.id	
+	card = card.replace('m', 'fci'); 
+	cardsFliped.push(card)
+	card = document.getElementById(card)
+	card.style.transform = 'rotateY(180deg)';
+	
+	if (firstCard === true ){
+		cardClassFirst = card.className;
+		firstCard = false;
+		secondCard = false;
+		
+		
+	} else{
+
+		let cardClassSecond = card.className;
+		firstCard = true;
+		secondCard = true;
+		card = card.id	
+		card = card.replace('m', 'fci'); 
+		cardsFliped.push(card)
+		card = document.getElementById(card)
+		card.style.transform = 'rotateY(180deg)';
+
+
+		if(cardClassFirst.includes('Tit') && cardClassSecond.includes('Info') ||
+		   cardClassFirst.includes('Info') && cardClassSecond.includes('Tit')){
+			let lastIndex =	cardClassFirst.lastIndexOf(' ');
+			cardClassFirst = cardClassFirst.substring(0, lastIndex);
+			lastIndex =	cardClassSecond.lastIndexOf(' ');
+			cardClassSecond = cardClassSecond.substring(0, lastIndex);
+			
+			if(cardClassFirst === cardClassSecond){
+				puntaje += 30;
+				score();
+				total++
+				puntajeColor([0, 128, 0]);
+			unflipable();
+				if(total === cardsQty/2){findeJuego()};
+
+			}else{
+				puntaje -= 10;
+				score();
+				puntajeColor([255, 0, 0]);
+											
+			};	
+
+		}else{
+			puntaje -= 10;
+			score();
+			puntajeColor([255, 0, 0]);
+							
+		};
+					
+			
+	};
+};
+
+
+function unflip(){
+	for (i = 0; i < cardsFliped.length; i++){
+		card = cardsFliped[i]
+		card = document.getElementById(card)
+		card.style.transform = 'rotateY(0deg)';
+	};
+cardsFliped = [];
+};
+
+function unflipable(){
+	for (i = 0; i < cardsFliped.length; i++){
+		card = cardsFliped[i]
+		card = card.replace('fci', 'm'); 
+		card = document.getElementById(card)
+		card.onclick= '';
+	};
+cardsFliped = [];	
+
+};
+	
+function findeJuego(){
+
+	let felicitaciones = document.createElement('div');
+	felicitaciones.setAttribute('id', 'felicitaciones');
+	
+	let bravo = document.createElement('h1');
+	bravo.textContent = 'FELICITACIONES';
+	felicitaciones.appendChild(bravo)
+	let puntajeTit = document.createElement('h2') 
+	puntajeTit.textContent = `¡Lograste hacer ${puntaje} puntos!`;
+	felicitaciones.appendChild(puntajeTit);
+
+	document.getElementById('main').innerHTML = '';
+	document.getElementById('memoSideBar').style.display = 'none';
+
+	let playAgain = document.createElement('button');
+	playAgain.textContent = 'Volver a jugar';
+	playAgain.setAttribute('onclick',`newGame()`);
+	playAgain.setAttribute('id','newGameBtn');
+	felicitaciones.appendChild(playAgain);
+
+
+
+
+	document.body.appendChild(felicitaciones);
+
+
+	
+	
+};
+
+function newGame(){
+	if(document.getElementById('felicitaciones')){
+		document.getElementById('felicitaciones').remove();
+	}
+	document.getElementById('reiniciar').style.display = 'none';
+
+	document.getElementById('first-page').style.display = 'grid';
+
+	let selRegCartel = document.getElementsByClassName('selRegCartel');
+	let regionMemotest = document.getElementsByClassName('regionMemotest');
+
+	for (i = 0; i < selRegCartel.length; i++){
+		selRegCartel[i].style.display = 'none';
+		regionMemotest[i].style.filter = 'brightness(1)';
+	}
+
+	document.getElementById('noHayRegionesElegidas').style.display = 'block';
+	isRegionSelected = false;
+	document.getElementById('crearMemotest').disabled = true;
+	total = 0;
+	puntaje = 0;
+	
+	
+	
+}
+/// Score
+
+let puntaje = 0;
+
+function score(){
+	
+	let scoreBoard = document.getElementById('puntaje');
+	
+	scoreBoard.textContent = `Puntaje: ${puntaje}`;
+
+};
+
+let endcolor = [27, 60, 154];
+	
+	let element = document.getElementById('memoSideBar');
+	let steps = 100;
+
+
+function puntajeColor(startcolor){
+	
+	var red_change = (startcolor[0] - endcolor[0]) / steps;
+	var green_change = (startcolor[1] - endcolor[1]) / steps;
+	var blue_change = (startcolor[2] - endcolor[2]) / steps;
+	
+	var currentcolor = startcolor;
+	var stepcount = 0;
+	//var timer = setInterval(function(){
+    currentcolor[0] = parseInt(currentcolor[0] - red_change);
+    currentcolor[1] = parseInt(currentcolor[1] - green_change);
+    currentcolor[2] = parseInt(currentcolor[2] - blue_change);
+    element.style.backgroundColor = 'rgb(' + currentcolor.toString() + ')';
+    stepcount += 1;
+    if (stepcount >= steps) {
+        element.style.backgroundColor = 'rgb(' + endcolor.toString() + ')';
+        clearInterval(timer);
+    }
+//}, 50);
+
+
+}
+
+/// Zoom memotest
+
+function memoShowZoomInfoOverlay(){
+	memoHideZoomInfoOverlay()
+	let info = this.getAttribute('id')
+	info = info.replace('zi', 'm'); 
+		
+	let memoOverlay = document.createElement('div');
+	memoOverlay.setAttribute('class', 'memo-overlay');
+	let main = document.getElementById('main');
+	main.appendChild(memoOverlay);
+	info = document.getElementById(info);
+	memoOverlay.innerHTML = info.innerHTML;
+	
+	listenMemoInfoOverlay();
+	//console.log(info)
+	
+}
+
+
+function listenMemoInfoOverlay(){
+	let memoOverlay = document.getElementsByClassName('memo-overlay');
+	for(i = 0; i < memoOverlay.length; i++){
+	memoOverlay[i].addEventListener('mouseout', memoHideZoomInfoOverlay,false);	
+	}
+	
+}
+
+
+function memoHideZoomInfoOverlay(){
+
+	let memoOverlay = document.getElementsByClassName('memo-overlay');
+	let main = document.getElementById('main');
+	for(i = 0; i < memoOverlay.length; i++){
+		main.removeChild(memoOverlay[i]);
+	}
+	
+	
+}

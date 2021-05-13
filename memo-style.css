@@ -1,0 +1,653 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  margin: 0;
+
+  height: 100vh;
+  overflow: hidden;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 90vh;
+}
+
+#botonesVolver {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+
+/*Font*/
+h1, h2, h3, h4{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: lighter;
+}
+
+html, body {
+  font-family: 'Dosis', sans-serif;
+}
+
+h3, #puntaje {
+  text-align: center;
+  color: white;
+  font-size: 150%;
+  margin: 0px;
+  margin-top: 5vh;
+  text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
+}
+
+#lupaSidebar{
+  position: absolute;
+}
+
+.clickZoom {
+  position: absolute;
+  right: 5px;
+  z-index: 120;
+}
+
+img.zoomInfo {
+  
+  margin: 5px;
+}
+
+img.zoomInfoFront {
+  display: none;
+}
+
+
+/*Frontside card style*/
+
+.titulo {
+  
+  text-align: left;
+  left: 20px;
+  position: absolute;
+  color: white;
+  opacity: 0.8;
+
+}
+
+h2.titulo {
+ font-size: 200%;
+ margin-top: 0;
+ text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
+ 
+ 
+}
+h3.titulo {
+ font-size: 150%;
+ bottom: 0%;
+ text-shadow: 1px 1px 2px #000000;
+ 
+}
+
+h2#regionNombre {
+  text-align: center;
+  color: white;
+  font-size: 250%;
+  margin: 0px;
+  margin-top: 5vh;
+  text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
+}
+
+#moveElSlider, #noHayRegionesElegidas {
+  border: 1px dashed black;
+  margin-top: 30px;
+  padding: 0px 10px;
+  font-size: 50%;
+}
+
+
+
+/*Maps and overlays*/
+svg {
+  height: 30vh;
+  display: block;
+  
+  padding-top: 5%;
+}
+
+/* First page*/
+
+#first-page {
+  height: 100vh;
+  width: 100vw;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 35% 35% 30%;
+  grid-template-rows: 20% 50% 20%;
+  grid-template-areas: 
+  "topGrid topGrid topGrid "
+  "leftTopGrid centerTopGrid rightGrid"
+  "leftBottomGrid centerBottomGrid rightGrid"
+}
+
+.grid-top {
+  grid-area: topGrid;
+}
+
+.grid-top > h1 {
+
+   text-align: center;
+  color: white;
+  font-size: 2.5em;
+  
+  margin-top: 5vh;
+  text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
+  margin-top: 30px;
+}
+
+.grid-right {
+  grid-area: rightGrid;
+}
+
+
+.grid-left-top {
+  grid-area: leftTopGrid;
+    
+}
+
+.grid-center-top {
+  grid-area: centerTopGrid;
+  font-size: 200%;
+}
+
+
+.grid-left-bottom {
+  grid-area: leftBottomGrid;
+  
+}
+
+.grid-center-bottom {
+  grid-area: centerBottomGrid;
+}
+
+#slidecontainer {
+  font-size: 200%;
+  display: grid;
+  grid-template-columns: 60% 40%;  
+}
+
+#slidecontainer > div  {
+ margin-right: 0px;
+ margin-left: auto;
+
+}
+
+
+#cantTarj > div, p:first-child {
+  display: inline;
+}
+
+#cantTarj {
+  margin: auto;
+  
+  flex-grow: 4;
+}
+
+@media only screen and (min-width: 1024px)   {
+
+#cantTarj {
+ text-align: right;
+
+  }
+} 
+  
+table {
+  margin-top: 10px;
+  width: 70%;
+  border-collapse: collapse;
+  
+}
+
+td, td > div {
+  width: 100%;  
+  
+  padding: 0px 10px;
+    
+
+}
+
+
+
+#tnoroeste {
+  background-color: #d78b7d;
+  display: none; 
+}
+#tlitoral {
+  background-color: #92C7DE;
+  display: none;
+}
+#tcentro {
+  background-color: #FDE1C8;
+  display: none;
+}
+#tcuyo {
+  background-color: #D4AC81;
+  display: none;
+}
+#tpampeana {
+  background-color: #B0BF94;
+  display: none;
+}
+#tciudadana {
+  background-color: #D5D4C6;
+  display: none;
+}
+#tpatagonia {
+  background-color: #999BB4;
+  display: none;
+}
+
+
+#moveElSlider, #noHayRegionesElegidas {
+  display: inline-block;
+}
+
+
+#regEleg {
+  display: block;
+  margin: 0px;
+}
+
+
+
+
+
+
+/*MEMOTEST*/
+
+.front-memotest-img {
+  margin: 5%;
+  height: 80%;
+}
+
+.slider {
+  display: block;
+  /*-webkit-appearance: none;*/
+  width: 50%;
+  height: 30px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+
+
+#memotestMap {
+  height: 70vh;
+
+}
+
+@media only screen and (min-width: 1024px)   {
+#myRange {
+  /*height: 330px;*/
+
+  
+  /*-webkit-appearance: slider-vertical; */
+  position:relative;
+    top: 150px;
+    width: 300px;
+    height: 20px;
+    right: 100px;
+    border: 0
+
+    -webkit-transform: rotate(270deg);
+       -moz-transform: rotate(270deg);
+            transform: rotate(270deg);
+}
+
+}
+
+#crearMemotest, #newGameBtn {
+  
+  margin-top: 30px;
+  display: block;
+  
+  padding: 20px 10px;
+  text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 3px 3px 6px #000000;
+  background-color: #D5D4C6;
+  border-style: outset;
+}
+
+#reiniciar {
+  display: none;
+}
+
+#crearMemotest {
+  margin: 30px auto ; 
+  width: 90%;
+  height: 50%;
+  font-size: 200%;
+
+}
+
+#newGameBtn{
+  margin: auto;
+  font-size: 200%;
+}
+
+
+
+
+
+
+.center-cropped {
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.memoFlip-card {
+  background-color: transparent;
+  width:  100%;
+  height:  100%;
+  box-sizing: border-box;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.memo-flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+/*.memoFlip-card:active .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/*.memoFlip-card:active .flip-card-inner {
+  transform: rotateY(180deg);
+}
+/* Position the front and back side */
+.memo-flip-card-front, .memo-flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.memo-flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.memo-flip-card-back {
+  /*background-color: dodgerblue;*/
+  color: black;
+  transform: rotateY(180deg);
+
+}
+
+
+.imgMemo {
+    width: 100%;
+    height: auto;
+    /*padding: 0px 40px 20px 40px;*/
+}
+
+
+
+#memoSideBar {
+  display: flex;
+  height: 10vh;
+  width: 100vw;
+}
+
+.score {
+  font-size: 200%;
+}
+
+.memo-flip-card-back{
+  overflow: scroll;
+  /*font-size: 150%;*/
+  border: 1px solid black;
+  }
+
+.memo-cardInfo {
+  margin: 30px;
+}
+
+body, .memo-flip-card-back, #overlayInfo {
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+
+
+#memoSideBar {
+    background-color:  #1b3c9a;
+    display: none;
+    }
+
+
+
+.memo-flip-card-front > .center-cropped {
+  
+  background-color:  #6699cc;
+  border: 1px solid black;
+}
+
+/*Videos*/
+
+iframe {
+  position: absolute;
+  
+  left: 20px;
+ /* width: 95%;
+  height: 95%; */
+  border: 0;
+
+}
+
+h5 {
+  margin: 5px;
+  padding: 20px 0px;
+  text-align: left;
+  font-size: 100%;
+  
+}
+/*
+#overlayInfo > div {
+  min-height: 80vh;
+  min-width: 50vw;
+
+}
+*/
+
+.iframeDiv {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+
+}
+
+#overlayInfo > div   {
+  position: relative;
+  width: 100%;
+ /*padding-bottom: 56.25%;*/
+ 
+
+}
+
+.iframeDiv >  iframe  {
+ position: absolute;
+  
+  left: 20px;
+  width: 95%;
+  height: 95%; 
+  border: 0;
+  
+}
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  /*padding-bottom: 56.25%;*/
+}
+
+h4 {
+ display: none;
+
+}
+
+/* Change and show Scrollbar*/
+/* width */
+::-webkit-scrollbar {
+   width: 20px;
+}
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+   background: url('img/botones/scrollDown.gif') no-repeat bottom;
+}
+
+
+/* Zoom */
+
+.memo-overlay {
+  position: absolute;
+  height: 70vh;
+  width: 70vw;
+  top: 15%;
+  left: 15%;
+  font-size: 200%;
+  padding: 30px;  
+
+}
+
+
+#felicitaciones {
+  text-align: center;
+  color: white;
+  font-size: 250%;
+  
+  margin-top: 10vh;
+  text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
+  margin: auto;
+  
+  height: 120vh;
+  width: 100vw;
+}
+
+#felicitaciones > h1 {
+  margin-top: 50px;
+}
+
+ #felicitaciones, body { 
+  opacity: 1;
+
+  background: linear-gradient(246deg, #1b6c9a, #62c2ab);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 24s ease infinite;
+    -moz-animation: AnimationName 24s ease infinite;
+    animation: AnimationName 24s ease infinite;
+    }
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 96%}
+        50%{background-position:100% 5%}
+        100%{background-position:0% 96%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:0% 96%}
+        50%{background-position:100% 5%}
+        100%{background-position:0% 96%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:0% 96%}
+        50%{background-position:100% 5%}
+        100%{background-position:0% 96%}
+    }
+ 
+
+button {
+  background-color: #1b6c9a;
+  color: white;
+  border-style: outset;
+
+}
+
+/*For smartphones*/
+
+@media only screen and (max-width: 1024px)   {
+
+
+#first-page {
+  overflow: scroll;
+  height: auto;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 50% 50% ;
+  grid-template-rows: 20% 20% 50% 20% ;
+  grid-template-areas: 
+  "topGrid topGrid "
+  "leftTopGrid leftTopGrid"
+  "centerTopGrid rightGrid"
+  "leftBottomGrid centerBottomGrid"
+}
+
+#slidecontainer {
+  font-size: 1.5em;
+  display: grid;
+  grid-template-columns: 100%;
+
+
+}
+
+
+#myRange {
+
+    width: 300px;
+    height: 20px;
+    
+    border: 0
+
+}
+
+
+#memotestMap {
+  height: auto;
+  width: 50vw;
+
+}
+
+#crearMemotest {
+  font-size:1.5em;
+}
+.grid-top > h1 {
+  font-size: 1.5em;
+}
+
+.memoCard {
+  width: 50vw !important;
+}
+
+#felicitaciones {
+  font-size: 1.25em;
+}
+
+}

@@ -41,12 +41,12 @@ section {
   flex-wrap: wrap;
 
 }
-
+/*
 .sideBar {
   width: 15vw;
   height: 100vh;
 }
-
+*/
 .main {
   width: 85vw;
 }
@@ -149,12 +149,12 @@ svg {
 }
 
 #l2{
-  height: 55%;
+  height: 45%;
   display: none;
 }
 
 #l3{
-  height: 15%;
+  height: 25%;
   display: none;
   max-width: 300px;
   margin: auto;
@@ -168,6 +168,14 @@ a:link {
 
 
 #l3Opcion {
+  color: white;
+  font-size: 190%;
+  margin: 10px;
+  max-width: 250px;
+  text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
+}
+
+#cuantoSabes {
   color: white;
   font-size: 190%;
   margin: 10px;
@@ -792,3 +800,9 @@ div.infoRegionOverlayMap > ul {
   opacity: 0.5;
   text-align: center;
 }
+
+
+
+
+
+
