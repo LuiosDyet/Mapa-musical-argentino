@@ -707,6 +707,7 @@ document.addEventListener("keydown", function(event) {
 
 //Get the button
 var mybutton = document.getElementById("myBtn");
+var mybuttonReiniciar = document.getElementById("reiniciar");
 var mybuttonDown = document.getElementById("myBtnDown");
 var mybuttonUp = document.getElementById("myBtnUp");
 
@@ -718,6 +719,12 @@ function scrollFunction() {
     mybutton.style.display = "block";
   } else {
     mybutton.style.display = "none";
+  }
+
+   if (document.body.scrollTop > 640 || document.documentElement.scrollTop > 640) {
+    mybuttonReiniciar.style.display = "block";
+  } else {
+    mybuttonReiniciar.style.display = "none";
   }
 
     if (document.body.scrollTop > 640 || document.documentElement.scrollTop > 640) {

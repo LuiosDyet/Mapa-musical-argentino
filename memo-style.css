@@ -17,11 +17,6 @@ body {
 }
 
 
-#botonesVolver {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
 
 
 /*Font*/
@@ -341,9 +336,7 @@ td, td > div {
   border-style: outset;
 }
 
-#reiniciar {
-  display: none;
-}
+
 
 #crearMemotest {
   margin: 30px auto ; 
@@ -681,7 +674,7 @@ button {
 }
 
 
-#myBtn {
+#myBtn, #reiniciar {
   display: none;
   position: fixed;
   top: 10px;
