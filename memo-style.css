@@ -679,3 +679,47 @@ button {
 }
 
 }
+
+
+
+#showOnlyOnCel{
+  display: none;
+  }
+
+@media only screen and (max-width: 1024px)   {
+
+ #showOnlyOnCel{
+   display: block;
+   position: absolute;
+  }
+
+  .NameForCel{
+    display: block !important;
+
+  }
+}
+
+
+#myBtnUp {
+  display: none;
+  position: fixed;
+  top: 10%;
+  left: 10px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+}
+
+#myBtnDown {
+  display: none;
+  position: fixed;
+  top: 17%;
+  left: 10px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+}
