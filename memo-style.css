@@ -533,7 +533,9 @@ h4 {
 
 /* Change and show Scrollbar*/
 /* width */
-::-webkit-scrollbar {
+
+@media only screen and (min-width: 1024px)   {
+  ::-webkit-scrollbar {
    width: 20px;
 }
 
@@ -541,6 +543,8 @@ h4 {
 /* Handle */
 ::-webkit-scrollbar-thumb {
    background: url('img/botones/scrollDown.gif') no-repeat bottom;
+}
+
 }
 
 
