@@ -29,6 +29,12 @@ html, body {
   font-family: 'Dosis', sans-serif;
 }
 
+
+#puntaje {
+  position: sticky;
+}
+
+
 h3, #puntaje {
   text-align: center;
   color: white;
