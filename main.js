@@ -1810,7 +1810,7 @@ shuffle(memoArray);
 var cardsQty = 12;
 
 function selectCardsQty(){
-	document.getElementById('moveElSlider').style.display = 'none';
+	document.getElementById('moveElSlider').style.visibility = 'hidden';
 	let slider =  document.getElementById('myRange');
 	let sliderValue = document.getElementById('sliderValue');
 	switch (slider.value){
