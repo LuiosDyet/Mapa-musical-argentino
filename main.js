@@ -707,7 +707,7 @@ document.addEventListener("keydown", function(event) {
 
 //Get the button
 var mybutton = document.getElementById("myBtn");
-var mybuttonReiniciar = document.getElementById("reiniciar");
+
 var mybuttonDown = document.getElementById("myBtnDown");
 var mybuttonUp = document.getElementById("myBtnUp");
 
@@ -715,30 +715,28 @@ var mybuttonUp = document.getElementById("myBtnUp");
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-  if (document.body.scrollTop > 640 || document.documentElement.scrollTop > 640) {
+if(mybutton !== null){
+	 if (document.body.scrollTop > 640 || document.documentElement.scrollTop > 640) {
     mybutton.style.display = "block";
   } else {
     mybutton.style.display = "none";
   }
-
-   if (document.body.scrollTop > 640 || document.documentElement.scrollTop > 640) {
-    mybuttonReiniciar.style.display = "block";
-  } else {
-    mybuttonReiniciar.style.display = "none";
-  }
-
-    if (document.body.scrollTop > 640 || document.documentElement.scrollTop > 640) {
+}	
+ 
+if(mybuttonUp !== null){
+      if (document.body.scrollTop > 640 || document.documentElement.scrollTop > 640) {
     mybuttonUp.style.display = "block";
   } else {
     mybuttonUp.style.display = "none";
   }
-
-  if (window.innerHeight + window.innerHeight + window.scrollY + 640 > document.body.clientHeight) {
+}
+if(mybuttonDown !== null){
+  if (window.innerHeight + window.scrollY + 640 > document.body.clientHeight) {
     mybuttonDown.style.display = "none";
   } else {
   	mybuttonDown.style.display = "block";
   }
-
+}
 
 }
 
@@ -2263,10 +2261,10 @@ function findeJuego(){
 };
 
 function newGame(){
-	if(document.getElementById('felicitaciones')){
-		document.getElementById('felicitaciones').remove();
-	}
-	if(document.getElementById('reiniciar')){document.getElementById('reiniciar').style.display = 'none';}
+	findeJuego()
+	document.getElementById('felicitaciones').remove();
+	
+	document.getElementById('reiniciar').style.display = 'none';
 	
 	
 

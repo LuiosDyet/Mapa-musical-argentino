@@ -179,6 +179,7 @@ svg {
 
 .grid-center-bottom {
   grid-area: centerBottomGrid;
+  margin-bottom: 20px;
 }
 
 #slidecontainer {
@@ -563,6 +564,12 @@ h4 {
   padding: 30px;  
 
 }
+@media only screen and (max-width: 1024px)   {
+ .memo-overlay {
+  position: sticky;
+
+}
+
 
 
 #felicitaciones {
@@ -687,17 +694,28 @@ button {
 }
 
 
-#myBtn, #reiniciar {
-  display: none;
+#myBtnMemo, #reiniciar {
+  
   position: fixed;
   top: 10px;
-  left: 10px;
+  
   z-index: 199;
   border: none;
   outline: none;
   background-color: transparent;
 
  
+}
+
+
+#myBtnMemo {
+right: 80px;
+
+}
+
+#reiniciar {
+right: 10px;
+
 }
 
 #showOnlyOnCel{
@@ -721,7 +739,7 @@ button {
 #myBtnUp {
   display: none;
   position: fixed;
-  top: 10%;
+  top: 15%;
   left: 10px;
   z-index: 199;
   border: none;
@@ -733,7 +751,7 @@ button {
 #myBtnDown {
   display: none;
   position: fixed;
-  top: 17%;
+  top: 23%;
   left: 10px;
   z-index: 199;
   border: none;
