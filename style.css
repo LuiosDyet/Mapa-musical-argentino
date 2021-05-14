@@ -766,7 +766,7 @@ div.infoRegionOverlayMap > ul {
 #myBtnUp {
   display: none;
   position: fixed;
-  top: 10%;
+  top: 14%;
   left: 10px;
   z-index: 99;
   border: none;
@@ -778,7 +778,7 @@ div.infoRegionOverlayMap > ul {
 #myBtnDown {
   display: none;
   position: fixed;
-  top: 17%;
+  top: 23%;
   left: 10px;
   z-index: 99;
   border: none;
