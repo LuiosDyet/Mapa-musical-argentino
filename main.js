@@ -442,7 +442,7 @@ function changeBGColor(fondo){
 	
 	document.getElementById('l3Opcion').style.backgroundColor = `${fondo}`;
 
-	document.getElementById('cuantoSabes').style.backgroundColor = `${fondo}`;
+	//document.getElementById('cuantoSabes').style.backgroundColor = `${fondo}`;
 
 
 }

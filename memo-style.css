@@ -570,7 +570,7 @@ h4 {
 
 }
 
-
+}
 
 #felicitaciones {
   text-align: center;
@@ -626,72 +626,6 @@ button {
 
 /*For smartphones*/
 
-@media only screen and (max-width: 1024px)   {
-
-
-#first-page {
-  overflow: scroll;
-  height: auto;
-  width: 100vw;
-  display: grid;
-  grid-template-columns: 50% 50% ;
-  grid-template-rows: 20% 20% 50% 20% ;
-  grid-template-areas: 
-  "topGrid topGrid "
-  "leftTopGrid leftTopGrid"
-  "centerTopGrid rightGrid"
-  "leftBottomGrid centerBottomGrid"
-}
-
-#slidecontainer {
-  font-size: 1.5em;
-  display: grid;
-  grid-template-columns: 100%;
-
-
-}
-
-
-#myRange {
-
-    width: 300px;
-    height: 20px;
-    
-    border: 0
-
-}
-
-
-#memotestMap {
-  height: auto;
-  width: 50vw;
-
-}
-
-#crearMemotest {
-  font-size:1.5em;
-}
-.grid-top > h1 {
-  font-size: 1.5em;
-}
-
-#main {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  
-  overflow: scroll;
-}
-
-.memoCard {
-  width: 50vw !important;
-
-}
-
-#felicitaciones {
-  font-size: 1.25em;
-}
-
-}
 
 
 #myBtnMemo, #reiniciar {
@@ -722,7 +656,102 @@ right: 10px;
   display: none;
   }
 
+
 @media only screen and (max-width: 1024px)   {
+
+
+  #first-page {
+    overflow: scroll;
+    height: auto;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 50% 50% ;
+    grid-template-rows: 20% 20% 50% 20% ;
+    grid-template-areas: 
+    "topGrid topGrid "
+    "leftTopGrid leftTopGrid"
+    "centerTopGrid rightGrid"
+    "leftBottomGrid centerBottomGrid"
+  }
+
+  #slidecontainer {
+    font-size: 1.5em;
+    display: grid;
+    grid-template-columns: 100%;
+
+
+  }
+
+
+  #myRange {
+
+      width: 300px;
+      height: 20px;
+      
+      border: 0
+
+  }
+
+
+  #memotestMap {
+    height: auto;
+    width: 50vw;
+
+  }
+
+  #crearMemotest {
+    font-size:1.5em;
+  }
+
+  .grid-top > h1 {
+    font-size: 1.5em;
+  }
+
+ 
+
+  #felicitaciones {
+    font-size: 1.25em;
+  }
+
+}
+
+
+
+
+@media only screen and (max-width: 1024px)   {
+ #main {
+    display: grid;
+    grid-template-columns: 33.3333% 33.3333% 33.3334%;
+    
+    overflow: scroll;
+  }
+
+  .memoCard {
+    width: calc(100vw/3) !important;
+
+  }
+}  
+
+@media only screen and (max-width: 600px)   {
+ #main {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    
+    overflow: scroll;
+  }
+
+  .memoCard {
+    width: 50vw !important;
+
+  }
+}  
+
+
+@media only screen and (max-width: 1024px)   {
+.memo-cardInfoDiv {
+  display: none;
+}
+
 
  #showOnlyOnCel{
    display: block;
@@ -757,5 +786,7 @@ right: 10px;
   border: none;
   outline: none;
   background-color: transparent;
+
+}
 
 }

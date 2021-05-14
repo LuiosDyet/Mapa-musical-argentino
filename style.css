@@ -79,6 +79,7 @@ section {
 
 #lupaSidebar{
   position: absolute;
+  left: 200px;
 }
 
 .clickZoom {
@@ -176,11 +177,12 @@ a:link {
 }
 
 #cuantoSabes {
-  color: white;
-  font-size: 190%;
-  margin: 10px;
-  max-width: 250px;
-  text-shadow:  -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 4px 4px 8px #000000;
+  position: absolute;
+  border-style: none;
+  z-index: 199;
+  top: 10px;
+  left: 10px;
+  background-color: transparent;
 }
 
 @media only screen and (max-width: 1024px)  {
