@@ -79,7 +79,8 @@ section {
 
 #lupaSidebar{
   position: absolute;
-  left: 200px;
+  top: 50px;
+  left: 15px;
 }
 
 .clickZoom {
