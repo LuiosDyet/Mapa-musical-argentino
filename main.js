@@ -695,7 +695,7 @@ document.addEventListener("keydown", function(event) {
 				if(bigMapShown === true){
 					let avisoCont = document.createElement('div');
 					avisoCont.setAttribute('id', 'avisoClick');
-					avisoCont.innerHTML = `Clickeá una región para ver más detalles <br> <-- Clickeá las cartas para jugar`
+					avisoCont.innerHTML = `Clickeá una región para ver más detalles. <br> <-- Clickeá las cartas para jugar`
 					document.body.appendChild(avisoCont);
 				};
 
