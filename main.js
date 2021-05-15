@@ -2234,7 +2234,8 @@ cardsFliped = [];
 };
 	
 function findeJuego(){
-	
+	document.body.scrollTop = 0;
+  	document.documentElement.scrollTop = 0;
 
 	let felicitaciones = document.createElement('div');
 	felicitaciones.setAttribute('id', 'felicitaciones');
