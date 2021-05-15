@@ -2187,7 +2187,9 @@ function checkMemotestCards(){
 				total++
 				puntajeColor([0, 128, 0]);
 			unflipable();
-				if(total === cardsQty/2){findeJuego()};
+				if(total === cardsQty/2){
+					setTimeout(findeJuego,1500);
+					};
 
 			}else{
 				puntaje -= 10;
@@ -2229,7 +2231,7 @@ cardsFliped = [];
 };
 	
 function findeJuego(){
-	document.getElementById('reiniciar').style.display = 'none';
+	//document.getElementById('reiniciar').style.display = 'none';
 
 	let felicitaciones = document.createElement('div');
 	felicitaciones.setAttribute('id', 'felicitaciones');
@@ -2241,8 +2243,8 @@ function findeJuego(){
 	puntajeTit.textContent = `¡Lograste hacer ${puntaje} puntos!`;
 	felicitaciones.appendChild(puntajeTit);
 
-	document.getElementById('main').innerHTML = '';
-	document.getElementById('memoSideBar').style.display = 'none';
+	//document.getElementById('main').innerHTML = '';
+	//document.getElementById('memoSideBar').style.display = 'none';
 
 	let playAgain = document.createElement('button');
 	playAgain.textContent = 'Volver a jugar';
@@ -2260,8 +2262,15 @@ function findeJuego(){
 	
 };
 
+function pantallaJuego(){
+	findeJuego();
+	newGame();
+}
+
 function newGame(){
-	findeJuego()
+	
+	document.getElementById('main').innerHTML = '';
+	document.getElementById('memoSideBar').style.display = 'none';
 	document.getElementById('felicitaciones').remove();
 	
 	document.getElementById('reiniciar').style.display = 'none';
@@ -2278,7 +2287,7 @@ function newGame(){
 		regionMemotest[i].style.filter = 'brightness(1)';
 	}
 
-	document.getElementById('noHayRegionesElegidas').style.display = 'block';
+	document.getElementById('noHayRegionesElegidas').style.display = 'inline-block';
 	isRegionSelected = false;
 	document.getElementById('crearMemotest').disabled = true;
 	total = 0;
