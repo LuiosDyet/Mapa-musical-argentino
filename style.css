@@ -150,12 +150,12 @@ svg {
 }
 
 #l2{
-  height: 45%;
+  height: 50%;
   display: none;
 }
 
 #l3{
-  height: 25%;
+  height: 20%;
   display: none;
   max-width: 300px;
   margin: auto;
@@ -803,6 +803,9 @@ div.infoRegionOverlayMap > ul {
   text-align: center;
 }
 
+#cuantoSabes {
+  cursor: pointer;;
+}
 
 
 

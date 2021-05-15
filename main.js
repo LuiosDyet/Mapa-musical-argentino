@@ -1677,6 +1677,7 @@ let memoArrayAux = []
 
 
 
+
 function selectedRegions(nombre, generosRegion, caractGeneros, fondo){
 	
 	let nombreLowercase = nombre.toLocaleLowerCase();
@@ -1738,17 +1739,18 @@ createMemoArray(nombreLowercase, generosRegion, caractGeneros, fondo);
 
 if(isRegionSelected === true){
 	document.getElementById('crearMemotest').disabled = false;
-	document.getElementById('noHayRegionesElegidas').style.display = 'none'
+	document.getElementById('noHayRegionesElegidas').style.visibility = 'hidden'
 }else{
 	document.getElementById('crearMemotest').disabled = true;
-	document.getElementById('noHayRegionesElegidas').style.display = 'inline-block'
+	document.getElementById('noHayRegionesElegidas').style.visibility = 'visible'
 }
 
 };
 
 
 function createMemoArray(nombreLowercase, generosRegion, caractGeneros, fondo){
-	
+
+
 	for(i = 0; i < 96; i++){
 		let generoNum = random(generosRegion.length);
 		let caractType = random(4);
@@ -1765,13 +1767,13 @@ function createMemoArray(nombreLowercase, generosRegion, caractGeneros, fondo){
 		arrayPair.push(color);
 		
 		memoArray.push(arrayPair);
-		
+		memoArrayAux.push(arrayPair.slice());	
 
 		};
-
-	};
 	
 
+	};
+		
 };
 
 function randomColorLightness(fondo){
@@ -1781,23 +1783,26 @@ function randomColorLightness(fondo){
 	return color;
 }
 
+
+
 function prepareMemoArray(){
+		let regionesSelectedAux = [];	
 	for (j = 0; j < regionesSelected.length; j++){
-		regionesSelected[j] = regionesSelected[j].id
+		 regionesSelectedAux[j] = regionesSelected[j].id
 	};
 
-	if(regionesSelected.length === 0){
+	if(regionesSelectedAux.length === 0){
 		memoArray = [];
 	}else{
 		for (i = memoArray.length-1; i >= 0; i--){
-			if (memoArray[i][0] === regionesSelected[0]||
-				memoArray[i][0] === regionesSelected[1]||
-				memoArray[i][0] === regionesSelected[2]||
-				memoArray[i][0] === regionesSelected[3]||
-				memoArray[i][0] === regionesSelected[4]||
-				memoArray[i][0] === regionesSelected[5]||
-				memoArray[i][0] === regionesSelected[6]||
-				memoArray[i][0] === regionesSelected[7]){
+			if (memoArray[i][0] === regionesSelectedAux[0]||
+				memoArray[i][0] === regionesSelectedAux[1]||
+				memoArray[i][0] === regionesSelectedAux[2]||
+				memoArray[i][0] === regionesSelectedAux[3]||
+				memoArray[i][0] === regionesSelectedAux[4]||
+				memoArray[i][0] === regionesSelectedAux[5]||
+				memoArray[i][0] === regionesSelectedAux[6]||
+				memoArray[i][0] === regionesSelectedAux[7]){
 				memoArray[i].splice(0,1)
 			}else{
 				memoArray.splice(i,1);
@@ -1808,6 +1813,8 @@ function prepareMemoArray(){
 	}
 	
 shuffle(memoArray);
+memoArray = memoArray;
+
 }
 
 //Select cards Quantity
@@ -1860,8 +1867,13 @@ function selectCardsQty(){
 //Create cards
 
 function createCardsMemotest(){
+	
+
 	document.getElementById('reiniciar').style.display = 'block';
+	document.getElementById('puntaje').style.visibility = 'visible';
+	
 	prepareMemoArray();
+
 	document.getElementById('first-page').style.display = 'none';
 	document.getElementById('memoSideBar').style.display = 'flex'
 
@@ -1960,6 +1972,10 @@ for (let i = 0; i <  memoZooms.length; i++) {
 
 
 tilesPerRowMemotest(cardQty);
+
+
+
+
 };
 
 function tilesPerRowMemotest(cardQty){
@@ -1994,7 +2010,6 @@ function tilesPerRowMemotest(cardQty){
 		row[i].style.height = `calc(90vh/${j})`;
 		row[i].style.width = `calc(100vw/${k})`;
 	};
-
 
 memoCardBack()
 };
@@ -2188,6 +2203,7 @@ function checkMemotestCards(){
 				puntajeColor([0, 128, 0]);
 			unflipable();
 				if(total === cardsQty/2){
+					document.getElementById('puntaje').style.visibility = 'hidden';
 					setTimeout(findeJuego,1500);
 					};
 
@@ -2231,7 +2247,7 @@ cardsFliped = [];
 };
 	
 function findeJuego(){
-	//document.getElementById('reiniciar').style.display = 'none';
+	
 
 	let felicitaciones = document.createElement('div');
 	felicitaciones.setAttribute('id', 'felicitaciones');
@@ -2269,6 +2285,7 @@ function pantallaJuego(){
 
 function newGame(){
 	
+	
 	document.getElementById('main').innerHTML = '';
 	document.getElementById('memoSideBar').style.display = 'none';
 	document.getElementById('felicitaciones').remove();
@@ -2281,15 +2298,17 @@ function newGame(){
 
 	let selRegCartel = document.getElementsByClassName('selRegCartel');
 	let regionMemotest = document.getElementsByClassName('regionMemotest');
+	memoArray = memoArrayAux.slice();
 
+	/*
 	for (i = 0; i < selRegCartel.length; i++){
 		selRegCartel[i].style.display = 'none';
 		regionMemotest[i].style.filter = 'brightness(1)';
 	}
 
-	document.getElementById('noHayRegionesElegidas').style.display = 'inline-block';
+	document.getElementById('noHayRegionesElegidas').style.visibility = 'visible';
 	isRegionSelected = false;
-	document.getElementById('crearMemotest').disabled = true;
+	document.getElementById('crearMemotest').disabled = true;*/
 	total = 0;
 	puntaje = 0;
 	
