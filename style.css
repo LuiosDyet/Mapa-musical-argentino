@@ -828,6 +828,7 @@ div.infoRegionOverlayMap > ul {
   top: 10%;
   background-color: #F5F8C6;
   padding: 30px;
+  overflow: scroll;
 
 
 }
