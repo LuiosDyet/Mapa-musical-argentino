@@ -1005,6 +1005,7 @@ let litoral = new Region('Litoral',
         [ //Chamarrita
             [//caract
                 ['li', 'compás 2/4'],
+                ['li', 'usualmente acompañada por guitarras arpegiadas'],
                 ['h5', 'influencia de la milonga'], 
                 ['img', 'img/ejemplos/Pies/PieChamarrita.png'],
                 ['h5', 'Chamarrita de la costa - Larralde'],
@@ -1099,6 +1100,7 @@ let cuyo = new Region('Cuyo',
         [ //Gato cuyano
             [//caract
                 ['li', '3/4 y  6/8 moderado'],
+                ['li','posee un contragiro extra, y por lo tanto 4 compases más que su contraparte norteña'],
                 ['h5','Forma del gato cuyano' ],
                 ['img' , 'img/ejemplos/Forma/Forma-GatoCuyano-01.png'],
                 ['img' , 'img/ejemplos/Forma/Forma-GatoCuyano-02.png'],
@@ -1127,6 +1129,7 @@ let cuyo = new Region('Cuyo',
             [//caract
                 ['li', 'Canto solista, acompañado por caja, trifónico'], 
                 ['li', 'Pueden ser improvisadas'],
+                ['li', 'Suelen contener un Cogollo, dedicatoria improvisada'],
                 ['h5', 'Mi amor en una tonada'],
                 ['iframe', 'https://www.youtube.com/embed/fRUg1doBSv8'],
                 ['h5', 'Dúo Nuevo Cuyo - A mi compadre'],
@@ -1386,6 +1389,8 @@ let pampeana = new Region('Pampeana',
     [
         [ //Triunfo
             [//caract
+            	['li','6/8 y 3/4'],
+            	['li','Formalmente se compone de 5 períodos intercalados con su introducción de 6 compases'],
             	['h5', 'Emiliano Zerbini - La vuelta de obligado'],
             	['iframe', 'https://www.youtube.com/embed/_xlSpj1nTPk' ],
             	['h5', 'La Yegua Mía · Aquí Les Luthiers'],
