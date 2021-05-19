@@ -83,6 +83,14 @@ section {
   left: 15px;
 }
 
+.InfoBtn{
+   position: absolute;
+    top: 110px;
+    left: 15px;
+
+}
+   
+
 .clickZoom {
   position: absolute;
   right: 5px;
@@ -810,5 +818,21 @@ div.infoRegionOverlayMap > ul {
 
 
 
+#bibliografía {
+  display: none;
+  position: absolute;
+  z-index: 50;
+  height: 70vh;
+  width: 80vw;
+  left: 15%;
+  top: 10%;
+  background-color: #F5F8C6;
+  padding: 30px;
 
 
+}
+
+#closeImgBiblio {
+  float: right;
+  margin: 20px;
+}

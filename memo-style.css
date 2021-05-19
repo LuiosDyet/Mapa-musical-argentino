@@ -675,9 +675,24 @@ top: 10px;
 
 }
 
+
+@media only screen and (min-width: 1024px)   {
+
 #reiniciar {
 left: 60px;
 top: 15px;
+
+}
+
+}
+
+@media only screen and (max-width: 1024px)   {
+
+#reiniciar {
+right: 20px;
+top: 15px;
+
+  }
 
 }
 

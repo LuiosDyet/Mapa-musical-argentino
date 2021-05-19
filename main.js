@@ -762,6 +762,20 @@ function showBtnDown() {
 function scrollWin(x, y) {
   window.scrollBy(x, y);
 }
+
+
+
+//INFO DATA
+
+function showInfo(){
+	document.querySelector('#bibliografía').style.display = 'block';
+}
+
+function hideInfo(){
+	document.querySelector('#bibliografía').style.display = 'none';
+}
+
+
 //DATA	
 
 let noroeste = new Region('Noroeste',
