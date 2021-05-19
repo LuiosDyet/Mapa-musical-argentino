@@ -1586,6 +1586,21 @@ let patagonia = new Region('Patagonia',
 
 ////////////////////////////////////////////////////////////////////////
 
+caractGeneros = [
+					['noroeste', 
+						[noroeste.generosRegion], [noroeste.caractGeneros],[noroeste.fondo]],
+					['litoral', 
+						[litoral.generosRegion], [litoral.caractGeneros],[litoral.fondo]],
+					['centro', 
+						[centro.generosRegion], [centro.caractGeneros],[centro.fondo]],
+					['cuyo', 
+						[cuyo.generosRegion], [cuyo.caractGeneros],[cuyo.fondo]],
+					['pampeana', 
+						[pampeana.generosRegion], [pampeana.caractGeneros],[pampeana.fondo]],
+					['ciudadana', 
+						[ciudadana.generosRegion], [ciudadana.caractGeneros],[ciudadana.fondo]],
+					['patagonia', 
+						[patagonia.generosRegion], [patagonia.caractGeneros],[patagonia.fondo]]];
 
 //MEMOTEST
 
@@ -1735,6 +1750,47 @@ if(isRegionSelected === true){
 };
 
 
+function createMemoArray(){
+	for(i = 0; i < regionesSelected.length; i++){
+		for(j = 0; j < caractGeneros.length; j++ ){
+			if(regionesSelected[i].id === caractGeneros[j][0]){
+				for(k = 0; k < 48; k++){
+					let generoNum = random(caractGeneros[j][1][0].length);
+					let caractType = random(4);
+					let memoInfo = caractGeneros[j][2][0][generoNum][caractType][0]
+					if(memoInfo === undefined || memoInfo[1] === '' ||  memoInfo[0] === 'h5'){
+
+					}else{	
+					let arrayPair = [];
+					arrayPair.push(caractGeneros[j][0]);
+					arrayPair.push(caractGeneros[j][1][0][generoNum]);
+					arrayPair.push(memoInfo);
+					color = randomColorLightness(caractGeneros[j][3]);
+
+					arrayPair.push(color);
+					
+					memoArray.push(arrayPair);
+					//memoArrayAux.push(arrayPair.slice());	
+
+					};
+				
+
+				};
+			}
+
+		}
+
+	}
+
+
+
+}
+
+
+
+
+
+/*
 function createMemoArray(nombreLowercase, generosRegion, caractGeneros, fondo){
 
 
@@ -1763,8 +1819,10 @@ function createMemoArray(nombreLowercase, generosRegion, caractGeneros, fondo){
 		
 };
 
+*/
+
 function randomColorLightness(fondo){
-	let color = fondo;
+	let color = fondo.toString();
 	let randomLightness = Math.floor(Math.random() * 66) + 33;
 	color = color.replace(50, randomLightness);
 	return color;
@@ -2184,7 +2242,7 @@ function checkMemotestCards(){
 			cardClassSecond = cardClassSecond.substring(0, lastIndex);
 			
 			if(cardClassFirst === cardClassSecond){
-				puntaje += 30;
+				puntaje += cardsQty/4*regionesSelected.length;
 				score();
 				total++
 				puntajeColor([0, 128, 0]);
@@ -2255,7 +2313,8 @@ function findeJuego(){
 	playAgain.setAttribute('onclick',`newGame()`);
 	playAgain.setAttribute('id','newGameBtn');
 	felicitaciones.appendChild(playAgain);
-
+	total = 0;
+	puntaje = 0;
 
 
 
@@ -2286,17 +2345,7 @@ function newGame(){
 
 	let selRegCartel = document.getElementsByClassName('selRegCartel');
 	let regionMemotest = document.getElementsByClassName('regionMemotest');
-	memoArray = memoArrayAux.slice();
-
-	/*
-	for (i = 0; i < selRegCartel.length; i++){
-		selRegCartel[i].style.display = 'none';
-		regionMemotest[i].style.filter = 'brightness(1)';
-	}
-
-	document.getElementById('noHayRegionesElegidas').style.visibility = 'visible';
-	isRegionSelected = false;
-	document.getElementById('crearMemotest').disabled = true;*/
+	createMemoArray()
 	total = 0;
 	puntaje = 0;
 	
@@ -2383,3 +2432,5 @@ function memoHideZoomInfoOverlay(){
 	
 	
 }
+
+	

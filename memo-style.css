@@ -658,7 +658,7 @@ button {
 #myBtnMemo, #reiniciar {
   
   position: fixed;
-  top: 10px;
+  
   
   z-index: 199;
   border: none;
@@ -670,12 +670,14 @@ button {
 
 
 #myBtnMemo {
-left: 15px;
+left: 20px;
+top: 10px;
 
 }
 
 #reiniciar {
-right: 10px;
+left: 60px;
+top: 15px;
 
 }
 
